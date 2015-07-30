@@ -15,12 +15,9 @@ public class MainController {
 	//@Autowired
 	//UserService userService;
  	
-	//@Autowired
-	//AdviceService adviceService;
- 	
 	@RequestMapping(value={"/","/home"}, method = RequestMethod.GET)
 	public String mainPage(){
-		return "Home";
+		return "home";
 	}
  
 }
