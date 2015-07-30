@@ -1,6 +1,6 @@
 package mum.waa.fd.app.domain;
 
-public class PatientAccount {
+public class PatientAccount extends Account{
 
 	private String ssn;
 	

@@ -1,6 +1,6 @@
 package mum.waa.fd.app.domain;
 
-public class AdminAccount {
+public class AdminAccount extends Account{
 
 	private String staffNumber;	
 	

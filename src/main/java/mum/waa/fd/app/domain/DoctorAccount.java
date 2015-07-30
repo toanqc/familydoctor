@@ -1,6 +1,6 @@
 package mum.waa.fd.app.domain;
 
-public class DoctorAccount {
+public class DoctorAccount extends Account{
 	
 	private String licenseNumber;
 	private String specialization;	
