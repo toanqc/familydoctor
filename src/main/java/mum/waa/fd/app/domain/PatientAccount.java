@@ -3,6 +3,7 @@ package mum.waa.fd.app.domain;
 public class PatientAccount extends Account{
 
 	private String ssn;
+	private AppointmentRecord appointmentRecord;
 	
 	/**
 	 * @return the ssn
@@ -16,6 +17,20 @@ public class PatientAccount extends Account{
 	 */
 	public void setSSN(String ssn) {
 		this.ssn = ssn;
+	}
+	
+	/**
+	 * @return the appointmentRecord
+	 */
+	public AppointmentRecord getAppointmentRecord() {
+		return appointmentRecord;
+	}
+
+	/**
+	 * @param appointmentRecord the appointmentRecord to set
+	 */
+	public void setAppointmentRecord(AppointmentRecord appointmentRecord) {
+		this.appointmentRecord = appointmentRecord;
 	}
 	
 }
