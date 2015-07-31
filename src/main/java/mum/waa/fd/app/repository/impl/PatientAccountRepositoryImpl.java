@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,10 +15,11 @@ import mum.waa.fd.app.domain.PersonTest;
 import mum.waa.fd.app.repository.PatientAccountRepository;
 
 @Repository
+@Transactional
 public class PatientAccountRepositoryImpl implements PatientAccountRepository {
 
 	@PersistenceContext
-	private EntityManager entityManager;
+	transient EntityManager entityManager;
 
 	@Override
 	public void insertPatientAccount(PersonTest patient) {
