@@ -13,18 +13,16 @@
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 </head>
 <body>
-	<div class="container">
-		<div class="page-wrap">
-			<header>
-				<tiles:insertAttribute name="heading" />
-			</header>
-			<div class="wrapper">
-				<tiles:insertAttribute name="body" />
-			</div>
+	<div class="page-wrap">
+		<header>
+			<tiles:insertAttribute name="heading" />
+		</header>
+		<div class="wrapper">
+			<tiles:insertAttribute name="body" />
 		</div>
-		<footer class="site-footer">
-			<tiles:insertAttribute name="footer" />
-		</footer>
-	</div>
+	</div>	
+	<footer class="site-footer">
+		<tiles:insertAttribute name="footer" />
+	</footer>
 </body>
 </html>
