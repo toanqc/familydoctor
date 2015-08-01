@@ -10,7 +10,7 @@ public class MainController {
 	//@Autowired
 	//UserService userService;
  	
-	@RequestMapping(value={"/home"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/","/home"}, method = RequestMethod.GET)
 	public String mainPage(){
 		return "home";
 	}

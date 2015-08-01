@@ -18,7 +18,7 @@ public class TestController {
 	@Autowired
 	private PatientAccountService patientAccountService;
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	//@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String showPerson(@ModelAttribute("person") PersonTest person) {
 		return "test";
 	}
