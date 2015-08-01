@@ -48,6 +48,13 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/views/" />
 		<property name="suffix" value=".jsp" />
+		<property name="order" value="2" />
+	</bean>
+	<bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<property name="order" value="-2" />
 	</bean>
 	<!-- End View Resolver Configuration -->
 
@@ -71,4 +78,15 @@
 		<property name="maxUploadSize" value="102400" />
 	</bean>
 	<!-- End Uploading File Configuration -->
-</beans>
+
+	<!-- Tiles Configuration: tiles -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles/definitions/tile-definition.xml</value>
+			</list>
+		</property>
+	</bean>
+	<!-- End Tiles Configuration -->
+</beans> 
