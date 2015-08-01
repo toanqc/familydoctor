@@ -1,5 +1,10 @@
 package mum.waa.fd.app.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -7,17 +12,28 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
+@Entity
+@Table(name = "Address")
 public class Address {
 
+	@Id
+	@GeneratedValue
+	@Column(name = "ID")
+	private int addressId;
+
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
+	@Column(name = "STREET")
 	private String street;
 
+	@Column(name = "CITY")
 	private String city;
 
 	@Size(min = 2, max = 2, message = FamilyDoctorConstants.EXACTLY_DIGITS_VALIDATION)
+	@Column(name = "STATE")
 	private String state;
 
 	@Pattern(regexp = FamilyDoctorConstants.ZIPCODE_REGEX)
+	@Column(name = "ZIPCODE")
 	private String zipcode;
 
 	public Address(String street, String city, String state, String zipcode) {
@@ -25,6 +41,21 @@ public class Address {
 		this.city = city;
 		this.state = state;
 		this.zipcode = zipcode;
+	}
+
+	/**
+	 * @return the addressId
+	 */
+	public int getAddressId() {
+		return addressId;
+	}
+
+	/**
+	 * @param addressId
+	 *            the addressId to set
+	 */
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
 	}
 
 	/**
