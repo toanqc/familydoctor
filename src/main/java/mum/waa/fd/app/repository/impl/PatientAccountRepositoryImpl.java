@@ -19,7 +19,7 @@ import mum.waa.fd.app.repository.PatientAccountRepository;
 public class PatientAccountRepositoryImpl implements PatientAccountRepository {
 
 	@PersistenceContext
-	transient EntityManager entityManager;
+	private EntityManager entityManager;
 
 	@Override
 	public void insertPatientAccount(PersonTest patient) {

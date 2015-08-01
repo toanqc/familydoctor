@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
- 
-	//@Autowired
-	//UserService userService;
- 	
-	@RequestMapping(value={"/home"}, method = RequestMethod.GET)
-	public String mainPage(){
+
+	// @Autowired
+	// UserService userService;
+
+	@RequestMapping(value = { "/home" }, method = RequestMethod.GET)
+	public String mainPage() {
 		return "home";
 	}
 }

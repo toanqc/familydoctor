@@ -1,10 +1,5 @@
 package mum.waa.fd.app.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -12,21 +7,21 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
-@Entity
-@Table(name = "DoctorAccount")
+//@Entity
+//@Table(name = "DoctorAccount")
 public class DoctorAccount extends Account {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
+	// @Id
+	// @GeneratedValue
+	// @Column(name = "ID")
 	private int doctorId;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	@Column(name = "LICENSE_NUMBER")
+	// @Column(name = "LICENSE_NUMBER")
 	private String licenseNumber;
 
 	@NotNull
-	@Column(name = "SPECIALIZATION")
+	// @Column(name = "SPECIALIZATION")
 	private Specialization specialization;
 
 	@Valid

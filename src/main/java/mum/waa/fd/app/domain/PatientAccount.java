@@ -1,8 +1,5 @@
 package mum.waa.fd.app.domain;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
@@ -10,16 +7,18 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
+//@Entity
+//@Table(name = "PatientAccount")
 public class PatientAccount extends Account {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
+	// @Id
+	// @GeneratedValue
+	// @Column(name = "ID")
 	private int patientId;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Size(min = 4, max = 4, message = FamilyDoctorConstants.EXACTLY_DIGITS_VALIDATION)
-	@Column(name = "SSN")
+	// @Column(name = "SSN")
 	private String ssn;
 
 	@Valid

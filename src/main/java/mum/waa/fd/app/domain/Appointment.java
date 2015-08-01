@@ -2,14 +2,6 @@ package mum.waa.fd.app.domain;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -17,36 +9,51 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
-@Entity
-@Table(name = "Appointment")
+//@Entity
+//@Table(name = "Appointment")
 public class Appointment {
 
-	@Id
-	@GeneratedValue
-	@Column(name = "ID")
+	// @Id
+	// @GeneratedValue
+	// @Column(name = "ID")
 	private int appointmentId;
-	
+
 	@NotNull
 	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
-	@Column(name = "DATE")
+	// @Column(name = "DATE")
 	private Date date;
 
-	@Column(name = "ROOM")
+	// @Column(name = "ROOM")
 	private String room;
 
 	@NotNull
-	@Column(name = "STATUS")
+	// @Column(name = "STATUS")
 	private AppointmentStatus status;
 
 	@Valid
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "INVOICE_ID")
+	// @OneToOne(fetch = FetchType.LAZY)
+	// @JoinColumn(name = "INVOICE_ID")
 	private Invoice invoice;
 
 	public Appointment(Date date, String room, AppointmentStatus status) {
 		this.date = date;
 		this.room = room;
 		this.status = status;
+	}
+
+	/**
+	 * @return the appointmentId
+	 */
+	public int getAppointmentId() {
+		return appointmentId;
+	}
+
+	/**
+	 * @param appointmentId
+	 *            the appointmentId to set
+	 */
+	public void setAppointmentId(int appointmentId) {
+		this.appointmentId = appointmentId;
 	}
 
 	/**
@@ -108,5 +115,4 @@ public class Appointment {
 	public void setInvoice(Invoice invoice) {
 		this.invoice = invoice;
 	}
-
 }

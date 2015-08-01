@@ -1,10 +1,5 @@
 package mum.waa.fd.app.domain;
 
-import javax.persistence.Column;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.MappedSuperclass;
-import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 
@@ -13,34 +8,34 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
-@MappedSuperclass
+//@MappedSuperclass
 public abstract class Account {
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	@Column(name = "FIRST_NAME")
+	// @Column(name = "FIRST_NAME")
 	private String firstName;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	@Column(name = "LAST_NAME")
+	// @Column(name = "LAST_NAME")
 	private String lastName;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Pattern(regexp = FamilyDoctorConstants.PHONE_REGEX)
-	@Column(name = "PHONE")
+	// @Column(name = "PHONE")
 	private String phone;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Email(message = FamilyDoctorConstants.EMAIL_VALIDATION)
-	@Column(name = "EMAIL")
+	// @Column(name = "EMAIL")
 	private String email;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	@Column(name = "PASSWORD")
+	// @Column(name = "PASSWORD")
 	private String password;
 
 	@Valid
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ADDRESS_ID")
+	// @OneToOne(fetch = FetchType.LAZY)
+	// @JoinColumn(name = "ADDRESS_ID")
 	private Address address;
 
 	public Account(String firstName, String lastName, String phone, String email, String password, Address address) {

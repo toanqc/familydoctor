@@ -34,7 +34,7 @@
 	<mvc:annotation-driven validator="validator" />
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basename" value="classpath:validation" />
+		<property name="basenames" value="classpath:validation,classpath:messages" />
 	</bean>
 	<bean id="validator"
 		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
@@ -50,4 +50,25 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 	<!-- End View Resolver Configuration -->
+
+	<!-- Internationalization Configuration: make our web site able to switch 
+		the language during runtime -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<property name="defaultLocale" value="en_US" />
+	</bean>
+	<mvc:interceptors>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="language" />
+		</bean>
+	</mvc:interceptors>
+	<!-- End Internationalization Configuration -->
+
+	<!-- Uploading File Configuration: make the form tag able to handle the 
+		file uploading mechanism -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="102400" />
+	</bean>
+	<!-- End Uploading File Configuration -->
 </beans>
