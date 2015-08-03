@@ -3,6 +3,8 @@
 		xmlns="http://java.sun.com/xml/ns/javaee"
     	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+
+	<!-- Servlet Context -->
     <servlet>
         <servlet-name>DispatcherServlet</servlet-name>
         <servlet-class>
@@ -10,16 +12,28 @@
         </servlet-class>
 	    <init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/config/spring-servlet.xml</param-value>
+			<param-value>/WEB-INF/config/servlet-context.xml</param-value>
 		</init-param>
         <load-on-startup>1</load-on-startup>    
 	</servlet>
 
+	<!-- Servlet Mapping: all goes to the central servlet calledD Dispatcher Servlet -->
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
+
+	<!-- Application Context -->
+	<context-param>
+    	<param-name>contextConfigLocation</param-name>
+    	<param-value>/WEB-INF/config/application-context.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
 	<error-page>
 		<error-code>404</error-code>
 		<location>/WEB-INF/views/page-not-found.jsp</location>

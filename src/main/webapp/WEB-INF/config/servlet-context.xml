@@ -13,21 +13,10 @@
         http://www.springframework.org/schema/tx
 		http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-	<context:component-scan base-package="mum.waa.fd.app" />
+	<context:component-scan base-package="mum.waa.fd.app.controller" />
 	<context:annotation-config />
 
 	<mvc:resources location="/resources/" mapping="/resources/**" />
-
-	<!-- Transaction Configuration: make transaction works and also to inject 
-		the @PersistenceContext in @Repository -->
-	<tx:annotation-driven transaction-manager="transactionManager" />
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-		<property name="entityManagerFactory" ref="entityManagerFactory" />
-	</bean>
-	<bean id="entityManagerFactory"
-		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-	</bean>
-	<!-- End Transaction Configuration -->
 
 	<!-- Validation Configuration: make the spring validation works and also 
 		define the resource files -->
