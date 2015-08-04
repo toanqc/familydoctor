@@ -11,18 +11,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><tiles:insertAttribute name="title" /></title>
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/header-footer.css" />"
+	rel="stylesheet">
 </head>
 <body>
-	<div class="page-wrap">
-		<header>
-			<tiles:insertAttribute name="heading" />
-		</header>
-		<div class="wrapper">
-			<tiles:insertAttribute name="body" />
-		</div>
-	</div>	
-	<footer class="site-footer">
+	<div class="container">
+		<tiles:insertAttribute name="header" />
+		<tiles:insertAttribute name="body" />
 		<tiles:insertAttribute name="footer" />
-	</footer>
+	</div>
 </body>
 </html>

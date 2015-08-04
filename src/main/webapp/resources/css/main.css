@@ -1,36 +1,60 @@
 * {
-  	margin: 0;
+	margin: 0px;
 }
-html, body {
-  	height: 100%;
+
+body {
+	height: 100%;
+	font-family: Helvetica;
+	font-size: 12px;
 }
-header{
-	border-bottom:1px solid #000;
+
+.container {
+	width: 970px;
+	margin: 0 auto;
 }
+
+.title {
+	color: #008166;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/*
+header {
+	border-bottom: 1px solid #000;
+}
+
 .page-wrap {
-  	min-height: 100%;
-  	margin-bottom: -142px; 
+	min-height: 100%;
+	margin-bottom: -142px;
 }
-.page-wrap .wrapper{
+
+.page-wrap .wrapper {
 	padding: 10px;
 }
+
 .page-wrap:after {
-  	content: "";
- 	display: block;
+	content: "";
+	display: block;
 }
+
 .site-footer, .page-wrap:after {
-  	height: 50px; 
+	height: 50px;
 }
+
 .site-footer {
 	padding-top: 10px;
-  	background: orange;
+	background: orange;
 }
-.site-footer ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+
+.site-footer ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
+
 li {
-    display: inline;
-    margin-left: 30px;
+	display: inline;
+	margin-left: 30px;
 }
+*/

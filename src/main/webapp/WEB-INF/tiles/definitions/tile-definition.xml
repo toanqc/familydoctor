@@ -6,15 +6,15 @@
 
 	<definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
 		<put-attribute name="title" value="FamilyDoctor" />
-		<put-attribute name="heading" value="/WEB-INF/tiles/template/header.jsp" />
+		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp" />
 		<put-attribute name="tagline" value="" />
- 		<put-attribute name="navigation" value="" />
+		<put-attribute name="navigation" value="" />
 		<put-attribute name="body" value="" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
-	
+
 	<definition name="home" extends="baseLayout">
- 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
 	</definition>
 
 </tiles-definitions>
