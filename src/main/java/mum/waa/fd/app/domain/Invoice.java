@@ -3,8 +3,14 @@ package mum.waa.fd.app.domain;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -14,39 +20,39 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
-//@Entity
-//@Table(name = "Invoice")
+@Entity
+@Table(name = "Invoice")
 public class Invoice {
 
 	@Id
 	@GeneratedValue
-	// @Column(name = "ID")
+	@Column(name = "ID")
 	private int invoiceId;
 
 	@NotNull
 	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
-	// @Column(name = "DATE_CREATED")
+	@Column(name = "DATE_CREATED")
 	private Date dateCreated;
 
 	@NotNull
 	@Digits(integer = 6, fraction = 2, message = FamilyDoctorConstants.AMOUNT_VALIDATION)
-	// @Column(name = "AMOUNT")
+	@Column(name = "AMOUNT")
 	private BigDecimal amount;
 
 	@NotNull
-	// @Column(name = "STATUS")
+	@Column(name = "STATUS")
 	private InvoiceStatus status;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	// @Column(name = "CCARD_4DIGITS")
+	@Column(name = "CCARD_4DIGITS")
 	private String ccardLast4Digits;
 
 	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
 	private Date datePaid;
 
 	@Valid
-	// @OneToOne(fetch = FetchType.LAZY)
-	// @JoinColumn(name = "APPOINTMENT_ID")
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "INVOICE_ID")
 	private Appointment appointment;
 
 	/**

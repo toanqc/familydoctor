@@ -1,5 +1,17 @@
 package mum.waa.fd.app.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -7,32 +19,34 @@ import org.hibernate.validator.constraints.NotBlank;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
-//@Entity
-//@Table(name = "DoctorAccount")
+@Entity
+@Table(name = "DoctorAccount")
 public class DoctorAccount extends Account {
 
-	// @Id
-	// @GeneratedValue
-	// @Column(name = "ID")
+	@Id
+	@GeneratedValue
+	@Column(name = "ID")
 	private int doctorId;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	// @Column(name = "LICENSE_NUMBER")
+	@Column(name = "LICENSE_NUMBER")
 	private String licenseNumber;
 
 	@NotNull
-	// @Column(name = "SPECIALIZATION")
+	@Column(name = "SPECIALIZATION")
 	private Specialization specialization;
 
 	@Valid
-	private AppointmentRecord appointmentRecord;
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "DOCTOR_ID")
+	private List<Appointment> appointmentList;
 
 	public DoctorAccount(String firstName, String lastName, String phone, String email, String password,
 			Address address, String licenseNumber, Specialization specialization) {
 		super(firstName, lastName, phone, email, password, address);
 		this.licenseNumber = licenseNumber;
 		this.specialization = specialization;
-		appointmentRecord = new AppointmentRecord(this);
+		appointmentList = new ArrayList<Appointment>();
 	}
 
 	/**
@@ -81,17 +95,17 @@ public class DoctorAccount extends Account {
 	}
 
 	/**
-	 * @return the appointmentRecord
+	 * @return the appointmentList
 	 */
-	public AppointmentRecord getAppointmentRecord() {
-		return appointmentRecord;
+	public List<Appointment> getAppointmentList() {
+		return appointmentList;
 	}
 
 	/**
-	 * @param appointmentRecord
-	 *            the appointmentRecord to set
+	 * @param appointmentList
+	 *            the appointmentList to set
 	 */
-	public void setAppointmentRecord(AppointmentRecord appointmentRecord) {
-		this.appointmentRecord = appointmentRecord;
+	public void setAppointmentList(List<Appointment> appointmentList) {
+		this.appointmentList = appointmentList;
 	}
 }

@@ -1,20 +1,26 @@
 package mum.waa.fd.app.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
-//@Entity
-//@Table(name = "AdminAccount")
+@Entity
+@Table(name = "AdminAccount")
 public class AdminAccount extends Account {
 
-	// @Id
-	// @GeneratedValue
-	// @Column(name = "ID")
+	@Id
+	@GeneratedValue
+	@Column(name = "ID")
 	private int adminId;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	// @Column(name = "STAFF_NUMBER")
+	@Column(name = "STAFF_NUMBER")
 	private String staffNumber;
 
 	public AdminAccount(String firstName, String lastName, String phone, String email, String password, Address address,
@@ -52,5 +58,4 @@ public class AdminAccount extends Account {
 	public void setStaffNumber(String staffNumber) {
 		this.staffNumber = staffNumber;
 	}
-
 }

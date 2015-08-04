@@ -45,11 +45,12 @@
 					data. create-drop: drop the schema at the end of the session. These options 
 					intended to be developers tools and not to facilitate any production level 
 					database -->
-				<!-- <prop key="hibernate.hbm2ddl.auto">create-drop</prop> -->
+				<prop key="hibernate.hbm2ddl.auto">create-drop</prop>
 				<!-- <prop key="hibernate.hbm2ddl.auto">create</prop> -->
 				<!-- hibernate.dialect. This property makes Hibernate generate the appropriate 
 					SQL for the chosen database. -->
-				<!-- <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop> -->
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<!--prop key="hibernate.hbm2ddl.import_files">populate.sql</prop -->
 			</props>
 		</property>
 
@@ -64,4 +65,10 @@
 		<property name="password" value="root" />
 	</bean>
 	<!-- End Data Source Configuration -->
+
+	<!-- Post-processor to perform exception translation on @Repository classes 
+		(from native exceptions such as JPA PersistenceExceptions to Spring 
+		DataAccessException hierarchy). -->
+	<bean id="persistenceExceptionTranslationPostProcessor"
+		class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 </beans>
