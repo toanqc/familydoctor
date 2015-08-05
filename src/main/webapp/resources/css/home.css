@@ -1,11 +1,32 @@
 .slogan {
-	margin-left: 30px;
-	padding-top: 40px;
+	padding-top: 50px;
+}
+
+.slogan-additional {
+	padding-top: 20px;
 }
 
 .background-content {
-	height: 400px;
+	height: 450px;
 	background-image: url('../images/mom_daughter.jpg');
-	background-size: 970px 400px;
 	background-position: center;
+}
+
+.inner-content {
+	height: 220px;
+}
+
+.inner-left-content {
+	float: left;
+	width: 48%;
+}
+
+.inner-middle-content {
+	float: left;
+	width: 3px;
+}
+
+.inner-right-content {
+	display: inline-block;
+	width: 42%;
 }

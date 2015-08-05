@@ -8,6 +8,18 @@ body {
 	font-size: 12px;
 }
 
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:visited {
+	color: inherit;
+}
+
 .container {
 	width: 970px;
 	margin: 0 auto;
@@ -15,6 +27,55 @@ body {
 
 .title {
 	color: #008166;
-	font-size: 16px;
+	font-size: 22px;
 	font-weight: bold;
+}
+
+.gray-text {
+	color: #868686;
+}
+
+.font-size-large {
+	font-size: 18px;
+}
+
+.font-size-middle {
+	font-size: 16px;
+}
+
+.font-size-small {
+	font-size: 14px;
+}
+
+.oblique {
+	font-style: oblique;
+}
+
+.margin-left {
+	margin-left: 40px;
+}
+
+.margin-left-huge {
+	margin-left: 250px;
+}
+
+.margin-top-middle {
+	margin-top: 30px;
+}
+
+.margin-top-small {
+	margin-top: 10px;
+}
+
+.sepator-content {
+	height: 220px;
+	background-color: #008166;
+}
+
+input[type=button] {
+	color: white;
+	background-color: #008166;
+	font-size: 14px;
+	height: 30px;
+	width: 90px;
 }
