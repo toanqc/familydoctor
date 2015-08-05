@@ -12,30 +12,30 @@
 	margin-top: 2px;
 }
 
-.menu-with-link {
+.menu {
 	display: inline-block;
 	text-align: center;
 	margin-top: 17px;
-}
-
-.menu-with-link div {
-	display: inline-block;
-	border-right: #A5FAE9 1px solid;
-}
-
-.menu-with-link div:last-child {
-	border-right: none;
-}
-
-.menu-with-link-text a, .menu-with-link-text a:visited {
-	color: white;
 	margin-left: 10px;
-	text-decoration: none;
-	padding-right: 10px;
 }
 
-.menu-with-link-text a:hover {
+.menu div {
+	display: inline-block;
+	padding-right: 10px;
+	margin-left: 10px;
+}
+
+.menu-text a, .menu-text a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+.menu-text a:hover {
 	text-decoration: underline;
+}
+
+.separator {
+	border-right: #A5FAE9 1px solid;
 }
 
 .pull-right {
@@ -45,20 +45,7 @@
 }
 
 .copyright {
+	margin-top: 5px;
 	display: inline-block;
 	margin-left: 10px;
-}
-
-.menu-no-link {
-	display: inline-block;
-	text-align: center;
-	margin-top: 17px;
-}
-
-.menu-no-link div {
-	display: inline-block;
-}
-
-.menu-no-link-text {
-	padding-right: 10px;
 }
