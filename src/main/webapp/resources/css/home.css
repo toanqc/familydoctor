@@ -1,0 +1,11 @@
+.slogan {
+	margin-left: 30px;
+	padding-top: 40px;
+}
+
+.background-content {
+	height: 400px;
+	background-image: url('../images/mom_daughter.jpg');
+	background-size: 970px 400px;
+	background-position: center;
+}

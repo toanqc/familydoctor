@@ -13,6 +13,8 @@
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/header-footer.css" />"
 	rel="stylesheet">
+	<link href="<c:url value="/resources/css/home.css" />"
+	rel="stylesheet">
 </head>
 <body>
 	<div class="container">
