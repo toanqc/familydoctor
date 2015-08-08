@@ -3,6 +3,7 @@ package mum.waa.fd.app.domain;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -15,7 +16,7 @@ import mum.waa.fd.app.util.FamilyDoctorConstants;
 public class AdminAccount extends Account {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
 	private int adminId;
 
@@ -23,9 +24,9 @@ public class AdminAccount extends Account {
 	@Column(name = "STAFF_NUMBER")
 	private String staffNumber;
 
-	public AdminAccount(String firstName, String lastName, String phone, String email, String password, Address address,
+	public AdminAccount(String firstName, String lastName, String phone, User user, Address address,
 			String staffNumber) {
-		super(firstName, lastName, phone, email, password, address);
+		super(firstName, lastName, phone, user, address);
 		this.staffNumber = staffNumber;
 	}
 

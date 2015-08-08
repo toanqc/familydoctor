@@ -8,6 +8,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -24,7 +25,7 @@ import mum.waa.fd.app.util.FamilyDoctorConstants;
 public class DoctorAccount extends Account {
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "ID")
 	private int doctorId;
 
@@ -41,9 +42,9 @@ public class DoctorAccount extends Account {
 	@JoinColumn(name = "DOCTOR_ID")
 	private List<Appointment> appointmentList;
 
-	public DoctorAccount(String firstName, String lastName, String phone, String email, String password,
-			Address address, String licenseNumber, Specialization specialization) {
-		super(firstName, lastName, phone, email, password, address);
+	public DoctorAccount(String firstName, String lastName, String phone, User user, Address address,
+			String licenseNumber, Specialization specialization) {
+		super(firstName, lastName, phone, user, address);
 		this.licenseNumber = licenseNumber;
 		this.specialization = specialization;
 		appointmentList = new ArrayList<Appointment>();

@@ -1,5 +1,6 @@
 package mum.waa.fd.app.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
@@ -8,7 +9,6 @@ import javax.persistence.OneToOne;
 import javax.validation.Valid;
 import javax.validation.constraints.Pattern;
 
-import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
@@ -29,26 +29,21 @@ public abstract class Account {
 	@Column(name = "PHONE")
 	private String phone;
 
-	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	@Email(message = FamilyDoctorConstants.EMAIL_VALIDATION)
-	@Column(name = "EMAIL")
-	private String email;
-
-	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	@Column(name = "PASSWORD")
-	private String password;
-
 	@Valid
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	@JoinColumn(name = "ADDRESS_ID")
 	private Address address;
 
-	public Account(String firstName, String lastName, String phone, String email, String password, Address address) {
+	@Valid
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "USER_ID")
+	private User user;
+
+	public Account(String firstName, String lastName, String phone, User user, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.phone = phone;
-		this.email = email;
-		this.password = password;
+		this.user = user;
 		this.address = address;
 	}
 
@@ -106,33 +101,18 @@ public abstract class Account {
 	}
 
 	/**
-	 * @return the email
+	 * @return the user
 	 */
-	public String getEmail() {
-		return email;
+	public User getUser() {
+		return user;
 	}
 
 	/**
-	 * @param email
-	 *            the email to set
+	 * @param user
+	 *            the user to set
 	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
-	 * @param password
-	 *            the password to set
-	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	/**
