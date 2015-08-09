@@ -39,6 +39,10 @@ public abstract class Account {
 	@JoinColumn(name = "USER_ID")
 	private User user;
 
+	public Account() {
+		// default constructor
+	}
+
 	public Account(String firstName, String lastName, String phone, User user, Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;

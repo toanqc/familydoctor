@@ -1,6 +1,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
+<head>
+<script type="text/javascript"
+	src="<spring:url value="/resources/js/home.js"/>"></script>
+</head>
+
 <div class="content">
 	<div class="background-content">
 		<div class="margin-left slogan title">

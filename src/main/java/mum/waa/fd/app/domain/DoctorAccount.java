@@ -42,6 +42,10 @@ public class DoctorAccount extends Account {
 	@JoinColumn(name = "DOCTOR_ID")
 	private List<Appointment> appointmentList;
 
+	public DoctorAccount() {
+		// default constructor
+	}
+
 	public DoctorAccount(String firstName, String lastName, String phone, User user, Address address,
 			String licenseNumber, Specialization specialization) {
 		super(firstName, lastName, phone, user, address);

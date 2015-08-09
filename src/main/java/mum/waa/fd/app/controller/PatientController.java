@@ -20,7 +20,7 @@ public class PatientController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String showRegistrationPatient(@ModelAttribute("patientAccount") PatientAccount patientAccount) {
-		return Pages.PATIENT_REGISTRATION_SUCCESSFUL.getValue();
+		return Pages.PATIENT_REGISTRATION.getValue();
 	}
 
 	@RequestMapping(value = "/", method = RequestMethod.POST)

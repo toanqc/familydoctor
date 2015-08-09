@@ -24,6 +24,10 @@ public class AdminAccount extends Account {
 	@Column(name = "STAFF_NUMBER")
 	private String staffNumber;
 
+	public AdminAccount() {
+		// default constructor
+	}
+
 	public AdminAccount(String firstName, String lastName, String phone, User user, Address address,
 			String staffNumber) {
 		super(firstName, lastName, phone, user, address);

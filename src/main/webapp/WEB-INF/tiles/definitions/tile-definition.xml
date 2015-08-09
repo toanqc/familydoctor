@@ -17,5 +17,8 @@
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
 	</definition>
 
+	<definition name="patient-registration" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/patient-registration.jsp" />
+	</definition>
 
 </tiles-definitions>
