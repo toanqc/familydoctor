@@ -2,7 +2,9 @@
 
 <div class="header-footer">
 	<div class="logo">
-		<img alt="" src="<spring:url value="/resources/images/family_doctor_logo.png"/>" height="45px">
+		<img alt=""
+			src="<spring:url value="/resources/images/family_doctor_logo.png"/>"
+			height="45px">
 	</div>
 	<div class="menu">
 		<div class="menu-text separator">
@@ -17,10 +19,13 @@
 	</div>
 	<div class="menu pull-right">
 		<div class="menu-text separator">
-			<a href="patients/register"><spring:message code="label.join.us" /> ></a>
+			<a href="<spring:url value="patients/register" />"><spring:message
+					code="label.join.us" /> ></a>
 		</div>
 		<div class="menu-text">
-			<a href=""><img alt="" src="<spring:url value="/resources/images/phone.png" />" height="16px"> 641-FDOCTOR</a>
+			<a href=""><img alt=""
+				src="<spring:url value="/resources/images/phone.png" />"
+				height="16px"> 641-FDOCTOR</a>
 		</div>
 	</div>
 </div>

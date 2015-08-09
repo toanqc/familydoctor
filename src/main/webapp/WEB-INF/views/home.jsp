@@ -2,6 +2,8 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
 <head>
+<link href="<c:url value="/resources/css/home.css" />" rel="stylesheet">
+
 <script type="text/javascript"
 	src="<spring:url value="/resources/js/home.js"/>"></script>
 </head>

@@ -1,9 +1,17 @@
 package mum.waa.fd.app.util;
 
+/**
+ * 
+ * This enumeration will be hold all the pages that available in the web
+ * application
+ * 
+ * @author Toan Quach
+ *
+ */
 public enum Pages {
 
-	HOME("home"), PATIENT_REGISTRATION("patient-registration"),
-	PATIENT_REGISTRATION_SUCCESSFUL("patient-registration-successful");
+	HOME("home"), PATIENT_REGISTRATION("patient-registration"), PATIENT_REGISTRATION_SUCCESSFUL(
+			"patient-registration-successful");
 
 	private String pageName;
 
