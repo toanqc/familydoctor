@@ -1,21 +1,21 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <div class="header-footer">
 	<div class="menu">
 		<div class="menu-text separator">
-			<a href="">Terms</a>
+			<a href=""><spring:message code="label.terms" /></a>
 		</div>
 		<div class="menu-text separator">
-			<a href="">Privacy</a>
+			<a href=""><spring:message code="label.privacy" /></a>
 		</div>
 		<div class="menu-text">
-			<a href="">Contact Us</a>
+			<a href=""><spring:message code="label.contact.us" /></a>
 		</div>
 	</div>
-	<div class="copyright">©2015 All Rights Reserved by Family
-		Doctor.</div>
+	<div class="copyright"><spring:message code="label.copyright" /></div>
 
 	<div class="menu pull-right">
 		<div class="menu-text">
-			Follow us on
+			<spring:message code="label.follow.us" />
 		</div>
 		<div class="menu-text">
 			<a href="http://www.pinterest.com" target="_blank"><img alt=""
