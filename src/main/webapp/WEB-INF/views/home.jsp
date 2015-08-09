@@ -1,5 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+
 <div class="content">
 	<div class="background-content">
 		<div class="margin-left slogan title">
@@ -45,7 +46,9 @@
 		<div class="inner-middle-content sepator-content"></div>
 
 		<div class="margin-left inner-right-content">
-			<div class="title margin-top-middle"><spring:message code="label.news.events" /></div>
+			<div class="title margin-top-middle">
+				<spring:message code="label.news.events" />
+			</div>
 			<div class="margin-top-small gray-text font-size-middle">
 				<a href=""><spring:message code="label.news.first" /></a>
 			</div>
