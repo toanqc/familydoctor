@@ -20,7 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @MappedSuperclass
-public abstract class Account {
+public class Account {
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Column(name = "FIRST_NAME")
