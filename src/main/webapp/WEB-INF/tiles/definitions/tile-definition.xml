@@ -18,11 +18,21 @@
 	</definition>
 
 	<definition name="patient-registration" extends="baseLayout">
-		<put-attribute name="body" value="/WEB-INF/views/patient-registration.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/patient-registration.jsp" />
 	</definition>
 
 	<definition name="patient-registration-successful" extends="baseLayout">
-		<put-attribute name="body" value="/WEB-INF/views/patient-registration-successful.jsp" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/patient-registration-successful.jsp" />
+	</definition>
+
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
+
+	<definition name="patient-home" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/patient-home.jsp" />
 	</definition>
 
 </tiles-definitions>

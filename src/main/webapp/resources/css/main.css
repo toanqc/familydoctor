@@ -72,12 +72,11 @@ a:visited {
 }
 
 .separator-content {
-	height: 220px;
 	background-color: #008166;
 }
 
 .hr-separator {
-	width: 500px;
+	width: 400px;
 	border-bottom: inset #008166 1px;
 }
 
@@ -120,4 +119,39 @@ input[type=button] {
 
 .red {
 	color: red;
+}
+
+.inner-content {
+	height: 220px;
+}
+
+.inner-left-content {
+	float: left;
+	width: 48%;
+}
+
+.inner-middle-content {
+	float: left;
+	width: 3px;
+}
+
+.inner-right-content {
+	display: inline-block;
+	width: 42%;
+}
+
+/* LOGIN PAGE */
+.height-300 {
+	height: 300px;
+}
+
+.height-220 {
+	height: 220px;
+}
+
+.login-background {
+	height: 300px;
+	width: 500px;
+	background-image: url('../images/mom_daughter_small.jpg');
+	background-position: center;
 }

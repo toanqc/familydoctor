@@ -26,7 +26,7 @@
 		</div>
 	</div>
 
-	<div class="inner-content">
+	<div class="height-220">
 		<div class="margin-left inner-left-content">
 			<div class="title margin-top-middle">
 				<spring:message code="label.for.patients" />
@@ -51,7 +51,7 @@
 			</div>
 		</div>
 
-		<div class="inner-middle-content separator-content"></div>
+		<div class="inner-middle-content separator-content height-220"></div>
 
 		<div class="margin-left inner-right-content">
 			<div class="title margin-top-middle">

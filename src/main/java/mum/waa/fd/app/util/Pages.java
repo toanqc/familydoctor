@@ -10,8 +10,11 @@ package mum.waa.fd.app.util;
  */
 public enum Pages {
 
-	HOME("home"), PATIENT_REGISTRATION("patient-registration"), PATIENT_REGISTRATION_SUCCESSFUL(
-			"patient-registration-successful");
+	HOME("home"),
+	PATIENT_REGISTRATION("patient-registration"),
+	PATIENT_REGISTRATION_SUCCESSFUL("patient-registration-successful"),
+	LOGIN("login"),
+	PATIENT_HOME("patient-home");
 
 	private String pageName;
 

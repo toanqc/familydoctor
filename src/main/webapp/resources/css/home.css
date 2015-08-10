@@ -11,22 +11,3 @@
 	background-image: url('../images/mom_daughter.jpg');
 	background-position: center;
 }
-
-.inner-content {
-	height: 220px;
-}
-
-.inner-left-content {
-	float: left;
-	width: 48%;
-}
-
-.inner-middle-content {
-	float: left;
-	width: 3px;
-}
-
-.inner-right-content {
-	display: inline-block;
-	width: 42%;
-}
