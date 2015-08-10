@@ -20,13 +20,12 @@
 
 		<!-- can Use ControllerAdice instead -->
 		<!--security:access-denied-handler error-page="/error-forbidden" / -->
-
 		<!-- Implemented with Web based URL - Controller "METHOD" level authorization -->
 		<!-- the more specific rules need to come first, followed by the more general 
 			ones. -->
-		<!-- COMmENT out the following to see @Service METHOD level authorization -->
+		<!-- Comment out the following to see @Service METHOD level authorization -->
 		<security:intercept-url pattern="/patients/register"
-			access="hasRole('ADMIN')" />
+			access="hasRole('ROLE_PATIENT')" />
 
 		<!-- always-use-default-target overrides where login was triggered -->
 		<!-- logout-url renames j_security_logout URL -->
@@ -35,9 +34,9 @@
 		<!-- e.g., /j_spring_security_check is default login-processing-url -->
 		<!-- Comment out login-page through logoinfailed for BASIC -->
 		<security:form-login login-page="/login"
-			login-processing-url="/postLogin" username-parameter="email"
+			login-processing-url="/login" username-parameter="email"
 			password-parameter="password" default-target-url="/login-success"
-			always-use-default-target="false" authentication-failure-url="/login-failed" />
+			always-use-default-target="true" authentication-failure-url="/login-failed" />
 		<security:logout logout-success-url="/logout"
 			logout-url="/doLogout" />
 
@@ -51,9 +50,9 @@
 		<security:authentication-provider>
 			<security:password-encoder hash="bcrypt" />
 			<security:jdbc-user-service
-	data-source-ref="dataSource"
-	users-by-username-query="SELECT EMAIL, PASSWORD, ENABLED FROM User WHERE EMAIL=?"
-	authorities-by-username-query="SELECT u.EMAIL, a.AUTHORITY FROM User u, AUTHORITY a WHERE u.EMAIL = a.EMAIL AND u.EMAIL=?" />
+				data-source-ref="dataSource"
+				users-by-username-query="SELECT EMAIL, PASSWORD, ENABLED FROM User WHERE EMAIL=?"
+				authorities-by-username-query="SELECT u.EMAIL, a.AUTHORITY FROM User u, AUTHORITY a WHERE u.EMAIL = a.EMAIL AND u.EMAIL=?" />
 		</security:authentication-provider>
 	</security:authentication-manager>
 </beans>
