@@ -6,14 +6,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -41,11 +37,6 @@ public class Appointment {
 	@Column(name = "STATUS")
 	@Enumerated(EnumType.STRING)
 	private AppointmentStatus status;
-
-	@Valid
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "INVOICE_ID")
-	private Invoice invoice;
 
 	public Appointment(Date date, String room, AppointmentStatus status) {
 		this.date = date;
@@ -111,20 +102,5 @@ public class Appointment {
 	 */
 	public void setRoom(String room) {
 		this.room = room;
-	}
-
-	/**
-	 * @return the invoice
-	 */
-	public Invoice getInvoice() {
-		return invoice;
-	}
-
-	/**
-	 * @param invoice
-	 *            the invoice to set
-	 */
-	public void setInvoice(Invoice invoice) {
-		this.invoice = invoice;
 	}
 }

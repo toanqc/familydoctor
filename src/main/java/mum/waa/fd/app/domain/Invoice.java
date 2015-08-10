@@ -52,11 +52,12 @@ public class Invoice {
 	private String ccardLast4Digits;
 
 	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
+	@Column(name = "DATE_PAID")
 	private Date datePaid;
 
 	@Valid
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "INVOICE_ID")
+	@JoinColumn(name = "APPOINTMENT_ID")
 	private Appointment appointment;
 
 	/**
