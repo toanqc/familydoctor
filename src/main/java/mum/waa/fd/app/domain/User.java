@@ -31,11 +31,11 @@ public class User {
 	@Column(name = "EMAIL")
 	private String email;
 
-	@Size(min = 6, max = 50, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
+	@Size(min = 5, max = 50, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
 	@Column(name = "PASSWORD")
 	private String password;
 
-	@Size(min = 6, max = 50, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
+	@Size(min = 5, max = 50, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
 	@Transient
 	private String confirmPassword;
 

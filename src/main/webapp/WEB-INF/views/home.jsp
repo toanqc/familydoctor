@@ -12,7 +12,7 @@
 	<div class="background-content">
 		<div class="margin-left slogan title">
 			<spring:message code="label.slogan" var="slogans" />
-			<c:forEach items="${slogan}" var="slogan">
+			<c:forEach items="${slogans}" var="slogan">
 				${slogan}<br />
 			</c:forEach>
 		</div>

@@ -20,6 +20,13 @@ import mum.waa.fd.app.service.PatientAccountService;
 import mum.waa.fd.app.util.Pages;
 import mum.waa.fd.app.validator.PasswordValidator;
 
+/**
+ * The servlet controller for patient account
+ * 
+ * @author Toan Quach
+ *
+ */
+
 @Controller
 public class PatientController {
 
@@ -31,6 +38,11 @@ public class PatientController {
 		dataBinder.addValidators(new PasswordValidator());
 	}
 
+	/**
+	 * 
+	 * @param patientAccount
+	 * @return
+	 */
 	@RequestMapping(value = "/patients/register", method = RequestMethod.GET)
 	public String showRegistrationPatient(@ModelAttribute("patientAccount") PatientAccount patientAccount) {
 		patientAccount.setGender(Gender.MALE);
@@ -39,6 +51,10 @@ public class PatientController {
 		return Pages.PATIENT_REGISTRATION.getValue();
 	}
 
+	/**
+	 * 
+	 * @param patientAccount
+	 */
 	@SuppressWarnings("deprecation")
 	private void initDummy(PatientAccount patientAccount) {
 		patientAccount.setFirstName("Toan");
@@ -52,6 +68,13 @@ public class PatientController {
 		// patientAccount.getUser().setConfirmPassword("1111");
 	}
 
+	/**
+	 * 
+	 * @param patientAccount
+	 * @param bindingResult
+	 * @param redirectAttributes
+	 * @return
+	 */
 	@RequestMapping(value = "/patients", method = RequestMethod.POST)
 	public String registerPatient(@Valid @ModelAttribute("patientAccount") PatientAccount patientAccount,
 			BindingResult bindingResult, RedirectAttributes redirectAttributes) {
@@ -65,8 +88,23 @@ public class PatientController {
 		return "redirect:/patients/successful";
 	}
 
+	/**
+	 * 
+	 * @param patientAccount
+	 * @return
+	 */
 	@RequestMapping(value = "/patients/successful", method = RequestMethod.GET)
 	public String showRegistrationSuccessful(@ModelAttribute("patientAccount") PatientAccount patientAccount) {
 		return Pages.PATIENT_REGISTRATION_SUCCESSFUL.getValue();
+	}
+
+	/**
+	 * 
+	 * @param patientAccount
+	 * @return
+	 */
+	@RequestMapping(value = "/patients/home", method = RequestMethod.GET)
+	public String showPatientHome(@ModelAttribute("patientAccount") PatientAccount patientAccount) {
+		return Pages.PATIENT_HOME.getValue();
 	}
 }
