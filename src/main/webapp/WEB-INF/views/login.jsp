@@ -11,9 +11,17 @@
 			</div>
 			<div class="hr-separator"></div>
 			<div class="margin-top-small gray-text font-size-small">
-				<spring:url value="/login" var="loginUrl" />
-				<form:form modelAttribute="user" action="${loginUrl}" method="post">
+				<spring:url value="login" var="loginUrl" />
+				<form:form modelAttribute="user" action="login" method="post">
 					<table class="data-table">
+						<tr>
+							<td colspan="2" class="red">
+								<c:if test="${fail == true}">
+									<spring:message code="label.login.fail" />
+								</c:if>
+								<form:errors path="*" />
+							</td>
+						</tr>
 						<tr>
 							<td class="text-align-right"><label for="email"><spring:message
 										code="label.user.email" /></label></td>
@@ -36,8 +44,7 @@
 						</tr>
 						<tr>
 							<td colspan="2" class="text-align-center font-size-small"><input
-								type="button" type="submit"
-								value="<spring:message code="button.sign.in"/>"></td>
+								type="submit" value="<spring:message code="button.sign.in"/>"></td>
 						</tr>
 					</table>
 				</form:form>

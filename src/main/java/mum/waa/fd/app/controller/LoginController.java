@@ -1,7 +1,10 @@
 package mum.waa.fd.app.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,20 +27,19 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@ModelAttribute("user") User user, BindingResult bindingResult) {
+	public String login(@Valid @ModelAttribute("user") User user, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			return Pages.LOGIN.getValue();
 		}
 
-		user.setEmail("toanqc@gmail.com");
-		user.setPassword("111111");
 		User foundUser = userService.login(user.getEmail(), user.getPassword());
 		if (foundUser == null) {
+			model.addAttribute("fail", true);
 			return Pages.LOGIN.getValue();
 		}
 
 		if (UserType.PATIENT.equals(foundUser.getUserType())) {
-			return Pages.PATIENT_HOME.getValue();
+			return "redirect:/patients/home";
 		}
 
 		// TODO: need to complete for admin and doctor
