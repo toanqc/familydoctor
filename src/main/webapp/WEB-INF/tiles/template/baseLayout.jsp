@@ -15,9 +15,9 @@
 	rel="stylesheet">
 
 <script type="text/javascript"
-	src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	src="<spring:url value="/resources/js/lib/jquery-2.1.4.min.js" />"></script>
 <script type="text/javascript"
-	src="<spring:url value="/resources/js/common.js"/>"></script>
+	src="<spring:url value="/resources/js/common.js" />"></script>
 </head>
 <body>
 	<div class="container">

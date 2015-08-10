@@ -7,9 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotBlank;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
@@ -22,20 +19,23 @@ public class Address {
 	@Column(name = "ID")
 	private int addressId;
 
-	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Column(name = "STREET")
 	private String street;
 
 	@Column(name = "CITY")
 	private String city;
 
-	@Size(min = 2, max = 2, message = FamilyDoctorConstants.EXACTLY_DIGITS_VALIDATION)
+	@Pattern(regexp = FamilyDoctorConstants.STATE_REGEX, message = FamilyDoctorConstants.STATE_VALIDATION)
 	@Column(name = "STATE")
 	private String state;
 
-	@Pattern(regexp = FamilyDoctorConstants.ZIPCODE_REGEX)
+	@Pattern(regexp = FamilyDoctorConstants.ZIPCODE_REGEX, message = FamilyDoctorConstants.ZIPCODE_VALIDATION)
 	@Column(name = "ZIPCODE")
 	private String zipcode;
+
+	public Address() {
+		// default constructor
+	}
 
 	public Address(String street, String city, String state, String zipcode) {
 		this.street = street;

@@ -19,7 +19,7 @@
 	</div>
 	<div class="menu pull-right">
 		<div class="menu-text separator">
-			<a href="<spring:url value="patients/register" />"><spring:message
+			<a href="<spring:url value="/patients/register" />"><spring:message
 					code="label.join.us" /> ></a>
 		</div>
 		<div class="menu-text">

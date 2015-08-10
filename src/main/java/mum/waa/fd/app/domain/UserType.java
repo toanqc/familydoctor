@@ -14,15 +14,5 @@ package mum.waa.fd.app.domain;
  */
 public enum UserType {
 
-	PATIENT("Patient"), DOCTOR("Doctor"), ADMIN("Admin");
-
-	private String type;
-
-	private UserType(String type) {
-		this.type = type;
-	}
-
-	public String getValue() {
-		return this.type;
-	}
+	PATIENT, DOCTOR, ADMIN;
 }

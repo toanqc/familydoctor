@@ -20,7 +20,8 @@
 
 	<!-- Validation Configuration: make the spring validation works and also 
 		define the resource files -->
-	<mvc:annotation-driven validator="validator" />
+	<mvc:annotation-driven validator="validator"
+		conversion-service="conversionService" />
 	<bean id="messageSource"
 		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="basenames" value="classpath:validation,classpath:messages" />
@@ -30,6 +31,21 @@
 		<property name="validationMessageSource" ref="messageSource" />
 	</bean>
 	<!-- End Validation Configuration -->
+
+	<!-- Conversion Service Configuration: make spring framework use our customer 
+		Formatter -->
+	<bean id="conversionService"
+		class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+		<property name="formatters">
+			<set>
+				<bean class="mum.waa.fd.app.formatter.AppointmentStatusFormatter" />
+				<bean class="mum.waa.fd.app.formatter.GenderFormatter" />
+				<bean class="mum.waa.fd.app.formatter.InvoiceStatusFormatter" />
+				<bean class="mum.waa.fd.app.formatter.SpecializationFormatter" />
+				<bean class="mum.waa.fd.app.formatter.UserTypeFormatter" />
+			</set>
+		</property>
+	</bean>
 
 	<!-- View Resolver Configuration: make view resolver to determine the view 
 		folder and extension -->

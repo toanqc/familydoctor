@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import mum.waa.fd.app.domain.PatientAccount;
+import mum.waa.fd.app.domain.UserType;
 import mum.waa.fd.app.repository.PatientAccountRepository;
 import mum.waa.fd.app.service.PatientAccountService;
 
@@ -22,6 +23,7 @@ public class PatientAccountServiceImpl implements PatientAccountService {
 
 	@Override
 	public void savePatient(PatientAccount patientAccount) {
+		patientAccount.getUser().setUserType(UserType.PATIENT);
 		patientAccountRepository.save(patientAccount);
 	}
 }

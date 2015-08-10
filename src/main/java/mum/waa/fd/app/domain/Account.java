@@ -1,15 +1,21 @@
 package mum.waa.fd.app.domain;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
@@ -24,8 +30,18 @@ public abstract class Account {
 	@Column(name = "LAST_NAME")
 	private String lastName;
 
+	@NotNull(message = FamilyDoctorConstants.EMPTY_VALIDATION)
+	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
+	@Column(name = "DATE_OF_BIRTH")
+	private Date dateOfBirth;
+
+	@NotNull
+	@Column(name = "GENDER")
+	@Enumerated(EnumType.STRING)
+	private Gender gender;
+
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
-	@Pattern(regexp = FamilyDoctorConstants.PHONE_REGEX)
+	@Pattern(regexp = FamilyDoctorConstants.PHONE_REGEX, message = FamilyDoctorConstants.PHONE_VALIDATION)
 	@Column(name = "PHONE")
 	private String phone;
 
@@ -43,9 +59,12 @@ public abstract class Account {
 		// default constructor
 	}
 
-	public Account(String firstName, String lastName, String phone, User user, Address address) {
+	public Account(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
+			Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.dateOfBirth = dateOfBirth;
+		this.gender = gender;
 		this.phone = phone;
 		this.user = user;
 		this.address = address;
@@ -87,6 +106,36 @@ public abstract class Account {
 	 */
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+
+	/**
+	 * @return the dateOfBirth
+	 */
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	/**
+	 * @param dateOfBirth
+	 *            the dateOfBirth to set
+	 */
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	/**
+	 * @return the gender
+	 */
+	public Gender getGender() {
+		return gender;
+	}
+
+	/**
+	 * @param gender
+	 *            the gender to set
+	 */
+	public void setGender(Gender gender) {
+		this.gender = gender;
 	}
 
 	/**

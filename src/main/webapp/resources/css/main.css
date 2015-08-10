@@ -55,6 +55,10 @@ a:visited {
 	margin-left: 40px;
 }
 
+.margin-left-large {
+	margin-left: 80px;
+}
+
 .margin-left-huge {
 	margin-left: 250px;
 }
@@ -67,9 +71,14 @@ a:visited {
 	margin-top: 10px;
 }
 
-.sepator-content {
+.separator-content {
 	height: 220px;
 	background-color: #008166;
+}
+
+.hr-separator {
+	width: 500px;
+	border-bottom: inset #008166 1px;
 }
 
 input[type=button] {
@@ -78,4 +87,37 @@ input[type=button] {
 	font-size: 14px;
 	height: 30px;
 	width: 90px;
+}
+
+.default-height {
+	height: 500px;
+}
+
+.data-table {
+	padding: 5px;
+	border-spacing: 15px 15px;
+}
+
+.text-align-left {
+	text-align: left;
+}
+
+.text-align-right {
+	text-align: right;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.text-align-top {
+	vertical-align: top;
+}
+
+.text-align-bottom {
+	vertical-align: bottom;
+}
+
+.red {
+	color: red;
 }

@@ -2,10 +2,14 @@ package mum.waa.fd.app.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.Valid;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -30,7 +34,13 @@ public class User {
 	@Column(name = "PASSWORD")
 	private String password;
 
+	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
+	@Transient
+	private String confirmPassword;
+
+	@Valid
 	@Column(name = "USER_TYPE")
+	@Enumerated(EnumType.STRING)
 	private UserType userType;
 
 	/**
@@ -68,6 +78,21 @@ public class User {
 	 */
 	public String getPassword() {
 		return password;
+	}
+
+	/**
+	 * @return the confirmPassword
+	 */
+	public String getConfirmPassword() {
+		return confirmPassword;
+	}
+
+	/**
+	 * @param confirmPassword
+	 *            the confirmPassword to set
+	 */
+	public void setConfirmPassword(String confirmPassword) {
+		this.confirmPassword = confirmPassword;
 	}
 
 	/**

@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<div class="inner-middle-content sepator-content"></div>
+		<div class="inner-middle-content separator-content"></div>
 
 		<div class="margin-left inner-right-content">
 			<div class="title margin-top-middle">

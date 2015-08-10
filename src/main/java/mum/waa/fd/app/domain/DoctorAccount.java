@@ -1,6 +1,7 @@
 package mum.waa.fd.app.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -46,9 +47,9 @@ public class DoctorAccount extends Account {
 		// default constructor
 	}
 
-	public DoctorAccount(String firstName, String lastName, String phone, User user, Address address,
-			String licenseNumber, Specialization specialization) {
-		super(firstName, lastName, phone, user, address);
+	public DoctorAccount(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
+			Address address, String licenseNumber, Specialization specialization) {
+		super(firstName, lastName, dateOfBirth, gender, phone, user, address);
 		this.licenseNumber = licenseNumber;
 		this.specialization = specialization;
 		appointmentList = new ArrayList<Appointment>();

@@ -1,5 +1,7 @@
 package mum.waa.fd.app.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,9 +30,9 @@ public class AdminAccount extends Account {
 		// default constructor
 	}
 
-	public AdminAccount(String firstName, String lastName, String phone, User user, Address address,
-			String staffNumber) {
-		super(firstName, lastName, phone, user, address);
+	public AdminAccount(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
+			Address address, String staffNumber) {
+		super(firstName, lastName, dateOfBirth, gender, phone, user, address);
 		this.staffNumber = staffNumber;
 	}
 
