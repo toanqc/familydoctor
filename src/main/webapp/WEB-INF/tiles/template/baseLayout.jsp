@@ -13,7 +13,8 @@
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/header-footer.css" />"
 	rel="stylesheet">
-
+<link href="<c:url value="/resources/css/admin/dashboard.css" />"
+	rel="stylesheet">
 <script type="text/javascript"
 	src="<spring:url value="/resources/js/lib/jquery-2.1.4.min.js" />"></script>
 <script type="text/javascript"

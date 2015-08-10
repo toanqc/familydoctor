@@ -80,12 +80,13 @@ a:visited {
 	border-bottom: inset #008166 1px;
 }
 
-input[type=button] {
+input[type=button], button {
 	color: white;
 	background-color: #008166;
 	font-size: 14px;
 	height: 30px;
 	width: 90px;
+	white-space: nowrap;
 }
 
 .default-height {

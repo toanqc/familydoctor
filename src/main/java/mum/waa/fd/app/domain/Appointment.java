@@ -37,6 +37,8 @@ public class Appointment {
 	@Column(name = "STATUS")
 	@Enumerated(EnumType.STRING)
 	private AppointmentStatus status;
+	
+	public Appointment(){}
 
 	public Appointment(Date date, String room, AppointmentStatus status) {
 		this.date = date;

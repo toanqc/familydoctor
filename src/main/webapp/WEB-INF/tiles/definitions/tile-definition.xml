@@ -17,6 +17,7 @@
 		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
 	</definition>
 
+	<!-- Patient -->
 	<definition name="patient-registration" extends="baseLayout">
 		<put-attribute name="body"
 			value="/WEB-INF/views/patient-registration.jsp" />
@@ -34,5 +35,19 @@
 	<definition name="patient-home" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/patient-home.jsp" />
 	</definition>
+	
+	<!-- Admin -->	
+	<definition name="adminLayout" extends="baseLayout">
+		<put-attribute name="header" value="/WEB-INF/tiles/template/header-admin.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
+	</definition>
+		
+	<definition name="admin/dashboard" extends="adminLayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/dashboard.jsp" />
+	</definition>	
+	
+	<definition name="admin/add-doctor" extends="adminLayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/addDoctor.jsp" />
+	</definition>		
 
 </tiles-definitions>
