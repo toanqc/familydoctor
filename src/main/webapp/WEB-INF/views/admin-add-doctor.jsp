@@ -4,7 +4,7 @@
 	<div class="inner-content margin-left dashboard-content">
 		<h3>New Doctor Account</h3>
 		
-		<form:form commandName="account" action="/admin/save-doctor" method="post">
+		<form:form commandName="person" action="/admin/save-doctor" method="post">
 			<table>
 				<tr>
 					<td><label>Firstname:</label></td>
