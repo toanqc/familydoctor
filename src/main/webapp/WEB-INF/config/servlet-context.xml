@@ -42,7 +42,7 @@
 				<bean class="mum.waa.fd.app.formatter.GenderFormatter" />
 				<bean class="mum.waa.fd.app.formatter.InvoiceStatusFormatter" />
 				<bean class="mum.waa.fd.app.formatter.SpecializationFormatter" />
-				<bean class="mum.waa.fd.app.formatter.UserTypeFormatter" />
+				<bean class="mum.waa.fd.app.formatter.AuthorityRoleFormatter" />
 			</set>
 		</property>
 	</bean>

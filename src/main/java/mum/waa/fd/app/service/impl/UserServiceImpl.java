@@ -23,7 +23,7 @@ public class UserServiceImpl implements UserService {
 	private UserRepository userRepository;
 
 	@Override
-	public User login(String email, String password) {
-		return userRepository.findUserByEmailAndPassword(email, password);
+	public User login(String email) {
+		return userRepository.findUserByEmail(email);
 	}
 }

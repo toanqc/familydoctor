@@ -12,7 +12,7 @@ package mum.waa.fd.app.domain;
  * @author Toan Quach
  *
  */
-public enum UserType {
+public enum AuthorityRole {
 
 	PATIENT, DOCTOR, ADMIN;
 }

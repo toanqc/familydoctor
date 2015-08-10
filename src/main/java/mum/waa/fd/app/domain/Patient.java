@@ -22,8 +22,8 @@ import org.hibernate.validator.constraints.NotBlank;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @Entity
-@Table(name = "PatientAccount")
-public class PatientAccount extends Account {
+@Table(name = "Patient")
+public class Patient extends Person {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -40,11 +40,11 @@ public class PatientAccount extends Account {
 	@JoinColumn(name = "PATIENT_ID")
 	private List<Appointment> appointmentList;
 
-	public PatientAccount() {
+	public Patient() {
 		// default constrcutor
 	}
 
-	public PatientAccount(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
+	public Patient(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
 			Address address, String ssn) {
 		super(firstName, lastName, dateOfBirth, gender, phone, user, address);
 		this.ssn = ssn;

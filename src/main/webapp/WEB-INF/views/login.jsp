@@ -11,8 +11,8 @@
 			</div>
 			<div class="hr-separator"></div>
 			<div class="margin-top-small gray-text font-size-small">
-				<spring:url value="login" var="loginUrl" />
-				<form:form modelAttribute="user" action="login" method="post">
+				<spring:url value="/postLogin" var="loginUrl" />
+				<form:form modelAttribute="user" action="${loginUrl}" method="post">
 					<table class="data-table">
 						<tr>
 							<td colspan="2" class="red">
@@ -25,13 +25,13 @@
 						<tr>
 							<td class="text-align-right"><label for="email"><spring:message
 										code="label.user.email" /></label></td>
-							<td><form:input path="email" id="email" maxlength="50"
+							<td><form:input path="email" maxlength="50" name="email"
 									size="40" /></td>
 						</tr>
 						<tr>
 							<td class="text-align-right"><label for="password"><spring:message
 										code="label.user.password" /></label></td>
-							<td><form:password path="password" id="password"
+							<td><form:password path="password"  name="password"
 									maxlength="50" size="40" /></td>
 						</tr>
 						<tr>

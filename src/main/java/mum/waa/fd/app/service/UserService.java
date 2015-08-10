@@ -10,13 +10,11 @@ import mum.waa.fd.app.domain.User;
 public interface UserService {
 
 	/**
-	 * Login to the system with user email and password
+	 * Login to the system with user email
 	 * 
 	 * @param email
 	 *            to be login, it also an username
-	 * @param password
-	 *            pass to be login
 	 * @return the login user
 	 */
-	User login(String email, String password);
+	User login(String email);
 }

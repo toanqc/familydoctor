@@ -10,7 +10,7 @@
 
 	<div class="margin-left-large margin-top-middle">
 		<spring:url value="/patients" var="patientUrl" />
-		<form:form modelAttribute="patientAccount" action="${patientUrl}"
+		<form:form modelAttribute="patient" action="${patientUrl}"
 			method="post">
 			<table class="data-table">
 				<tr>

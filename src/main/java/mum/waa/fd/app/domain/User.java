@@ -1,15 +1,21 @@
 package mum.waa.fd.app.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
@@ -31,18 +37,27 @@ public class User {
 	@Column(name = "EMAIL")
 	private String email;
 
-	@Size(min = 5, max = 50, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
+	@Size(min = 5, max = 100, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
 	@Column(name = "PASSWORD")
 	private String password;
 
-	@Size(min = 5, max = 50, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
+	@Size(min = 5, max = 100, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
 	@Transient
 	private String confirmPassword;
 
+	@NotNull
+	@Column(name = "ENABLED")
+	private Boolean enabled;
+
 	@Valid
-	@Column(name = "USER_TYPE")
-	@Enumerated(EnumType.STRING)
-	private UserType userType;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "EMAIL", referencedColumnName = "EMAIL")
+	private List<Authority> authorities;
+
+	public User() {
+		this.enabled = Boolean.TRUE;
+		this.authorities = new ArrayList<Authority>();
+	}
 
 	/**
 	 * @return the userId
@@ -105,17 +120,47 @@ public class User {
 	}
 
 	/**
-	 * @return the userType
+	 * @return the enabled
 	 */
-	public UserType getUserType() {
-		return userType;
+	public Boolean getEnabled() {
+		return enabled;
 	}
 
 	/**
-	 * @param userType
-	 *            the userType to set
+	 * @param enabled
+	 *            the enabled to set
 	 */
-	public void setUserType(UserType userType) {
-		this.userType = userType;
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
 	}
+
+	/**
+	 * @return the authorities
+	 */
+	public List<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	/**
+	 * @param authorities
+	 *            the authorities to set
+	 */
+	public void setAuthorities(List<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	// /**
+	// * @return the userType
+	// */
+	// public UserType getUserType() {
+	// return userType;
+	// }
+	//
+	// /**
+	// * @param userType
+	// * the userType to set
+	// */
+	// public void setUserType(UserType userType) {
+	// this.userType = userType;
+	// }
 }

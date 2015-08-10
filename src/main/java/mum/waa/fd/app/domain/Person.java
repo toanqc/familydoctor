@@ -20,7 +20,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @MappedSuperclass
-public abstract class Account {
+public abstract class Person {
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Column(name = "FIRST_NAME")
@@ -55,11 +55,11 @@ public abstract class Account {
 	@JoinColumn(name = "USER_ID")
 	private User user;
 
-	public Account() {
+	public Person() {
 		// default constructor
 	}
 
-	public Account(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
+	public Person(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
 			Address address) {
 		this.firstName = firstName;
 		this.lastName = lastName;

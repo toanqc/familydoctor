@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mum.waa.fd.app.domain.Gender;
-import mum.waa.fd.app.domain.PatientAccount;
-import mum.waa.fd.app.service.PatientAccountService;
+import mum.waa.fd.app.domain.Patient;
+import mum.waa.fd.app.service.PatientService;
 import mum.waa.fd.app.util.Pages;
 import mum.waa.fd.app.validator.PasswordValidator;
 
@@ -31,7 +31,7 @@ import mum.waa.fd.app.validator.PasswordValidator;
 public class PatientController {
 
 	@Autowired
-	private PatientAccountService patientAccountService;
+	private PatientService patientService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -40,71 +40,71 @@ public class PatientController {
 
 	/**
 	 * 
-	 * @param patientAccount
+	 * @param patient
 	 * @return
 	 */
 	@RequestMapping(value = "/patients/register", method = RequestMethod.GET)
-	public String showRegistrationPatient(@ModelAttribute("patientAccount") PatientAccount patientAccount) {
-		patientAccount.setGender(Gender.MALE);
+	public String showRegistrationPatient(@ModelAttribute("patient") Patient patient) {
+		patient.setGender(Gender.MALE);
 		// dummy data for testing
-		initDummy(patientAccount);
+		initDummy(patient);
 		return Pages.PATIENT_REGISTRATION.getValue();
 	}
 
 	/**
 	 * 
-	 * @param patientAccount
+	 * @param patient
 	 */
 	@SuppressWarnings("deprecation")
-	private void initDummy(PatientAccount patientAccount) {
-		patientAccount.setFirstName("Toan");
-		patientAccount.setLastName("Quach");
-		patientAccount.setDateOfBirth(new Date("10/25/1083"));
-		// patientAccount.getAddress().setZipcode("52556");
-		patientAccount.setSSN("1111");
-		patientAccount.setPhone("111-111-1111");
-		// patientAccount.getUser().setEmail("toanqc@gmail.com");
-		// patientAccount.getUser().setPassword("1111");
-		// patientAccount.getUser().setConfirmPassword("1111");
+	private void initDummy(Patient patient) {
+		patient.setFirstName("Toan");
+		patient.setLastName("Quach");
+		patient.setDateOfBirth(new Date("10/25/1083"));
+		// patient.getAddress().setZipcode("52556");
+		patient.setSSN("1111");
+		patient.setPhone("111-111-1111");
+		// patient.getUser().setEmail("toanqc@gmail.com");
+		// patient.getUser().setPassword("1111");
+		// patient.getUser().setConfirmPassword("1111");
 	}
 
 	/**
 	 * 
-	 * @param patientAccount
+	 * @param patient
 	 * @param bindingResult
 	 * @param redirectAttributes
 	 * @return
 	 */
 	@RequestMapping(value = "/patients", method = RequestMethod.POST)
-	public String registerPatient(@Valid @ModelAttribute("patientAccount") PatientAccount patientAccount,
-			BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+	public String registerPatient(@Valid @ModelAttribute("patient") Patient patient, BindingResult bindingResult,
+			RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
 			return Pages.PATIENT_REGISTRATION.getValue();
 		}
 
-		patientAccountService.savePatient(patientAccount);
+		patientService.savePatient(patient);
 
-		redirectAttributes.addFlashAttribute("patientAccount", patientAccount);
+		redirectAttributes.addFlashAttribute("patient", patient);
 		return "redirect:/patients/successful";
 	}
 
 	/**
 	 * 
-	 * @param patientAccount
+	 * @param patient
 	 * @return
 	 */
 	@RequestMapping(value = "/patients/successful", method = RequestMethod.GET)
-	public String showRegistrationSuccessful(@ModelAttribute("patientAccount") PatientAccount patientAccount) {
+	public String showRegistrationSuccessful(@ModelAttribute("patient") Patient patient) {
 		return Pages.PATIENT_REGISTRATION_SUCCESSFUL.getValue();
 	}
 
 	/**
 	 * 
-	 * @param patientAccount
+	 * @param patient
 	 * @return
 	 */
 	@RequestMapping(value = "/patients/home", method = RequestMethod.GET)
-	public String showPatientHome(@ModelAttribute("patientAccount") PatientAccount patientAccount) {
+	public String showPatientHome(@ModelAttribute("patient") Patient patient) {
 		return Pages.PATIENT_HOME.getValue();
 	}
 }
