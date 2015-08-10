@@ -1,5 +1,9 @@
 package mum.waa.fd.app.controller;
 
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -19,6 +23,12 @@ public class LoginController {
 
 	@RequestMapping(value = "/login-success", method = RequestMethod.GET)
 	public String loginSuccess() {
+		Collection<? extends GrantedAuthority> authorities = SecurityContextHolder.getContext().getAuthentication()
+				.getAuthorities();
+		for (GrantedAuthority grantedAuthority : authorities) {
+			System.out.println(grantedAuthority);
+		}
+
 		return "redirect:/patients/home";
 	}
 
