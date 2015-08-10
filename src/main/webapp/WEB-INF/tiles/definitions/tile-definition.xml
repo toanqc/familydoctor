@@ -42,12 +42,12 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
 		
-	<definition name="admin/dashboard" extends="adminLayout">
-		<put-attribute name="body" value="/WEB-INF/views/admin/dashboard.jsp" />
+	<definition name="admin-dashboard" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin-dashboard.jsp" />
 	</definition>	
 	
-	<definition name="admin/add-doctor" extends="adminLayout">
-		<put-attribute name="body" value="/WEB-INF/views/admin/addDoctor.jsp" />
+	<definition name="admin-add-doctor" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin-add-doctor.jsp" />
 	</definition>		
 
 </tiles-definitions>
