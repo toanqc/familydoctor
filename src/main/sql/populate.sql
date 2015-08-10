@@ -8,24 +8,24 @@ INSERT INTO Address (street, city, state, zipcode) VALUES ('42 Dogwood Dr.', 'Fa
 INSERT INTO Address (street, city, state, zipcode) VALUES ('501 Central', 'Mountain View', 'CA', '94707');
 
 /*
- * hash md5
- * admin: 21232F297A57A5A743894A0E4A801FC3
- * patient: B39024EFBC6DE61976F585C8421C6BBA
- * toanqc: 94A86552E4C8F384B9A417533928E69A
- * markpit: 5BFEABA0B332DC0C7DC2734809B96266
- * kamaroy: B4AF67F374757CA441DF83EC389C8428
- * longma: 7379587D5E9DA176AC7E7E2F70FA01A1
- * doctor: F9F16D97C90D8C6F2CAB37BB6D1F1992
- * doctorkelly: DDB95E0EB7C1D7842FF209BE5F54B452
+ * hash bcrypt
+ * admin
+ * patient 
+ * toanqc 
+ * markpit
+ * kamaroy
+ * longma
+ * doctor
+ * doctorkelly
  */
 
-INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('toanqc@gmail.com', 'toanqc', TRUE);
-INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values  ('makinnpit@gmail.com', '5BFEABA0B332DC0C7DC2734809B96266', TRUE);
-INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('kamanashisroy@gmail.com', '5BFEABA0B332DC0C7DC2734809B96266', TRUE);
-INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('longmatime@gmail.com', '5BFEABA0B332DC0C7DC2734809B96266', TRUE);
-INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values  ('patient@gmail.com', 'B39024EFBC6DE61976F585C8421C6BBA', TRUE);
-INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('doctor@gmail.com', 'F9F16D97C90D8C6F2CAB37BB6D1F1992', TRUE);
-INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('doctorkelly@gmail.com', 'F9F16D97C90D8C6F2CAB37BB6D1F1992', TRUE);
+INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('toanqc@gmail.com', '$2a$10$rNQqVynthlBeGumvLLGT5.LMK7CxihzmGj0mbP/8jxdeOk/f4mGqm', TRUE);
+INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values  ('makinnpit@gmail.com', '$2a$10$XwhFv1palydzwOx5kIf5JOAttlYd3pEE9Mm6wRlK5/16GdPL/cIMm', TRUE);
+INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('kamanashisroy@gmail.com', '$2a$10$lqL1k89HwPPTDfEAGDMd/uPtK6sgK7bWM.yGpvQah./T8ol7ySBMO', TRUE);
+INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('longmatime@gmail.com', '$2a$10$1y3rFUCLmjKxZAOmBxWGtutMHI8Uh2PHb7nIRlsJ7zFhZYmJov6aa', TRUE);
+INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values  ('patient@gmail.com', '$2a$10$69SNqZtbtBRSKqwiq8DvB.G7p5B4Yilj7pkq2VnRZ3fx3.TIUyYHG', TRUE);
+INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('doctor@gmail.com', '$2a$10$Da.0ppK8Ah65IKboW4m.Y.AoZrh/7qBK5E4c6LBg3kkJt1J8WBpKq', TRUE);
+INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('doctorkelly@gmail.com', '$2a$10$w3XR157wYnKy6m.sSm1nSObTSG3UfQz09siinsvAmi8vbixb3M8tG', TRUE);
 INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('admin@gmail.com', '$2a$10$S/wlXEo/APzf.Sn1cO2p4.V12EJmaw.uzrHelMvkpuahjmHWnSafe', TRUE);
 
 INSERT INTO Authority (EMAIL, AUTHORITY) values ('toanqc@gmail.com', 'ROLE_PATIENT');

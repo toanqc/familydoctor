@@ -41,12 +41,15 @@
 				<spring:message code="label.already.member" />
 			</div>
 			<div class="margin-top-small">
-				<spring:message code="button.login" var="login" />
-				<input type="button" id="login" value="${login}" />
+				<form action="<spring:url value="/login" />" method="get">
+					<spring:message code="button.login" var="login" />
+					<input type="submit" id="login" value="${login}" />
+				</form>
 			</div>
 			<div
 				class="margin-left-huge margin-top-small gray-text font-size-middle">
-				<a class="gray-text" href="<spring:url value="/patients/register" />"><spring:message
+				<a class="gray-text"
+					href="<spring:url value="/patients/register" />"><spring:message
 						code="label.new.member" /></a>
 			</div>
 		</div>
@@ -68,6 +71,9 @@
 			</div>
 			<div class="margin-top-small gray-text font-size-middle">
 				<a href=""><spring:message code="label.news.forth" /></a>
+			</div>
+			<div class="pull-right gray-text font-size-small">
+				<a href="<spring:url value="/login" />">Staff Login</a>
 			</div>
 		</div>
 	</div>

@@ -25,7 +25,7 @@
 			ones. -->
 		<!-- Comment out the following to see @Service METHOD level authorization -->
 		<security:intercept-url pattern="/patients/register"
-			access="hasRole('ROLE_ADMIN')" />
+			access="hasRole('ROLE_PATIENT')" />
 
 		<!-- always-use-default-target overrides where login was triggered -->
 		<!-- logout-url renames j_security_logout URL -->
