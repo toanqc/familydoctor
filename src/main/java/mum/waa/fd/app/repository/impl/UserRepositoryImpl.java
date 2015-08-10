@@ -11,7 +11,7 @@ import javax.persistence.criteria.Root;
 import mum.waa.fd.app.domain.User;
 import mum.waa.fd.app.repository.UserRepositoryCustom;
 
-public class UserRepositoryCustomImpl implements UserRepositoryCustom {
+public class UserRepositoryImpl implements UserRepositoryCustom {
 
 	@PersistenceContext
 	private EntityManager entityManager;
