@@ -11,7 +11,7 @@
 			</div>
 			<div class="hr-separator"></div>
 			<div class="margin-top-small gray-text font-size-small">
-				<spring:url value="/login" var="loginUrl" />
+				<spring:url value="/doLogin" var="loginUrl" />
 				<form:form modelAttribute="user" action="${loginUrl}" method="post">
 					<table class="data-table">
 						<tr>

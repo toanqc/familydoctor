@@ -1,15 +1,15 @@
 package mum.waa.fd.app.controller;
 
-import java.util.Collection;
+import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.support.SessionStatus;
 
+import mum.waa.fd.app.domain.AuthorityRole;
 import mum.waa.fd.app.domain.User;
 import mum.waa.fd.app.util.Pages;
 
@@ -22,14 +22,20 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/login-success", method = RequestMethod.GET)
-	public String loginSuccess() {
-		Collection<? extends GrantedAuthority> authorities = SecurityContextHolder.getContext().getAuthentication()
-				.getAuthorities();
-		for (GrantedAuthority grantedAuthority : authorities) {
-			System.out.println(grantedAuthority);
+	public String loginSuccess(HttpServletRequest request) {
+		if (request.isUserInRole(AuthorityRole.ROLE_PATIENT.toString())) {
+			return "redirect:/patients/home";
 		}
 
-		return "redirect:/patients/home";
+		if (request.isUserInRole(AuthorityRole.ROLE_DOCTOR.toString())) {
+			return "redirect:/doctors/home";
+		}
+
+		if (request.isUserInRole(AuthorityRole.ROLE_ADMIN.toString())) {
+			return "redirect:/patients/admin";
+		}
+
+		return "redirect:/home";
 	}
 
 	@RequestMapping(value = "/login-failed", method = RequestMethod.GET)
@@ -38,8 +44,9 @@ public class LoginController {
 		return Pages.LOGIN.getValue();
 	}
 
-	@RequestMapping(value = "/logout", method = RequestMethod.POST)
-	public String logout() {
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(Model model, SessionStatus status) {
+		status.setComplete();
 		return "redirect:/home";
 	}
 }

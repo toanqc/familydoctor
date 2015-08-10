@@ -41,10 +41,8 @@
 				<spring:message code="label.already.member" />
 			</div>
 			<div class="margin-top-small">
-				<form action="<spring:url value="/login" />" method="get">
-					<spring:message code="button.login" var="login" />
-					<input type="submit" id="login" value="${login}" />
-				</form>
+				<spring:message code="button.login" var="login" />
+				<input type="button" id="login" value="${login}" />
 			</div>
 			<div
 				class="margin-left-huge margin-top-small gray-text font-size-middle">

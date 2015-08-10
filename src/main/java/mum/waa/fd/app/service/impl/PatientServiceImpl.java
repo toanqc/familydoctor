@@ -25,8 +25,13 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public void savePatient(Patient patient) {
 		Authority authority = new Authority();
-		authority.setAuthorityRole(AuthorityRole.PATIENT);
+		authority.setAuthorityRole(AuthorityRole.ROLE_PATIENT);
 		patient.getUser().getAuthorities().add(authority);
 		patientRepository.save(patient);
+	}
+
+	@Override
+	public Patient findPatientByEmail(String email) {
+		return patientRepository.findPatientByEmail(email);
 	}
 }

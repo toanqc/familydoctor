@@ -47,6 +47,16 @@
 		</property>
 	</bean>
 
+	<!-- Interceptor Configuration -->
+	<!--
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**" />
+			<bean class="mum.waa.fd.app.interceptor.RoleInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
+	 -->
+
 	<!-- View Resolver Configuration: make view resolver to determine the view 
 		folder and extension -->
 	<bean

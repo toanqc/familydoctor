@@ -1,4 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
 
 <div class="header-footer">
 	<div class="logo">
@@ -19,8 +21,14 @@
 	</div>
 	<div class="menu pull-right">
 		<div class="menu-text separator">
-			<a href="<spring:url value="/patients/register" />"><spring:message
-					code="label.join.us" /> ></a>
+			<security:authorize access="isAnonymous()">
+				<a href="<spring:url value="/patients/register" />"><spring:message
+						code="label.join.us" /> ></a>
+			</security:authorize>
+			<security:authorize access="isAuthenticated()">
+				<a href="<spring:url value="/doLogout" />"><spring:message
+						code="label.logout" /></a>
+			</security:authorize>
 		</div>
 		<div class="menu-text">
 			<a href=""><img alt=""
