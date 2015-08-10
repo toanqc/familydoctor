@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.Valid;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotBlank;
@@ -30,11 +31,11 @@ public class User {
 	@Column(name = "EMAIL")
 	private String email;
 
-	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
+	@Size(min = 6, max = 50, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
 	@Column(name = "PASSWORD")
 	private String password;
 
-	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
+	@Size(min = 6, max = 50, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
 	@Transient
 	private String confirmPassword;
 

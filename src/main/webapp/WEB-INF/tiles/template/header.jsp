@@ -2,9 +2,9 @@
 
 <div class="header-footer">
 	<div class="logo">
-		<img alt=""
+		<a href="<spring:url value="/" />"><img alt=""
 			src="<spring:url value="/resources/images/family_doctor_logo.png"/>"
-			height="45px">
+			height="45px"> </a>
 	</div>
 	<div class="menu">
 		<div class="menu-text separator">

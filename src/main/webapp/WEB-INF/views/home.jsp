@@ -46,7 +46,8 @@
 			</div>
 			<div
 				class="margin-left-huge margin-top-small gray-text font-size-middle">
-				<a href=""><spring:message code="label.new.member" /></a>
+				<a class="gray-text" href="<spring:url value="/patients/register" />"><spring:message
+						code="label.new.member" /></a>
 			</div>
 		</div>
 
