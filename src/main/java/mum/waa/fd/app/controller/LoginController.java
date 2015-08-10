@@ -11,14 +11,13 @@ import org.springframework.web.bind.support.SessionStatus;
 
 import mum.waa.fd.app.domain.AuthorityRole;
 import mum.waa.fd.app.domain.User;
-import mum.waa.fd.app.util.Pages;
 
 @Controller
 public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String showLogin(@ModelAttribute("user") User user) {
-		return Pages.LOGIN.getValue();
+		return "login";
 	}
 
 	@RequestMapping(value = "/login-success", method = RequestMethod.GET)
@@ -41,7 +40,7 @@ public class LoginController {
 	@RequestMapping(value = "/login-failed", method = RequestMethod.GET)
 	public String loginFailed(@ModelAttribute("user") User user, Model model) {
 		model.addAttribute("fail", true);
-		return Pages.LOGIN.getValue();
+		return "login";
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

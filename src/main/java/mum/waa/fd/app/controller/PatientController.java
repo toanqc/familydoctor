@@ -17,7 +17,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import mum.waa.fd.app.domain.Gender;
 import mum.waa.fd.app.domain.Patient;
 import mum.waa.fd.app.service.PatientService;
-import mum.waa.fd.app.util.Pages;
 import mum.waa.fd.app.validator.PasswordValidator;
 
 /**
@@ -48,7 +47,7 @@ public class PatientController {
 		patient.setGender(Gender.MALE);
 		// dummy data for testing
 		initDummy(patient);
-		return Pages.PATIENT_REGISTRATION.getValue();
+		return "patient-registration";
 	}
 
 	/**
@@ -79,7 +78,7 @@ public class PatientController {
 	public String registerPatient(@Valid @ModelAttribute("patient") Patient patient, BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
 		if (bindingResult.hasErrors()) {
-			return Pages.PATIENT_REGISTRATION.getValue();
+			return "patient-registration";
 		}
 
 		patientService.savePatient(patient);
@@ -95,7 +94,7 @@ public class PatientController {
 	 */
 	@RequestMapping(value = "/patients/successful", method = RequestMethod.GET)
 	public String showRegistrationSuccessful(@ModelAttribute("patient") Patient patient) {
-		return Pages.PATIENT_REGISTRATION_SUCCESSFUL.getValue();
+		return "patient-registration-successful";
 	}
 
 	/**
@@ -105,6 +104,6 @@ public class PatientController {
 	 */
 	@RequestMapping(value = "/patients/home", method = RequestMethod.GET)
 	public String showPatientHome(@ModelAttribute("patient") Patient patient) {
-		return Pages.PATIENT_HOME.getValue();
+		return "patient-home";
 	}
 }
