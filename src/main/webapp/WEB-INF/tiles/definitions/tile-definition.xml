@@ -55,12 +55,12 @@
 	</definition>
 
 	<definition name="admin-dashboard" extends="baseLayout">
-		<put-attribute name="body" value="/WEB-INF/views/admin-dashboard.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/dashboard.jsp" />
 	</definition>
 
 	<definition name="admin-add-doctor" extends="baseLayout">
 		<put-attribute name="body"
-			value="/WEB-INF/views/admin-add-doctor.jsp" />
+			value="/WEB-INF/views/admin/add-doctor.jsp" />
 	</definition>
 
 </tiles-definitions>
