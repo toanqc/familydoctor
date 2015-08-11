@@ -13,7 +13,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -33,7 +32,6 @@ public class Appointment {
 
 	@NotNull(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
-	@Future(message = FamilyDoctorConstants.FUTURE_DATE_VALIDATION)
 	@Column(name = "DATE")
 	private Date date;
 

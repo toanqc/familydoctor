@@ -37,4 +37,10 @@ public interface AppointmentService {
 	 * @return {@link Appointment}
 	 */
 	Appointment getAppointment(Integer id);
+
+	/**
+	 * 
+	 * @param id
+	 */
+	void cancelAppointment(Integer id);
 }

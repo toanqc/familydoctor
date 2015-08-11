@@ -75,4 +75,11 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 		appointmentRepository.save(appToBeUpdated);
 	}
+
+	@Override
+	public void cancelAppointment(Integer id) {
+		Appointment appointment = appointmentRepository.findOne(id);
+		appointment.setStatus(AppointmentStatus.CANCELED);
+		appointmentRepository.save(appointment);
+	}
 }

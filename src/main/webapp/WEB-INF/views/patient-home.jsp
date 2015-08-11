@@ -19,7 +19,9 @@
 						<td width="20%">${appointment.room}</td>
 						<td width="15%"><a
 							href="<spring:url value="/appointments/${appointment.appointmentId}/reschedule" />">Reschedule</a></td>
-						<td width="15%"><a href="">Cancel</a></td>
+						<td width="15%"><a onclick="return confirm('Are you sure?')"
+							href="<spring:url value="/appointments/${appointment.appointmentId}/cancel" />"
+							id="cancel">Cancel</a></td>
 					</tr>
 				</c:forEach>
 			</table>

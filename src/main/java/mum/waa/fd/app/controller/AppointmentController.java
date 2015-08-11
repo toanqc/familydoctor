@@ -81,14 +81,21 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointments/{id}/reschedule", method = RequestMethod.POST)
 	public String rescheduleAppointment(@Valid @ModelAttribute("appointment") Appointment appointment,
-			BindingResult bindingResult, @PathVariable("id") Integer appointmentId, Model model) {
+			BindingResult bindingResult, @PathVariable("id") Integer id, Model model) {
 
 		if (bindingResult.hasErrors()) {
 			return "appointment-reschedule";
 		}
 
-		appointment.setAppointmentId(appointmentId);
+		appointment.setAppointmentId(id);
 		appointmentService.rescheduleAppointment(appointment);
+		return "redirect:/patients/home";
+	}
+
+	@RequestMapping(value = "/appointments/{id}/cancel", method = RequestMethod.GET)
+	public String cancelAppointment(@PathVariable("id") Integer id, Model model) {
+
+		appointmentService.cancelAppointment(id);
 		return "redirect:/patients/home";
 	}
 }
