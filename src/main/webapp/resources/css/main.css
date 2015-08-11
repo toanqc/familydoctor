@@ -39,6 +39,10 @@ a:visited {
 	text-transform: capitalize !important;
 }
 
+.font-size-huge {
+	font-size: 22px;
+}
+
 .font-size-large {
 	font-size: 18px;
 }

@@ -47,6 +47,9 @@
 		<!-- BY DEFAULT the URL /j_spring_security_logout triggers logout NOTE: 
 			is it JUST a URL naming convention - no mapping is required logout-url= "/doLogout" 
 			REPLACES it -->
+
+		<security:access-denied-handler
+			error-page="/403" />
 	</security:http>
 
 

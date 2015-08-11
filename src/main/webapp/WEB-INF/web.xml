@@ -44,7 +44,7 @@
 
 	<error-page>
 		<error-code>404</error-code>
-		<location>/WEB-INF/views/page-not-found.jsp</location>
+		<location>/WEB-INF/views/error/error.jsp</location>
 	</error-page>
 </web-app>
  
