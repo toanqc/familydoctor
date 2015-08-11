@@ -53,7 +53,7 @@ public class LoginController {
 		}
 
 		if (request.isUserInRole(AuthorityRole.ROLE_ADMIN.toString())) {
-			return "redirect:/patients/admin";
+			return "redirect:/admin";
 		}
 
 		return "";

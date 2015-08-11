@@ -30,6 +30,8 @@
 			access="hasRole('ROLE_DOCTOR')" />
 		<security:intercept-url pattern="/appointments/**"
 			access="hasAnyRole('ROLE_PATIENT', 'ROLE_DOCTOR')" />
+		<security:intercept-url pattern="/admin/**"
+			access="hasAnyRole('ROLE_ADMIN')" />
 
 		<!-- always-use-default-target overrides where login was triggered -->
 		<!-- logout-url renames j_security_logout URL -->
