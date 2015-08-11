@@ -15,4 +15,7 @@ public interface DoctorRepository extends CrudRepository<Doctor, Integer> {
 
 	@Query("SELECT d FROM Doctor d WHERE d.specialization = :spec")
 	List<Doctor> findDoctorBySpecialization(@Param(value = "spec") Specialization spec);
+
+	@Query("SELECT d FROM Doctor d INNER JOIN d.user u WHERE u.email = :email")
+	Doctor findDoctorByEmail(@Param(value = "email") String email);
 }

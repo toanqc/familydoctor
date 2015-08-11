@@ -79,7 +79,24 @@ public class AppointmentServiceImpl implements AppointmentService {
 	@Override
 	public void cancelAppointment(Integer id) {
 		Appointment appointment = appointmentRepository.findOne(id);
-		appointment.setStatus(AppointmentStatus.CANCELED);
+		this.updateAppointmentStatus(appointment, AppointmentStatus.CANCELED);
+	}
+
+	@Override
+	public void acceptAppointment(Integer id) {
+		Appointment appointment = appointmentRepository.findOne(id);
+		this.updateAppointmentStatus(appointment, AppointmentStatus.ACCEPTED);
+
+	}
+
+	@Override
+	public void rejectAppointment(Integer id) {
+		Appointment appointment = appointmentRepository.findOne(id);
+		this.updateAppointmentStatus(appointment, AppointmentStatus.REJECTED);
+	}
+
+	private void updateAppointmentStatus(Appointment appointment, AppointmentStatus status) {
+		appointment.setStatus(status);
 		appointmentRepository.save(appointment);
 	}
 }

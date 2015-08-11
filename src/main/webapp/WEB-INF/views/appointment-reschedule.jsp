@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <div class="content">
 	<div class="margin-top-middle margin-left gray-text font-size-small">
@@ -25,8 +26,10 @@
 					<td class="text-align-right"><label for="specialization"><spring:message
 								code="label.specialty" /> *</label></td>
 					<td colspan="3"><form:select path="doctor.specialization"
-							disabled="true" id="specialization">
-							<form:option value="${appointment.doctor.specialization}">${appointment.doctor.specialization}</form:option>
+							cssClass="text-first-capital" disabled="true" id="specialization">
+							<form:option value="${appointment.doctor.specialization}">
+								${fn:toLowerCase(appointment.doctor.specialization)}
+							</form:option>
 						</form:select></td>
 					<spring:bind path="*">
 						<c:if test="${status.error}">

@@ -1,7 +1,10 @@
 package mum.waa.fd.app.service;
 
+import java.util.Date;
+import java.util.List;
 import java.util.Map;
 
+import mum.waa.fd.app.domain.Appointment;
 import mum.waa.fd.app.domain.Doctor;
 import mum.waa.fd.app.domain.Specialization;
 
@@ -15,4 +18,18 @@ public interface DoctorService {
 	 * @return
 	 */
 	Map<Integer, String> findDoctorBySpecialization(Specialization specialization);
+
+	/**
+	 * 
+	 * @param name
+	 * @return
+	 */
+	Doctor findDoctorByEmail(String name);
+
+	/**
+	 * 
+	 * @param appointmentList
+	 * @return
+	 */
+	Map<Date, List<Appointment>> mapAppointment(List<Appointment> appointmentList);
 }

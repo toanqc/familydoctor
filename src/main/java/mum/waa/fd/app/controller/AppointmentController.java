@@ -98,4 +98,18 @@ public class AppointmentController {
 		appointmentService.cancelAppointment(id);
 		return "redirect:/patients/home";
 	}
+
+	@RequestMapping(value = "/appointments/{id}/accept", method = RequestMethod.GET)
+	public String acceptAppointment(@PathVariable("id") Integer id, Model model) {
+
+		appointmentService.acceptAppointment(id);
+		return "redirect:/doctors/home";
+	}
+
+	@RequestMapping(value = "/appointments/{id}/reject", method = RequestMethod.GET)
+	public String rejectAppointment(@PathVariable("id") Integer id, Model model) {
+
+		appointmentService.acceptAppointment(id);
+		return "redirect:/doctors/home";
+	}
 }

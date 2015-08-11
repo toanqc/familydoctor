@@ -35,6 +35,10 @@ a:visited {
 	color: #868686 !important;
 }
 
+.text-first-capital {
+	text-transform: capitalize !important;
+}
+
 .font-size-large {
 	font-size: 18px;
 }

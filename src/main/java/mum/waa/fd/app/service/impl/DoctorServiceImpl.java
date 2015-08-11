@@ -1,6 +1,7 @@
 package mum.waa.fd.app.service.impl;
 
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,10 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import mum.waa.fd.app.domain.Appointment;
 import mum.waa.fd.app.domain.Doctor;
 import mum.waa.fd.app.domain.Specialization;
 import mum.waa.fd.app.repository.DoctorRepository;
 import mum.waa.fd.app.service.DoctorService;
+import mum.waa.fd.app.util.FamilyDoctorUtil;
 
 @Service
 @Transactional
@@ -40,5 +43,15 @@ public class DoctorServiceImpl implements DoctorService {
 		}
 
 		return doctorMap;
+	}
+
+	@Override
+	public Doctor findDoctorByEmail(String email) {
+		return doctorRepository.findDoctorByEmail(email);
+	}
+
+	@Override
+	public Map<Date, List<Appointment>> mapAppointment(List<Appointment> appointmentList) {
+		return FamilyDoctorUtil.mapAppointmentFromList(appointmentList);
 	}
 }

@@ -4,6 +4,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <div class="content">
+
+	<div class="margin-top-middle text-align-center title">
+		<spring:message code="label.welcome" />
+		<spring:message code="label.doctor.short" />
+		${doctor.firstName} ${doctor.lastName}
+	</div>
+
 	<div class="margin-top-middle margin-left title">
 		<spring:message code="label.upcoming.appointments" />
 	</div>
@@ -20,23 +27,19 @@
 						<td width="15%" class="text-align-center">Room
 							${appointment.room}</td>
 						<td width="15%" class="text-align-center text-first-capital">${fn:toLowerCase(appointment.status)}</td>
-						<td width="15%" class="text-align-center"><a
-							href="<spring:url value="/appointments/${appointment.appointmentId}/reschedule" />"><spring:message
-									code="link.reschedule" /></a></td>
-						<td width="15%" class="text-align-center"><spring:message code="label.are.you.sure"
-								var="confirm" /> <a onclick="return confirm('${confirm}')"
-							href="<spring:url value="/appointments/${appointment.appointmentId}/cancel" />"
-							id="cancel"><spring:message code="link.cancel" /></a></td>
+						<td width="15%"><a
+							href="<spring:url value="/appointments/${appointment.appointmentId}/accept" />"><spring:message
+									code="link.accept" /></a></td>
+						<td width="15%"><spring:message
+								code="label.are.you.sure.reject" var="reject" /> <a
+							onclick="return confirm('${reject}')"
+							href="<spring:url value="/appointments/${appointment.appointmentId}/reject" />"
+							id="cancel"><spring:message code="link.reject" /></a></td>
 					</tr>
 				</c:forEach>
 			</table>
 		</div>
 	</c:forEach>
 
-	<div
-		class="margin-top-middle margin-left gray-text font-size-middle text-underline">
-		<a href="<spring:url value="/appointments/register" />"><spring:message
-				code="label.schedule.an.appointent" /></a>
-	</div>
 	<div class="margin-top-large"></div>
 </div>

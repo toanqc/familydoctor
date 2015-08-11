@@ -28,7 +28,7 @@ public interface AppointmentService {
 	 * @param appointment
 	 */
 	void rescheduleAppointment(Appointment appointment);
-	
+
 	/**
 	 * Get appointment information by appointment id
 	 * 
@@ -43,4 +43,16 @@ public interface AppointmentService {
 	 * @param id
 	 */
 	void cancelAppointment(Integer id);
+
+	/**
+	 * 
+	 * @param id
+	 */
+	void acceptAppointment(Integer id);
+
+	/**
+	 * 
+	 * @param id
+	 */
+	void rejectAppointment(Integer id);
 }

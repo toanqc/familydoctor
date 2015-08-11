@@ -42,6 +42,11 @@
 			value="/WEB-INF/views/appointment-reschedule.jsp" />
 	</definition>
 
+	<!-- Doctor -->
+	<definition name="doctor-home" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/doctor-home.jsp" />
+	</definition>
+
 	<!-- Login -->
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
