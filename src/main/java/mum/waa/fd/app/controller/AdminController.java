@@ -52,16 +52,15 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/admin/save-doctor", method = RequestMethod.POST)
-	public String saveDoctor(@Valid @ModelAttribute("newDoctor") Doctor newDoctor, Model model, BindingResult result,
-			RedirectAttributes redirectAttributes) {
+	public String saveDoctor(@Valid @ModelAttribute("newDoctor") Doctor newDoctor, BindingResult result, RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
-			return "admin/add-doctor";
+			return "admin-add-doctor";
 		}
 
 		doctorService.saveDoctor(newDoctor);
 
-		redirectAttributes.addFlashAttribute("message", "Doctor successfully added");
+		redirectAttributes.addFlashAttribute("message", "Doctor successfully added!");
 		return "redirect:/admin/add-doctor";
 	}
 
