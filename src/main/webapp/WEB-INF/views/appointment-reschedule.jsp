@@ -6,7 +6,7 @@
 	<div class="margin-top-middle margin-left gray-text font-size-small">
 		<a class="text-underline" href="<spring:url value="/patients/home" />"><spring:message
 				code="label.home" /></a> >
-		<spring:message code="label.schedule.an.appointent" />
+		<spring:message code="label.reschedule.an.appointent" />
 	</div>
 
 	<div class="margin-left margin-top-middle title">

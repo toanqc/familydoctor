@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import mum.waa.fd.app.domain.Appointment;
+import mum.waa.fd.app.domain.AppointmentStatus;
 import mum.waa.fd.app.domain.Authority;
 import mum.waa.fd.app.domain.AuthorityRole;
 import mum.waa.fd.app.domain.Patient;
@@ -64,8 +65,11 @@ public class PatientServiceImpl implements PatientService {
 			} else {
 				appointments = new ArrayList<>();
 			}
-			appointments.add(appointment);
-			appointmentMap.put(appointment.getDate(), appointments);
+
+			if (!AppointmentStatus.CANCELED.equals(appointment.getStatus())) {
+				appointments.add(appointment);
+				appointmentMap.put(appointment.getDate(), appointments);
+			}
 		}
 
 		return appointmentMap;
