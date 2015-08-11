@@ -59,7 +59,8 @@ public class Appointment {
 	private Doctor doctor;
 
 	public Appointment() {
-		// default constructor
+		this.patient = new Patient();
+		this.doctor = new Doctor();
 	}
 
 	public Appointment(Date date, String room, AppointmentStatus status) {

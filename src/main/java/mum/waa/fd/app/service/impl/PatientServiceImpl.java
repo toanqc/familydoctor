@@ -46,7 +46,12 @@ public class PatientServiceImpl implements PatientService {
 	}
 
 	@Override
-	public Map<Date, List<Appointment>> mapAppointment(List<Appointment> appointmentList) {
-		return FamilyDoctorUtil.mapAppointmentFromList(appointmentList);
+	public Map<Date, List<Appointment>> getUpcomingAppointment(List<Appointment> appointmentList) {
+		return FamilyDoctorUtil.mapAppointmentFromList(appointmentList, false);
+	}
+
+	@Override
+	public Map<Date, List<Appointment>> getOverdueAppointment(List<Appointment> appointmentList) {
+		return FamilyDoctorUtil.mapAppointmentFromList(appointmentList, true);
 	}
 }

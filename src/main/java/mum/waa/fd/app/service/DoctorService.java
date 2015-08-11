@@ -33,5 +33,12 @@ public interface DoctorService {
 	 * @param appointmentList
 	 * @return
 	 */
-	Map<Date, List<Appointment>> mapAppointment(List<Appointment> appointmentList);
+	Map<Date, List<Appointment>> getUpcomingAppointment(List<Appointment> appointmentList);
+
+	/**
+	 * 
+	 * @param appointmentList
+	 * @return
+	 */
+	Map<Date, List<Appointment>> getOverdueAppointment(List<Appointment> appointmentList);
 }

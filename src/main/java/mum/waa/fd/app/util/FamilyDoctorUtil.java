@@ -1,6 +1,7 @@
 package mum.waa.fd.app.util;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
@@ -53,13 +54,16 @@ public class FamilyDoctorUtil {
 	 * @param appointmentList
 	 * @return
 	 */
-	public static Map<Date, List<Appointment>> mapAppointmentFromList(List<Appointment> appointmentList) {
+	public static Map<Date, List<Appointment>> mapAppointmentFromList(List<Appointment> appointmentList,
+			boolean isPast) {
 
 		if (appointmentList.isEmpty()) {
 			return Collections.emptyMap();
 		}
 
 		Map<Date, List<Appointment>> appointmentMap = new HashMap<>();
+
+		Date now = getCurrentDate();
 
 		for (Appointment appointment : appointmentList) {
 			List<Appointment> appointments = null;
@@ -69,12 +73,27 @@ public class FamilyDoctorUtil {
 				appointments = new ArrayList<>();
 			}
 
-			if (!AppointmentStatus.CANCELED.equals(appointment.getStatus())) {
+			if (!AppointmentStatus.CANCELED.equals(appointment.getStatus())
+					&& (now.after(appointment.getDate()) == isPast)) {
 				appointments.add(appointment);
 				appointmentMap.put(appointment.getDate(), appointments);
 			}
 		}
 
 		return appointmentMap;
+	}
+
+	/**
+	 * Get current date without time
+	 * 
+	 * @return
+	 */
+	private static Date getCurrentDate() {
+		Calendar cal = Calendar.getInstance();
+		cal.set(Calendar.HOUR_OF_DAY, 0);
+		cal.set(Calendar.MINUTE, 0);
+		cal.set(Calendar.SECOND, 0);
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal.getTime();
 	}
 }

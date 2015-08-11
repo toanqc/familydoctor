@@ -29,15 +29,15 @@ public class DoctorServiceImpl implements DoctorService {
 	public void saveDoctor(Doctor doctor) {
 		doctorRepository.save(doctor);
 	}
-	
+
 	@Override
-	public List<Doctor> getAll(){
+	public List<Doctor> getAll() {
 		List<Doctor> doctors = new ArrayList<Doctor>();
-		
-		for(Doctor d : doctorRepository.findAll()){
+
+		for (Doctor d : doctorRepository.findAll()) {
 			doctors.add(d);
 		}
-		
+
 		return doctors;
 	}
 
@@ -63,7 +63,12 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public Map<Date, List<Appointment>> mapAppointment(List<Appointment> appointmentList) {
-		return FamilyDoctorUtil.mapAppointmentFromList(appointmentList);
+	public Map<Date, List<Appointment>> getUpcomingAppointment(List<Appointment> appointmentList) {
+		return FamilyDoctorUtil.mapAppointmentFromList(appointmentList, false);
+	}
+
+	@Override
+	public Map<Date, List<Appointment>> getOverdueAppointment(List<Appointment> appointmentList) {
+		return FamilyDoctorUtil.mapAppointmentFromList(appointmentList, true);
 	}
 }

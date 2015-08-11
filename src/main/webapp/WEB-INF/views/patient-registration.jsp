@@ -17,16 +17,16 @@
 					<td class="text-align-right"><label for="firstName"><spring:message
 								code="label.first.name" /> *</label></td>
 					<td><form:input path="firstName" id="firstName" maxlength="10"
-							size="15" /></td>
+							size="14" /></td>
 					<td class="text-align-right"><label for="lastName"><spring:message
 								code="label.last.name" /> *</label></td>
 					<td>&nbsp;<form:input path="lastName" id="lastName"
-							maxlength="10" size="15" /></td>
-					<spring:bind path="*">
-						<c:if test="${status.error}">
-							<td class="red"><h2>Validation Result</h2>
-						</c:if>
-					</spring:bind>
+							maxlength="10" size="14" /></td>
+					<td class="red"><spring:bind path="*">
+							<c:if test="${status.error}">
+								<h2>Validation Result</h2>
+							</c:if>
+						</spring:bind></td>
 				</tr>
 				<tr>
 					<td class="text-align-right"><label for="dateOfBirth"><spring:message
@@ -43,9 +43,9 @@
 					<td class="text-align-right"><label for="gender"><spring:message
 								code="label.gender" /> *</label></td>
 					<td class="text-align-left"><form:radiobutton path="gender"
-							id="gender" value="MALE" />&nbsp;&nbsp;<spring:message
-							code="label.gender.male" /> &nbsp;&nbsp;&nbsp;&nbsp; <form:radiobutton
-							path="gender" id="gender" value="FEMALE" />&nbsp;&nbsp;<spring:message
+							id="gender" value="MALE" />&nbsp;<spring:message
+							code="label.gender.male" /> <form:radiobutton
+							path="gender" id="gender" value="FEMALE" />&nbsp;<spring:message
 							code="label.gender.female" /></td>
 				</tr>
 				<tr>
@@ -64,11 +64,11 @@
 					<td class="text-align-right"><label for="state"><spring:message
 								code="label.address.state" /></label></td>
 					<td><form:input path="address.state" id="state" maxlength="2"
-							size="15" /></td>
+							size="14" /></td>
 					<td class="text-align-right"><label for="zipcode"><spring:message
 								code="label.address.zipcode" /> *</label></td>
 					<td>&nbsp;<form:input path="address.zipcode" id="zipcode"
-							maxlength="5" size="15" /></td>
+							maxlength="5" size="14" /></td>
 				</tr>
 				<tr>
 					<td class="text-align-right"><label for="phone"><spring:message

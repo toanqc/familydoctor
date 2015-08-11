@@ -36,9 +36,13 @@ public class DoctorController {
 	@RequestMapping(value = "/doctors/home", method = RequestMethod.GET)
 	public String showPatientHome(@ModelAttribute("doctor") Doctor doctor, Model model, Principal principal) {
 		Doctor foundDoctor = doctorService.findDoctorByEmail(principal.getName());
-		Map<Date, List<Appointment>> appointmentMap = doctorService.mapAppointment(foundDoctor.getAppointmentList());
+		Map<Date, List<Appointment>> upcomingAppointment = doctorService
+				.getUpcomingAppointment(foundDoctor.getAppointmentList());
+		Map<Date, List<Appointment>> overdueAppointment = doctorService
+				.getOverdueAppointment(foundDoctor.getAppointmentList());
 
-		model.addAttribute("appointmentMap", appointmentMap);
+		model.addAttribute("upcomingAppointment", upcomingAppointment);
+		model.addAttribute("overdueAppointment", overdueAppointment);
 		model.addAttribute("doctor", foundDoctor);
 		return "doctor-home";
 	}
