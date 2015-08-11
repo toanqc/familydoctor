@@ -1,6 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="content">
 	<div class="margin-left margin-top-middle title">
@@ -8,17 +8,18 @@
 		<div class="hr-separator"></div>
 	</div>
 	<div class="margin-left-large margin-top-middle">		
-		
+							
 		<c:if test="${not empty message}">
 			<div class="success-message">
-    			<c:out value="${message}" />
+    			</h3><c:out value="${message}" />
     		</div>
 		</c:if>
 
-		<form:errors path="*" cssClass="error-message" element="div" />
-
 		<spring:url value="/admin/save-doctor" var="url" htmlEscape="true"/>
 		<form:form commandName="newDoctor" action="${url}" method="POST">
+		
+			<form:errors path="*" cssClass="error-message" element="div" />
+			
 			<table class="data-table">
 				<tr>
 					<td class="text-align-right"><label for="firstName"><spring:message
@@ -35,8 +36,7 @@
 								code="label.date.of.birth" /> *</label></td>
 					<td colspan="3"><form:input path="dateOfBirth"
 							id="dateOfBirth" maxlength="10" size="47" /></td>
-					<td rowspan="8" class="text-align-top"><form:errors path="*"
-							cssClass="red" /></td>
+					<td rowspan="8" class="text-align-top"></td>
 				</tr>
 				<tr>
 					<td class="text-align-right"><label for="gender"><spring:message
@@ -105,14 +105,20 @@
 							<form:options items="${specialization}"/>
 						</form:select>
 					</td>
-				</tr>																				
+				</tr>		
+				
+				<tr>
+					<td></td>
+					<td colspan="3" class="text-align-center">
+						<form:input type="hidden" path="user.enabled" />
+						<input type="submit" value="Submit"/>
+						
+						<c:url value="/admin" var="url"/>
+						<button class="btn-white" onclick="window.location='<c:out value='${url}'/>'"> Cancel </button>
+					</td>
+				</tr>																						
 			</table>
-			
-			<form:input type="hidden" path="user.enabled" />
-			<input type="submit" value="Submit"/>
-			
-			<c:url value="/admin" var="url"/>
-			<a href="<c:out value='${url}'/>"> Back </a>
+
 		</form:form>
 		
 	</div>

@@ -120,7 +120,7 @@ input[type=submit] {
 	text-decoration: underline !important;
 }
 
-input[type=reset] {
+input[type=reset], .btn-white {
 	color: black;
 	background-color: white;
 	font-size: 12px;
@@ -239,10 +239,34 @@ input[type=reset] {
 	padding: 10px;
 	background-color: #F5FFFF;
 	color: #008166;
+	font-weight: bold;
 }
 
 .error-message {
 	padding: 10px;
 	background-color: #FFEFFF;
 	color: #CC3300;
+	font-weight: bold;
+}
+
+.dashboard-content{
+	padding-top: 25px;
+}
+
+.dashboard-content table th {
+	background-color: #868686;
+	color: white;
+	padding: 8px;
+}
+
+.dashboard-content table tr:nth-child(even) td {
+	background-color: #FAFFFF;
+}
+
+.dashboard-content table {
+	border-collapse: collapse;
+}
+
+.dashboard-content table td {
+	padding: 8px;
 }
