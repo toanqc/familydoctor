@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import mum.waa.fd.app.domain.Appointment;
+import mum.waa.fd.app.domain.AppointmentStatus;
 import mum.waa.fd.app.domain.Doctor;
 import mum.waa.fd.app.domain.Patient;
 import mum.waa.fd.app.domain.Specialization;
@@ -57,5 +58,21 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointment.setPatient(patient);
 		appointment.setDoctor(doctor);
 		appointmentRepository.save(appointment);
+	}
+
+	@Override
+	public Appointment getAppointment(Integer id) {
+		return appointmentRepository.findOne(id);
+	}
+
+	@Override
+	public void rescheduleAppointment(Appointment appointment) {
+		Appointment appToBeUpdated = appointmentRepository.findOne(appointment.getAppointmentId());
+		appToBeUpdated.setDate(appointment.getDate());
+		appToBeUpdated.setTime(appointment.getTime());
+		appToBeUpdated.setDescription(appointment.getDescription());
+		appToBeUpdated.setStatus(AppointmentStatus.NEW);
+
+		appointmentRepository.save(appToBeUpdated);
 	}
 }

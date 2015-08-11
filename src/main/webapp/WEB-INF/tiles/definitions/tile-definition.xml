@@ -37,6 +37,11 @@
 			value="/WEB-INF/views/appointment-creation.jsp" />
 	</definition>
 
+	<definition name="appointment-reschedule" extends="baseLayout">
+		<put-attribute name="body"
+			value="/WEB-INF/views/appointment-reschedule.jsp" />
+	</definition>
+
 	<!-- Login -->
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />

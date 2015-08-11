@@ -70,4 +70,25 @@ public class AppointmentController {
 		Map<Integer, String> doctorMap = doctorService.findDoctorBySpecialization(spec);
 		return doctorMap;
 	}
+
+	@RequestMapping(value = "/appointments/{id}/reschedule", method = RequestMethod.GET)
+	public String showReschedulingAppointment(@ModelAttribute("appointment") Appointment appointment,
+			@PathVariable("id") Integer appointmentId, Model model) {
+		appointment = appointmentService.getAppointment(appointmentId);
+		model.addAttribute("appointment", appointment);
+		return "appointment-reschedule";
+	}
+
+	@RequestMapping(value = "/appointments/{id}/reschedule", method = RequestMethod.POST)
+	public String rescheduleAppointment(@Valid @ModelAttribute("appointment") Appointment appointment,
+			BindingResult bindingResult, @PathVariable("id") Integer appointmentId, Model model) {
+
+		if (bindingResult.hasErrors()) {
+			return "appointment-reschedule";
+		}
+
+		appointment.setAppointmentId(appointmentId);
+		appointmentService.rescheduleAppointment(appointment);
+		return "redirect:/patients/home";
+	}
 }

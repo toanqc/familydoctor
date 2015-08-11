@@ -22,4 +22,19 @@ public interface AppointmentService {
 	 * @param appointment
 	 */
 	void saveAppointment(Appointment appointment);
+
+	/**
+	 * 
+	 * @param appointment
+	 */
+	void rescheduleAppointment(Appointment appointment);
+	
+	/**
+	 * Get appointment information by appointment id
+	 * 
+	 * @param id
+	 *            the id to be found
+	 * @return {@link Appointment}
+	 */
+	Appointment getAppointment(Integer id);
 }
