@@ -1,3 +1,21 @@
 .dashboard-content{
 	padding-top: 25px;
 }
+
+table th {
+	background-color: #868686;
+	color: white;
+	padding: 8px;
+}
+
+table tr:nth-child(even) td {
+	background-color: #FAFFFF;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table td {
+	padding: 8px;
+}

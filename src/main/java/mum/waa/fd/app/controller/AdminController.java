@@ -4,6 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.validation.Valid;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -36,7 +37,9 @@ public class AdminController {
 	}
 
 	@RequestMapping("/admin")
-	public String adminDashboard() {
+	public String adminDashboard(Model model) {
+		List<Doctor> doctors = doctorService.getAll();
+		model.addAttribute("doctors", doctors);
 		return "admin-dashboard";
 	}
 
@@ -49,7 +52,7 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/admin/save-doctor", method = RequestMethod.POST)
-	public String saveDoctor(@ModelAttribute("newDoctor") @Valid Doctor newDoctor, Model model, BindingResult result,
+	public String saveDoctor(@Valid @ModelAttribute("newDoctor") Doctor newDoctor, Model model, BindingResult result,
 			RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {

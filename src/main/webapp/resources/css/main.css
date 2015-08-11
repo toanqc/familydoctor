@@ -223,3 +223,15 @@ input[type=reset] {
 	background-image: url('../images/mom_daughter.jpg');
 	background-position: center;
 }
+
+.success-message {
+	padding: 10px;
+	background-color: #F5FFFF;
+	color: #008166;
+}
+
+.error-message {
+	padding: 10px;
+	background-color: #FFEFFF;
+	color: #CC3300;
+}

@@ -7,12 +7,17 @@
 		<spring:message code="label.admin.registration" />
 		<div class="hr-separator"></div>
 	</div>
-	<c:if test="${not empty message}">
-    	<c:out value="${message}" />
-	</c:if>
 	<div class="margin-left-large margin-top-middle">		
-		<spring:url value="/admin/save-doctor" var="url" htmlEscape="true"/>
 		
+		<c:if test="${not empty message}">
+			<div class="success-message">
+    			<c:out value="${message}" />
+    		</div>
+		</c:if>
+
+		<form:errors path="*" cssClass="error-message" element="div" />
+
+		<spring:url value="/admin/save-doctor" var="url" htmlEscape="true"/>
 		<form:form commandName="newDoctor" action="${url}" method="POST">
 			<table class="data-table">
 				<tr>
@@ -93,12 +98,21 @@
 					<td><label>License #:</label></td>
 					<td><form:input path="licenseNumber" /></td>
 				</tr>	
-																			
+				<tr>
+					<td><label>Specialization:</label></td>
+					<td>
+						<form:select path="specialization">
+							<form:options items="${specialization}"/>
+						</form:select>
+					</td>
+				</tr>																				
 			</table>
 			
 			<form:input type="hidden" path="user.enabled" />
 			<input type="submit" value="Submit"/>
 			
+			<c:url value="/admin" var="url"/>
+			<a href="<c:out value='${url}'/>"> Back </a>
 		</form:form>
 		
 	</div>

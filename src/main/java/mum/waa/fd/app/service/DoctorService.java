@@ -11,6 +11,8 @@ import mum.waa.fd.app.domain.Specialization;
 public interface DoctorService {
 
 	public void saveDoctor(Doctor doctor);
+	
+	List<Doctor> getAll();
 
 	/**
 	 * 

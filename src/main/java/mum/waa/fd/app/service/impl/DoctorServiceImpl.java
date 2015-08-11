@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,17 @@ public class DoctorServiceImpl implements DoctorService {
 	@Override
 	public void saveDoctor(Doctor doctor) {
 		doctorRepository.save(doctor);
+	}
+	
+	@Override
+	public List<Doctor> getAll(){
+		List<Doctor> doctors = new ArrayList<Doctor>();
+		
+		for(Doctor d : doctorRepository.findAll()){
+			doctors.add(d);
+		}
+		
+		return doctors;
 	}
 
 	@Override
