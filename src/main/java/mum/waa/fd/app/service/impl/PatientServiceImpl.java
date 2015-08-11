@@ -17,6 +17,7 @@ import mum.waa.fd.app.domain.AuthorityRole;
 import mum.waa.fd.app.domain.Patient;
 import mum.waa.fd.app.repository.PatientRepository;
 import mum.waa.fd.app.service.PatientService;
+import mum.waa.fd.app.util.FamilyDoctorUtil;
 
 /**
  * 
@@ -35,6 +36,10 @@ public class PatientServiceImpl implements PatientService {
 		Authority authority = new Authority();
 		authority.setAuthorityRole(AuthorityRole.ROLE_PATIENT);
 		patient.getUser().getAuthorities().add(authority);
+
+		String encodedPassword = FamilyDoctorUtil.hashPassword(patient.getUser().getPassword());
+		patient.getUser().setPassword(encodedPassword);
+
 		patientRepository.save(patient);
 	}
 
