@@ -1,5 +1,10 @@
 package mum.waa.fd.app.service;
 
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import mum.waa.fd.app.domain.Appointment;
 import mum.waa.fd.app.domain.Patient;
 
 /**
@@ -28,4 +33,11 @@ public interface PatientService {
 	 * @return {@link Patient}
 	 */
 	Patient findPatientByEmail(String email);
+
+	/**
+	 * 
+	 * @param appointmentList
+	 * @return
+	 */
+	Map<Date, List<Appointment>> mapAppointment(List<Appointment> appointmentList);
 }

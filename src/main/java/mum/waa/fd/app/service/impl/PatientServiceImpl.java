@@ -1,9 +1,17 @@
 package mum.waa.fd.app.service.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import mum.waa.fd.app.domain.Appointment;
 import mum.waa.fd.app.domain.Authority;
 import mum.waa.fd.app.domain.AuthorityRole;
 import mum.waa.fd.app.domain.Patient;
@@ -33,5 +41,28 @@ public class PatientServiceImpl implements PatientService {
 	@Override
 	public Patient findPatientByEmail(String email) {
 		return patientRepository.findPatientByEmail(email);
+	}
+
+	@Override
+	public Map<Date, List<Appointment>> mapAppointment(List<Appointment> appointmentList) {
+
+		if (appointmentList.isEmpty()) {
+			return Collections.emptyMap();
+		}
+
+		Map<Date, List<Appointment>> appointmentMap = new HashMap<>();
+
+		for (Appointment appointment : appointmentList) {
+			List<Appointment> appointments = null;
+			if (appointmentMap.containsKey(appointment.getDate())) {
+				appointments = appointmentMap.get(appointment.getDate());
+			} else {
+				appointments = new ArrayList<>();
+			}
+			appointments.add(appointment);
+			appointmentMap.put(appointment.getDate(), appointments);
+		}
+
+		return appointmentMap;
 	}
 }

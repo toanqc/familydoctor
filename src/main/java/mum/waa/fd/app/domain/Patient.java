@@ -36,12 +36,12 @@ public class Patient extends Person {
 	private String ssn;
 
 	@Valid
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "PATIENT_ID")
 	private List<Appointment> appointmentList;
 
 	public Patient() {
-		// default constrcutor
+		// default constructor
 	}
 
 	public Patient(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,

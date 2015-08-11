@@ -106,9 +106,13 @@ input[type=reset] {
 	height: 500px;
 }
 
+.full-width {
+	width: 100%;
+}
+
 .data-table {
 	padding: 5px;
-	border-spacing: 15px 15px;
+	border-spacing: 15px 15px;'
 }
 
 .text-align-left {
@@ -168,4 +172,17 @@ input[type=reset] {
 	width: 500px;
 	background-image: url('../images/mom_daughter_small.jpg');
 	background-position: center;
+}
+
+.appointments table tr:nth-child(even) td {
+	background-color: #868686;
+	color: white;
+}
+
+.appointments table {
+    border-collapse:collapse;
+}
+
+.appointments table td {
+    padding: 8px;
 }

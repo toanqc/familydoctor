@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import mum.waa.fd.app.util.FamilyDoctorConstants;
@@ -30,15 +31,24 @@ public class Appointment {
 	@Column(name = "DATE")
 	private Date date;
 
+	@NotNull
+	@Column(name = "TIME")
+	private String time;
+
 	@Column(name = "ROOM")
 	private String room;
+
+	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
+	@Column(name = "DESCRIPTION")
+	private String description;
 
 	@NotNull
 	@Column(name = "STATUS")
 	@Enumerated(EnumType.STRING)
 	private AppointmentStatus status;
-	
-	public Appointment(){}
+
+	public Appointment() {
+	}
 
 	public Appointment(Date date, String room, AppointmentStatus status) {
 		this.date = date;
@@ -104,5 +114,35 @@ public class Appointment {
 	 */
 	public void setRoom(String room) {
 		this.room = room;
+	}
+
+	/**
+	 * @return the time
+	 */
+	public String getTime() {
+		return time;
+	}
+
+	/**
+	 * @param time
+	 *            the time to set
+	 */
+	public void setTime(String time) {
+		this.time = time;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * @param description
+	 *            the description to set
+	 */
+	public void setDescription(String description) {
+		this.description = description;
 	}
 }

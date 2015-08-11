@@ -34,7 +34,7 @@ public class User {
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Email(message = FamilyDoctorConstants.EMAIL_VALIDATION)
-	@Column(name = "EMAIL")
+	@Column(name = "EMAIL", unique = true)
 	private String email;
 
 	@Size(min = 5, max = 100, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
