@@ -1,12 +1,15 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <div class="content">
 	<div class="margin-left margin-top-middle title">
 		<spring:message code="label.admin.registration" />
 		<div class="hr-separator"></div>
 	</div>
-	
+	<c:if test="${not empty message}">
+    	<c:out value="${message}" />
+	</c:if>
 	<div class="margin-left-large margin-top-middle">		
 		<spring:url value="/admin/save-doctor" var="url" htmlEscape="true"/>
 		
@@ -90,13 +93,10 @@
 					<td><label>License #:</label></td>
 					<td><form:input path="licenseNumber" /></td>
 				</tr>	
-				<tr>
-					<td><label>Specialization:</label></td>
-					<td><form:input path="specialization" /></td>
-				</tr>																				
+																			
 			</table>
 			
-			<form:input type="hidden" path="user.enabled" value="1" />
+			<form:input type="hidden" path="user.enabled" />
 			<input type="submit" value="Submit"/>
 			
 		</form:form>
