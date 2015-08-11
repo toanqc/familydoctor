@@ -2,13 +2,16 @@ package mum.waa.fd.app.domain;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -26,12 +29,12 @@ public class Appointment {
 	@Column(name = "ID")
 	private int appointmentId;
 
-	@NotNull
+	@NotNull(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
 	@Column(name = "DATE")
 	private Date date;
 
-	@NotNull
+	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Column(name = "TIME")
 	private String time;
 
@@ -45,9 +48,13 @@ public class Appointment {
 	@NotNull
 	@Column(name = "STATUS")
 	@Enumerated(EnumType.STRING)
-	private AppointmentStatus status;
+	private AppointmentStatus status = AppointmentStatus.NEW;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Doctor.class)
+	private Doctor doctor;
 
 	public Appointment() {
+		// default constructor
 	}
 
 	public Appointment(Date date, String room, AppointmentStatus status) {
@@ -144,5 +151,20 @@ public class Appointment {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @return the doctor
+	 */
+	public Doctor getDoctor() {
+		return doctor;
+	}
+
+	/**
+	 * @param doctor
+	 *            the doctor to set
+	 */
+	public void setDoctor(Doctor doctor) {
+		this.doctor = doctor;
 	}
 }

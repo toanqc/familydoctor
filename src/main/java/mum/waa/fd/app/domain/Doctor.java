@@ -42,7 +42,7 @@ public class Doctor extends Person {
 	private Specialization specialization;
 
 	@Valid
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name = "DOCTOR_ID")
 	private List<Appointment> appointmentList;
 
@@ -56,6 +56,14 @@ public class Doctor extends Person {
 		this.licenseNumber = licenseNumber;
 		this.specialization = specialization;
 		appointmentList = new ArrayList<Appointment>();
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String getFullName() {
+		return this.getFirstName() + " " + this.getLastName();
 	}
 
 	/**

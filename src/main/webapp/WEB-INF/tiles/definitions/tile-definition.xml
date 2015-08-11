@@ -28,26 +28,34 @@
 			value="/WEB-INF/views/patient-registration-successful.jsp" />
 	</definition>
 
+	<definition name="patient-home" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/patient-home.jsp" />
+	</definition>
+
+	<definition name="appointment-creation" extends="baseLayout">
+		<put-attribute name="body"
+			value="/WEB-INF/views/appointment-creation.jsp" />
+	</definition>
+
+	<!-- Login -->
 	<definition name="login" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
 	</definition>
 
-	<definition name="patient-home" extends="baseLayout">
-		<put-attribute name="body" value="/WEB-INF/views/patient-home.jsp" />
-	</definition>
-	
-	<!-- Admin -->	
+	<!-- Admin -->
 	<definition name="adminLayout" extends="baseLayout">
-		<put-attribute name="header" value="/WEB-INF/tiles/template/header-admin.jsp" />
+		<put-attribute name="header"
+			value="/WEB-INF/tiles/template/header-admin.jsp" />
 		<put-attribute name="footer" value="/WEB-INF/tiles/template/footer.jsp" />
 	</definition>
-		
+
 	<definition name="admin-dashboard" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/admin-dashboard.jsp" />
-	</definition>	
-	
+	</definition>
+
 	<definition name="admin-add-doctor" extends="baseLayout">
-		<put-attribute name="body" value="/WEB-INF/views/admin-add-doctor.jsp" />
-	</definition>		
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin-add-doctor.jsp" />
+	</definition>
 
 </tiles-definitions>

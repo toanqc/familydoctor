@@ -1,5 +1,6 @@
 package mum.waa.fd.app.domain;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,9 @@ import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @Entity
 @Table(name = "User")
-public class User {
+public class User implements Serializable {
+
+	private static final long serialVersionUID = -622855600192016623L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

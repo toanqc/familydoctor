@@ -7,17 +7,17 @@ INSERT INTO Address (street, city, state, zipcode) VALUES ('1435 Channing Ave', 
 INSERT INTO Address (street, city, state, zipcode) VALUES ('42 Dogwood Dr.', 'Fairfield', 'IA', '52556');
 INSERT INTO Address (street, city, state, zipcode) VALUES ('501 Central', 'Mountain View', 'CA', '94707');
 
-/*
- * hash bcrypt
- * admin
- * patient 
- * toanqc 
- * markpit
- * kamaroy
- * longma
- * doctor
- * doctorkelly
- */
+
+-- hash bcrypt
+-- admin
+-- patient 
+-- toanqc 
+-- markpit
+-- kamaroy
+-- longma
+-- doctor
+-- doctorkelly
+
 
 INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values ('toanqc@gmail.com', '$2a$10$rNQqVynthlBeGumvLLGT5.LMK7CxihzmGj0mbP/8jxdeOk/f4mGqm', TRUE);
 INSERT INTO User (EMAIL, `PASSWORD`, ENABLED) values  ('makinnpit@gmail.com', '$2a$10$XwhFv1palydzwOx5kIf5JOAttlYd3pEE9Mm6wRlK5/16GdPL/cIMm', TRUE);
