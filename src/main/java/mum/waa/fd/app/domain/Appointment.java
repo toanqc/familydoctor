@@ -15,6 +15,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -32,12 +33,13 @@ public class Appointment {
 
 	@NotNull(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
-	@Future(message = "date should be future date")
+	@Future(message = FamilyDoctorConstants.FUTURE_DATE_VALIDATION)
 	@Column(name = "DATE")
 	private Date date;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Column(name = "TIME")
+	@Size(min = 1, max = 10, message = FamilyDoctorConstants.RANGE_LETTERS_VALIDATION)
 	private String time;
 
 	@Column(name = "ROOM")

@@ -5,8 +5,8 @@
 <div class="content">
 	<div class="margin-top-middle margin-left gray-text font-size-small">
 		<a class="text-underline" href="<spring:url value="/patients/home" />"><spring:message
-				code="label.home" /></a> > <spring:message
-				code="label.schedule.an.appointent" />
+				code="label.home" /></a> >
+		<spring:message code="label.schedule.an.appointent" />
 	</div>
 
 	<div class="margin-left margin-top-middle title">
@@ -52,7 +52,7 @@
 				<tr>
 					<td class="text-align-right"><label for="time"><spring:message
 								code="label.time" /> *</label></td>
-					<td><form:input path="time" id="time" maxlength="4" size="10" /></td>
+					<td><form:input path="time" id="time" maxlength="8" size="10" /></td>
 				</tr>
 				<tr>
 					<td class="text-align-right"><label for="description"><spring:message

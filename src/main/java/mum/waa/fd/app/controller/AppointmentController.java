@@ -36,8 +36,7 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointments/register", method = RequestMethod.GET)
 	public String showRegistrationAppointment(@ModelAttribute("appointment") Appointment appointment, Model model) {
-
-		model.addAttribute("specializations", appointmentService.getAllSpecialization());
+		initData(appointment, model);
 		return "appointment-creation";
 	}
 
@@ -45,13 +44,24 @@ public class AppointmentController {
 	public String showRegistrationAppointment(@Valid @ModelAttribute("appointment") Appointment appointment,
 			BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
-			model.addAttribute("specializations", appointmentService.getAllSpecialization());
+			initData(appointment, model);
 			return "appointment-creation";
 		}
 
 		appointmentService.saveAppointment(appointment);
 
 		return "redirect:/patients/home";
+	}
+
+	/**
+	 * Initialize data
+	 * 
+	 * @param appointment
+	 * @param model
+	 */
+	private void initData(Appointment appointment, Model model) {
+		appointment.getDoctor().setSpecialization(null);
+		model.addAttribute("specializations", appointmentService.getAllSpecialization());
 	}
 
 	@RequestMapping(value = "/specializations/{spec}", method = RequestMethod.GET, consumes = "application/json", produces = {
