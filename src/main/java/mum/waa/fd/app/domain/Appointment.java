@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -31,6 +32,7 @@ public class Appointment {
 
 	@NotNull(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@DateTimeFormat(pattern = FamilyDoctorConstants.DATE_FORMAT)
+	@Future(message = "date should be future date")
 	@Column(name = "DATE")
 	private Date date;
 
@@ -49,6 +51,9 @@ public class Appointment {
 	@Column(name = "STATUS")
 	@Enumerated(EnumType.STRING)
 	private AppointmentStatus status = AppointmentStatus.NEW;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Patient.class)
+	private Patient patient;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Doctor.class)
 	private Doctor doctor;
@@ -166,5 +171,20 @@ public class Appointment {
 	 */
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
+	}
+
+	/**
+	 * @return the patient
+	 */
+	public Patient getPatient() {
+		return patient;
+	}
+
+	/**
+	 * @param patient
+	 *            the patient to set
+	 */
+	public void setPatient(Patient patient) {
+		this.patient = patient;
 	}
 }

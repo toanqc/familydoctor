@@ -24,7 +24,9 @@
 		<!-- the more specific rules need to come first, followed by the more general 
 			ones. -->
 		<!-- Comment out the following to see @Service METHOD level authorization -->
-		<security:intercept-url pattern="/patients/register"
+		<security:intercept-url pattern="/patients/home"
+			access="hasRole('ROLE_PATIENT')" />
+		<security:intercept-url pattern="/appointments/**"
 			access="hasRole('ROLE_PATIENT')" />
 
 		<!-- always-use-default-target overrides where login was triggered -->

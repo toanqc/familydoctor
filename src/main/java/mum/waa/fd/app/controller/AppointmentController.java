@@ -43,10 +43,13 @@ public class AppointmentController {
 
 	@RequestMapping(value = "/appointments", method = RequestMethod.POST)
 	public String showRegistrationAppointment(@Valid @ModelAttribute("appointment") Appointment appointment,
-			BindingResult bindingResult) {
+			BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
+			model.addAttribute("specializations", appointmentService.getAllSpecialization());
 			return "appointment-creation";
 		}
+
+		appointmentService.saveAppointment(appointment);
 
 		return "redirect:/patients/home";
 	}

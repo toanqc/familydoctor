@@ -19,5 +19,6 @@ public class FamilyDoctorConstants {
 	public static final String STATE_VALIDATION = "{state.validation}";
 	public static final String PASSWORD_NOTMATCH_VALIDATION = "password.notmatch.validation";
 	public static final String RANGE_LETTERS_VALIDATION = "{range.letter.validation}";
+	public static final String FUTURE_DATE_VALIDATION = "{future.date.validation}";
 	/* end validation section */
 }

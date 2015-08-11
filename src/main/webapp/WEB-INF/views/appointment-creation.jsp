@@ -3,6 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="content">
+	<div class="margin-top-middle margin-left gray-text font-size-small">
+		<a href="<spring:url value="/patients/home" />"><spring:message
+				code="label.home" /></a> > <spring:message
+				code="label.schedule.an.appointent" />
+	</div>
+
 	<div class="margin-left margin-top-middle title">
 		<spring:message code="label.schedule.an.appointent" />
 		<div class="hr-separator"></div>

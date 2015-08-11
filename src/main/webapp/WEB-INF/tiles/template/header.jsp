@@ -26,7 +26,9 @@
 						code="label.join.us" /> ></a>
 			</security:authorize>
 			<security:authorize access="isAuthenticated()">
-				Welcome, <security:authentication property="principal.username" /><br />
+				<a href="<spring:url value="/patients/home" />">Welcome, <security:authentication
+						property="principal.username" /></a>
+				<br />
 				<a href="<spring:url value="/doLogout" />"><spring:message
 						code="label.logout" /></a>
 			</security:authorize>
