@@ -32,7 +32,7 @@ a:visited {
 }
 
 .gray-text {
-	color: #868686;
+	color: #868686 !important;
 }
 
 .font-size-large {
@@ -84,20 +84,33 @@ a:visited {
 	border-bottom: inset #008166 1px;
 }
 
-input[type=button], button, input[type=submit] {
+input[type=button], button {
 	color: white;
-	background-color: #008166;
+	background-color: #1AB292;
 	font-size: 14px;
 	height: 30px;
 	width: 90px;
 	white-space: nowrap;
 }
 
+input[type=submit] {
+	color: white;
+	background-color: #1AB292;
+	font-size: 12px;
+	height: 25px;
+	width: 90px;
+	white-space: nowrap;
+}
+
+.text-underline {
+	text-decoration: underline !important;
+}
+
 input[type=reset] {
 	color: black;
 	background-color: white;
-	font-size: 14px;
-	height: 30px;
+	font-size: 12px;
+	height: 25px;
 	width: 90px;
 	white-space: nowrap;
 }
@@ -112,7 +125,7 @@ input[type=reset] {
 
 .data-table {
 	padding: 5px;
-	border-spacing: 15px 15px;'
+	border-spacing: 15px 15px;
 }
 
 .text-align-left {
@@ -181,11 +194,11 @@ input[type=reset] {
 }
 
 .appointments table {
-    border-collapse:collapse;
+	border-collapse: collapse;
 }
 
 .appointments table td {
-    padding: 8px;
+	padding: 8px;
 }
 
 /* HOME PAGE */

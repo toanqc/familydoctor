@@ -32,10 +32,10 @@
 									maxlength="50" size="40" /></td>
 						</tr>
 						<tr>
-							<td colspan="2"
-								class="text-align-right gray-text font-size-small"><a
+							<td colspan="2" class="text-align-right font-size-small"><a
+								class="gray-text"
 								href="<spring:url value="/patients/register" />"><spring:message
-										code="label.new.member" /></a><br /> <a
+										code="label.new.member" /></a><br /> <a class="gray-text"
 								href="<spring:url value="/forgetPass" />"><spring:message
 										code="label.forgot.password" /></a></td>
 						</tr>

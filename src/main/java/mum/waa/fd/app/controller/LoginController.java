@@ -16,12 +16,34 @@ import mum.waa.fd.app.domain.User;
 public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String showLogin(@ModelAttribute("user") User user) {
-		return "login";
+	public String showLogin(@ModelAttribute("user") User user, HttpServletRequest request) {
+		String path = redirectByRole(request);
+
+		if ("".equals(path)) {
+			return "login";
+		}
+
+		return path;
 	}
 
 	@RequestMapping(value = "/login-success", method = RequestMethod.GET)
 	public String loginSuccess(HttpServletRequest request) {
+		String path = redirectByRole(request);
+
+		if ("".equals(path)) {
+			return "redirect:/home";
+		}
+
+		return path;
+	}
+
+	/**
+	 * Redirect based on role of the user
+	 * 
+	 * @param request
+	 * @return the redirect url
+	 */
+	private String redirectByRole(HttpServletRequest request) {
 		if (request.isUserInRole(AuthorityRole.ROLE_PATIENT.toString())) {
 			return "redirect:/patients/home";
 		}
@@ -34,7 +56,7 @@ public class LoginController {
 			return "redirect:/patients/admin";
 		}
 
-		return "redirect:/home";
+		return "";
 	}
 
 	@RequestMapping(value = "/login-failed", method = RequestMethod.GET)

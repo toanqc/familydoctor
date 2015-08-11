@@ -4,7 +4,7 @@
 
 <div class="content">
 	<div class="margin-top-middle margin-left gray-text font-size-small">
-		<a href="<spring:url value="/patients/home" />"><spring:message
+		<a class="text-underline" href="<spring:url value="/patients/home" />"><spring:message
 				code="label.home" /></a> > <spring:message
 				code="label.schedule.an.appointent" />
 	</div>

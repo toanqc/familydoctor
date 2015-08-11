@@ -24,7 +24,7 @@
 		</div>
 	</c:forEach>
 
-	<div class="margin-top-middle margin-left gray-text font-size-middle">
+	<div class="margin-top-middle margin-left gray-text font-size-middle text-underline">
 		<a href="<spring:url value="/appointments/register" />"><spring:message
 				code="label.schedule.an.appointent" /></a>
 	</div>
