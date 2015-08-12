@@ -102,7 +102,8 @@
 					</tr>
 					<tr>
 						<td></td>
-						<td><input type="submit" value="Update" /></td>
+						<td><spring:message code="button.update" var="update" />
+							<input type="submit" value="${update}" />
 					</tr>
 				</table>
 			</form:form>

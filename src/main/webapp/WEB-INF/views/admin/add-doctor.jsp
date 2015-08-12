@@ -113,16 +113,17 @@
 
 				<tr>
 					<td></td>
+					<spring:message code="button.submit" var="submit" />
 					<td colspan="3" class="text-align-center"><form:input
 							type="hidden" path="user.enabled" /> <input type="submit"
-						value="Submit" /> <c:url value="/admin" var="url" />
+						value="${submit}" /> <c:url value="/admin" var="url" />
 						<button class="btn-white"
 							onclick="window.location='<c:out value='${url}'/>'">
-							Cancel</button></td>
+							<spring:message code="link.cancel" />
+						</button></td>
 				</tr>
 			</table>
 
 		</form:form>
-
 	</div>
 </div>
