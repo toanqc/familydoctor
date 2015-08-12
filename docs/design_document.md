@@ -70,14 +70,47 @@ The project contains a domain model. It has presentation tier, business tier and
 
 ![components](https://cloud.githubusercontent.com/assets/973414/9238426/c3786380-4117-11e5-9e9b-ebd6f519a207.jpg)
 
+The domain are saved by JPA and they are handled as entity. The service components wraps the business logic. And the controller is used to maintain the interface workflow. 
 
-#### Class diagram
+The domain contains the following entities.
 
-[class diagram](!diagrams/classdiagram.svg)
+class | description
+------|:-----------
+Authority | This class along with User helps user login and role based security control.
+Admin | It contains the site administrator information.
+User | It contains the login information.
+Patient | It keeps the patient information.
+Doctor | It keeps the doctor information.
+Appointment | It contains appointment room,time,date and status.
+Invoice | It contains invoice date,amount and status.
+Address | It contains address.
+
 
 
 Detail design
 ==============
 
 #### Class diagram
+The class diagram below shows the domain model.
+
+![class diagram](diagrams/classdiagram.svg)
+
+class | description
+------|:-----------
+Authority | *Authority* is contained by User. The spring security module uses authority role for managing access to the pages and services.
+Admin | It is subclass of *Person*. It is the specialization to contain admisnitration related staff. As it has *is a* relationship with *Person*, the super class contains all the address and identification fields. It creates *Doctor* instance.
+User | It contains the login information. It contains the *Authority*.
+Patient | It keeps the patient information. Again it has *is a* relationship with *Person*. It contains all the appointments. It creates appointments. It can also pay for appointments.
+Doctor | It keeps the doctor information. And it has *is a* relationship with *Person*. It contains related appointments. It approves the invoice.
+Appointment | It contains appointment room,time,date and status. It is contained by both *Patient* and *Doctor*. It creates the invoice.
+Invoice | It contains invoice date,amount and status. It can be payed by the *Patient*.
+Address | It contains streat,city and zipcode. It can be contained by *Person*.
+Person | It is the generalization of *Doctor*,*Patient* and *Admin*. It contains identification and communication information. It contains *Address*.
+
+
 #### Interaction Diagram
+
+The scenario below shows the appointment creation ..
+
+ TODO fill me
+
