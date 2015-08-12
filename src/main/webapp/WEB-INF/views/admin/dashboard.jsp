@@ -5,14 +5,14 @@
 	<div class="inner-content">
 
 		<div class="margin-left admin-dashboard-content">
-			<span class="title">Doctor List</span>
+			<span class="title"><spring:message code="label.doctor.list" /></span>
 			<table class="data-table full-width admin-doctor-list">
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Specialization</th>
-						<th>Phone</th>
-						<th>Email</th>
+						<th><spring:message code="table.header.name" /></th>
+						<th><spring:message code="label.specialization" /></th>
+						<th><spring:message code="label.phone" /></th>
+						<th><spring:message code="label.user.email" /></th>
 						<th>&nbsp;</th>
 					</tr>
 				</thead>			
@@ -25,16 +25,16 @@
 						<td>${doctor.user.email}</td>
 						<td>
 							<spring:url value="/admin/doctor/${doctor.doctorId}" var="url" htmlEscape="true"/>
-							<a href="${url}">Edit</a> | 
+							<a href="${url}"><spring:message code="button.label.edit" /></a> | 
 							
-							<a style="cursor:pointer" onclick="deleteAccount(${doctor.doctorId})">Delete</a>
+							<a style="cursor:pointer" onclick="deleteAccount(${doctor.doctorId})"><spring:message code="button.label.delete" /></a>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
 			
 			<spring:url value="/admin/add-doctor" var="url" htmlEscape="true"/>
-			<button type="button" onclick="window.location='${url}'">Add Doctor</button>	
+			<button type="button" onclick="window.location='${url}'"><spring:message code="button.label.add.doctor" /></button>	
 		</div>
 		
 	</div>

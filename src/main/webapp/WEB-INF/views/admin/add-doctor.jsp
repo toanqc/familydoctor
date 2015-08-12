@@ -95,11 +95,11 @@
 							id="confirm" maxlength="50" size="47" /></td>
 				</tr>
 				<tr>
-					<td><label>License #:</label></td>
+					<td><label><spring:message code="label.license.number"/></label></td>
 					<td><form:input path="licenseNumber" /></td>
 				</tr>	
 				<tr>
-					<td><label>Specialization:</label></td>
+					<td><label><spring:message code="label.specialization"/></label></td>
 					<td>
 						<form:select path="specialization">
 							<form:options items="${specialization}"/>
@@ -111,10 +111,12 @@
 					<td></td>
 					<td colspan="3" class="text-align-center">
 						<form:input type="hidden" path="user.enabled"/>
-						<input type="submit" value="Submit"/>
+						<input type="submit" value="<spring:message code="button.submit"/>"/>
 						
 						<c:url value="/admin" var="url"/>
-						<button type="button" class="btn-white" onclick="window.location='<c:out value='${url}'/>'"> Cancel </button>
+						<button type="button" class="btn-white" onclick="window.location='<c:out value='${url}'/>'"> 
+							<spring:message code="link.cancel"/>
+						</button>
 					</td>
 				</tr>																						
 			</table>
