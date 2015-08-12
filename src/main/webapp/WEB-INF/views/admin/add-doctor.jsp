@@ -1,25 +1,27 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="content">
 	<div class="margin-left margin-top-middle title">
 		<spring:message code="label.admin.registration" />
 		<div class="hr-separator"></div>
 	</div>
-	<div class="margin-left-large margin-top-middle">		
-							
+	<div class="margin-left-large margin-top-middle">
+
 		<c:if test="${not empty message}">
 			<div class="success-message">
-    			</h3><c:out value="${message}" />
-    		</div>
+				<h3>
+					<c:out value="${message}" />
+				</h3>
+			</div>
 		</c:if>
 
-		<spring:url value="/admin/save-doctor" var="url" htmlEscape="true"/>
+		<spring:url value="/admin/save-doctor" var="url" htmlEscape="true" />
 		<form:form commandName="newDoctor" action="${url}" method="POST">
-		
+
 			<form:errors path="*" cssClass="error-message" element="div" />
-			
+
 			<table class="data-table">
 				<tr>
 					<td class="text-align-right"><label for="firstName"><spring:message
@@ -46,8 +48,8 @@
 							code="label.gender.male" /> &nbsp;&nbsp;&nbsp;&nbsp; <form:radiobutton
 							path="gender" id="gender" value="FEMALE" />&nbsp;&nbsp;<spring:message
 							code="label.gender.female" /></td>
-				</tr>	
-	
+				</tr>
+
 				<tr>
 					<td class="text-align-right"><label for="street"><spring:message
 								code="label.address.street" /></label></td>
@@ -97,29 +99,26 @@
 				<tr>
 					<td><label>License #:</label></td>
 					<td><form:input path="licenseNumber" /></td>
-				</tr>	
+				</tr>
 				<tr>
 					<td><label>Specialization:</label></td>
-					<td>
-						<form:select path="specialization">
-							<form:options items="${specialization}"/>
-						</form:select>
-					</td>
-				</tr>		
-				
+					<td><form:select path="specialization">
+							<form:options items="${specialization}" />
+						</form:select></td>
+				</tr>
+
 				<tr>
 					<td></td>
-					<td colspan="3" class="text-align-center">
-						<form:input type="hidden" path="user.enabled" />
-						<input type="submit" value="Submit"/>
-						
-						<c:url value="/admin" var="url"/>
-						<button class="btn-white" onclick="window.location='<c:out value='${url}'/>'"> Cancel </button>
-					</td>
-				</tr>																						
+					<td colspan="3" class="text-align-center"><form:input
+							type="hidden" path="user.enabled" /> <input type="submit"
+						value="Submit" /> <c:url value="/admin" var="url" />
+						<button class="btn-white"
+							onclick="window.location='<c:out value='${url}'/>'">
+							Cancel</button></td>
+				</tr>
 			</table>
 
 		</form:form>
-		
+
 	</div>
 </div>
