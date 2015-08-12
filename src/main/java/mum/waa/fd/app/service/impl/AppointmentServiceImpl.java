@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import mum.waa.fd.app.domain.Appointment;
 import mum.waa.fd.app.domain.AppointmentStatus;
 import mum.waa.fd.app.domain.Doctor;
+import mum.waa.fd.app.domain.InvoiceStatus;
 import mum.waa.fd.app.domain.Patient;
 import mum.waa.fd.app.domain.Specialization;
 import mum.waa.fd.app.repository.AppointmentRepository;
@@ -98,5 +99,15 @@ public class AppointmentServiceImpl implements AppointmentService {
 	private void updateAppointmentStatus(Appointment appointment, AppointmentStatus status) {
 		appointment.setStatus(status);
 		appointmentRepository.save(appointment);
+	}
+
+	@Override
+	public void updateAppointment(Appointment appointment) {
+		Appointment appointmentToBeUpdated = appointmentRepository.findOne(appointment.getAppointmentId());
+		appointmentToBeUpdated.setStatus(AppointmentStatus.COMPLETED);
+		appointmentToBeUpdated.getInvoice().setAmount(appointment.getInvoice().getAmount());
+		appointmentToBeUpdated.getInvoice().setStatus(InvoiceStatus.PENDING);
+
+		appointmentRepository.save(appointmentToBeUpdated);
 	}
 }

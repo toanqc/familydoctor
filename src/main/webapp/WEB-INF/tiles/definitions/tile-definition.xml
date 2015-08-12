@@ -5,7 +5,7 @@
 <tiles-definitions>
 
 	<definition name="baseLayout" template="/WEB-INF/tiles/template/baseLayout.jsp">
-		<put-attribute name="title" value="FamilyDoctor" />
+		<put-attribute name="title" value="Family Doctor" />
 		<put-attribute name="header" value="/WEB-INF/tiles/template/header.jsp" />
 		<put-attribute name="tagline" value="" />
 		<put-attribute name="navigation" value="" />
@@ -42,9 +42,19 @@
 			value="/WEB-INF/views/appointment-reschedule.jsp" />
 	</definition>
 
+	<definition name="appointment-detail" extends="baseLayout">
+		<put-attribute name="body"
+			value="/WEB-INF/views/appointment-detail.jsp" />
+	</definition>
+
 	<!-- Doctor -->
 	<definition name="doctor-home" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/views/doctor-home.jsp" />
+	</definition>
+
+	<definition name="doctor-appointment-detail" extends="baseLayout">
+		<put-attribute name="body"
+			value="/WEB-INF/views/doctor-appointment-detail.jsp" />
 	</definition>
 
 	<!-- Login -->

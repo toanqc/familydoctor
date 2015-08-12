@@ -27,10 +27,13 @@
 						<td width="15%" class="text-align-center">Room
 							${appointment.room}</td>
 						<td width="15%" class="text-align-center text-first-capital">${fn:toLowerCase(appointment.status)}</td>
-						<td width="15%"><a
+						<td width="10%"><a
 							href="<spring:url value="/appointments/${appointment.appointmentId}/accept" />"><spring:message
 									code="link.accept" /></a></td>
-						<td width="15%"><spring:message
+						<td width="10%" class="text-align-center"><a
+							href="<spring:url value="/appointments/${appointment.appointmentId}/detail" />"
+							id="cancel"><spring:message code="link.detail" /></a></td>
+						<td width="10%"><spring:message
 								code="label.are.you.sure.reject" var="reject" /> <a
 							onclick="return confirm('${reject}')"
 							href="<spring:url value="/appointments/${appointment.appointmentId}/reject" />"

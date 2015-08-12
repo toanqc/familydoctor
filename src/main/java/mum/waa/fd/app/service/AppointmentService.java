@@ -55,4 +55,10 @@ public interface AppointmentService {
 	 * @param id
 	 */
 	void rejectAppointment(Integer id);
+
+	/**
+	 * 
+	 * @param id
+	 */
+	void updateAppointment(Appointment appointment);
 }

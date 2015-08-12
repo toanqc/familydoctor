@@ -88,7 +88,7 @@ public class FamilyDoctorUtil {
 	 * 
 	 * @return
 	 */
-	private static Date getCurrentDate() {
+	public static Date getCurrentDate() {
 		Calendar cal = Calendar.getInstance();
 		cal.set(Calendar.HOUR_OF_DAY, 0);
 		cal.set(Calendar.MINUTE, 0);
