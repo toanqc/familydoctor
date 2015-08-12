@@ -11,7 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><tiles:insertAttribute name="title" /></title>
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-<link href="<c:url value="/resources/css/header-footer.css" />" rel="stylesheet">
+<link href="<c:url value="/resources/css/header-footer.css" />"
+	rel="stylesheet">
+<link rel="favicon" type="image/x-icon"
+	href="<c:url value="/resources/images/favicon.ico" />" />
+
 <script type="text/javascript"
 	src="<spring:url value="/resources/js/lib/jquery-2.1.4.min.js" />"></script>
 <script type="text/javascript"
