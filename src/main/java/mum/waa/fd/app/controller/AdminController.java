@@ -2,9 +2,9 @@ package mum.waa.fd.app.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 
 import javax.validation.Valid;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -16,10 +16,13 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.FieldError;
 
 import mum.waa.fd.app.domain.Doctor;
-import mum.waa.fd.app.service.AppointmentService;
+import mum.waa.fd.app.domain.Specialization;
 import mum.waa.fd.app.service.DoctorService;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
@@ -27,10 +30,7 @@ import mum.waa.fd.app.util.FamilyDoctorConstants;
 public class AdminController {
 
 	@Autowired
-	private DoctorService doctorService;
-
-	@Autowired
-	private AppointmentService appointmentService;
+	DoctorService doctorService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -49,16 +49,20 @@ public class AdminController {
 	@RequestMapping(value = "/admin/add-doctor", method = RequestMethod.GET)
 	public String addDoctorAcount(@ModelAttribute("newDoctor") Doctor newDoctor, Model model) {
 
-		model.addAttribute("specializations", appointmentService.getAllSpecialization());
+		model.addAttribute("specializations", Specialization.values());
 
 		return "admin-add-doctor";
 	}
 
 	@RequestMapping(value = "/admin/save-doctor", method = RequestMethod.POST)
-	public String saveDoctor(@Valid @ModelAttribute("newDoctor") Doctor newDoctor, BindingResult result,
-			RedirectAttributes redirectAttributes) {
-
-		if (result.hasErrors()) {
+	public String saveDoctor(@Valid @ModelAttribute("newDoctor") Doctor newDoctor, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+		if( ! newDoctor.getUser().getPassword().isEmpty() && ! newDoctor.getUser().getPassword().equals(newDoctor.getUser().getConfirmPassword())){
+			ObjectError err = new ObjectError("passwordMath","Password and Confirm Password do not match");
+			
+			bindingResult.addError(err);
+		}
+		
+		if (bindingResult.hasErrors()) {
 			return "admin-add-doctor";
 		}
 
@@ -68,9 +72,37 @@ public class AdminController {
 		return "redirect:/admin/add-doctor";
 	}
 
-	@RequestMapping("/admin/account")
-	public String modifyAdminAccount() {
-		return "admin-account";
+	@RequestMapping(value = "/admin/doctor/{doctorId}", method = RequestMethod.GET)
+	public String modifyAdminAccount(@PathVariable int doctorId, Model model) {
+		
+		Doctor doctor = doctorService.findDoctorById(doctorId);
+		model.addAttribute("doctor", doctor);
+		model.addAttribute("specializations", Specialization.values());
+		
+		return "admin-doctor-account";
 	}
+	
+	@RequestMapping(value = "/admin/doctor/{doctorId}", method = RequestMethod.POST)
+	public String editDoctor(@Valid Doctor doctor, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+
+		if( ! doctor.getUser().getPassword().isEmpty() && ! doctor.getUser().getPassword().equals(doctor.getUser().getConfirmPassword())){
+			ObjectError err = new ObjectError("passwordMath","Password and Confirm Password do not match");
+			
+			bindingResult.addError(err);
+		}
+		
+		if ( bindingResult.hasErrors() 
+				&& (( ! bindingResult.hasFieldErrors("user.password") && ! bindingResult.hasFieldErrors("user.confirmPassword") )
+						|| (( bindingResult.hasFieldErrors("user.password") && bindingResult.hasFieldErrors("user.confirmPassword") 
+								&& bindingResult.getErrorCount() > 2 ) ) ) ) {		
+			
+			return "admin-doctor-account";
+		}
+		
+		doctorService.updateDoctor(doctor);
+		redirectAttributes.addFlashAttribute("message", "Doctor info updated!");
+		
+		return "redirect:/admin/doctor/"+doctor.getDoctorId();
+	}	
 
 }

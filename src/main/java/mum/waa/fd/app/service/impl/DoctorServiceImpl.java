@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import mum.waa.fd.app.domain.Appointment;
+import mum.waa.fd.app.domain.Authority;
+import mum.waa.fd.app.domain.AuthorityRole;
 import mum.waa.fd.app.domain.Doctor;
 import mum.waa.fd.app.domain.Specialization;
 import mum.waa.fd.app.repository.DoctorRepository;
@@ -27,19 +29,57 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public void saveDoctor(Doctor doctor) {
+		Authority authority = new Authority();
+		authority.setAuthorityRole(AuthorityRole.ROLE_DOCTOR);
+		doctor.getUser().getAuthorities().add(authority);
+
+		String encodedPassword = FamilyDoctorUtil.hashPassword(doctor.getUser().getPassword());
+		doctor.getUser().setPassword(encodedPassword);
+		
 		doctorRepository.save(doctor);
 	}
-
+	
+	public void updateDoctor(Doctor doctor){		
+		Doctor doctorUpdate = doctorRepository.findDoctorById(doctor.getDoctorId());
+		
+		doctorUpdate.setFirstName(doctor.getFirstName());
+		doctorUpdate.setLastName(doctor.getLastName());
+		doctorUpdate.setDateOfBirth(doctor.getDateOfBirth());
+		doctorUpdate.setGender(doctor.getGender());
+		doctorUpdate.setLicenseNumber(doctor.getLicenseNumber());
+		doctorUpdate.setSpecialization(doctor.getSpecialization());
+		
+		doctorUpdate.getAddress().setCity(doctor.getAddress().getCity());
+		doctorUpdate.getAddress().setState(doctor.getAddress().getState());
+		doctorUpdate.getAddress().setStreet(doctor.getAddress().getStreet());
+		doctorUpdate.getAddress().setZipcode(doctor.getAddress().getZipcode());
+		
+		doctorUpdate.getUser().setEmail(doctor.getUser().getEmail());
+		
+		if( ! doctor.getUser().getPassword().isEmpty() ){
+			String encodedPassword = FamilyDoctorUtil.hashPassword(doctor.getUser().getPassword());
+			doctorUpdate.getUser().setPassword(encodedPassword);
+			doctorUpdate.getUser().setConfirmPassword(encodedPassword);
+		}
+		
+		doctorRepository.save(doctorUpdate);
+	}
+	
 	@Override
-	public List<Doctor> getAll() {
+	public List<Doctor> getAll(){
 		List<Doctor> doctors = new ArrayList<Doctor>();
-
-		for (Doctor d : doctorRepository.findAll()) {
+		
+		for(Doctor d : doctorRepository.findAll()){
 			doctors.add(d);
 		}
-
+		
 		return doctors;
 	}
+	
+	public Doctor findDoctorById(int id){
+		Doctor doctor = doctorRepository.findDoctorById(id);
+		return doctor;
+	}	
 
 	@Override
 	public Map<Integer, String> findDoctorBySpecialization(Specialization spec) {

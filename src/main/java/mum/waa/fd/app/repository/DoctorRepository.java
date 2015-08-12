@@ -12,10 +12,14 @@ import mum.waa.fd.app.domain.Specialization;
 
 @Repository
 public interface DoctorRepository extends CrudRepository<Doctor, Integer> {
-
+	
 	@Query("SELECT d FROM Doctor d WHERE d.specialization = :spec")
 	List<Doctor> findDoctorBySpecialization(@Param(value = "spec") Specialization spec);
 
 	@Query("SELECT d FROM Doctor d INNER JOIN d.user u WHERE u.email = :email")
 	Doctor findDoctorByEmail(@Param(value = "email") String email);
+	
+	@Query("SELECT d FROM Doctor d INNER JOIN d.user u WHERE d.id = :doctorId")
+	Doctor findDoctorById(@Param(value="doctorId") Integer doctorId);
+	
 }

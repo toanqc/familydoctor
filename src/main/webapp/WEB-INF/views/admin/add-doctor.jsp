@@ -109,7 +109,6 @@
 				
 				<tr>
 					<td></td>
-<<<<<<< HEAD
 					<td colspan="3" class="text-align-center">
 						<form:input type="hidden" path="user.enabled"/>
 						<input type="submit" value="Submit"/>
@@ -122,19 +121,5 @@
 
 		</form:form>
 		
-=======
-					<spring:message code="button.submit" var="submit" />
-					<td colspan="3" class="text-align-center"><form:input
-							type="hidden" path="user.enabled" /> <input type="submit"
-						value="${submit}" /> <c:url value="/admin" var="url" />
-						<button class="btn-white"
-							onclick="window.location='<c:out value='${url}'/>'">
-							<spring:message code="link.cancel" />
-						</button></td>
-				</tr>
-			</table>
-
-		</form:form>
->>>>>>> fb6ce63da3ce436c9d8209c8f33cba005fe6bdfb
 	</div>
 </div>
