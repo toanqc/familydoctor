@@ -1,6 +1,7 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <div class="content">
 	<div class="margin-left margin-top-middle title">
@@ -27,17 +28,18 @@
 					<td class="text-align-right"><label for="firstName"><spring:message
 								code="label.first.name" /> *</label></td>
 					<td><form:input path="firstName" id="firstName" maxlength="10"
-							size="15" /></td>
+							size="10" /></td>
 					<td class="text-align-right"><label for="lastName"><spring:message
 								code="label.last.name" /> *</label></td>
-					<td>&nbsp;<form:input path="lastName" id="lastName"
-							maxlength="10" size="15" /></td>
+					<td class="text-align-right"><form:input path="lastName"
+							id="lastName" maxlength="10" size="10" /></td>
+					<td></td>
 				</tr>
 				<tr>
 					<td class="text-align-right"><label for="dateOfBirth"><spring:message
 								code="label.date.of.birth" /> *</label></td>
 					<td colspan="3"><form:input path="dateOfBirth"
-							id="dateOfBirth" maxlength="10" size="47" /></td>
+							id="dateOfBirth" maxlength="10" size="48" /></td>
 					<td rowspan="8" class="text-align-top"></td>
 				</tr>
 				<tr>
@@ -66,11 +68,11 @@
 					<td class="text-align-right"><label for="state"><spring:message
 								code="label.address.state" /></label></td>
 					<td><form:input path="address.state" id="state" maxlength="2"
-							size="15" /></td>
+							size="10" /></td>
 					<td class="text-align-right"><label for="zipcode"><spring:message
 								code="label.address.zipcode" /> *</label></td>
-					<td>&nbsp;<form:input path="address.zipcode" id="zipcode"
-							maxlength="5" size="15" /></td>
+					<td><form:input path="address.zipcode" id="zipcode"
+							maxlength="5" size="9" /></td>
 				</tr>
 				<tr>
 					<td class="text-align-right"><label for="phone"><spring:message
@@ -97,13 +99,15 @@
 							id="confirm" maxlength="50" size="47" /></td>
 				</tr>
 				<tr>
-					<td><label>License #:</label></td>
-					<td><form:input path="licenseNumber" /></td>
+					<td class="text-align-right"><label><spring:message
+								code="label.license.number" /></label></td>
+					<td colspan="3"><form:input path="licenseNumber" /></td>
 				</tr>
 				<tr>
-					<td><label>Specialization:</label></td>
+					<td class="text-align-right"><label><spring:message
+								code="label.specialization" /> </label></td>
 					<td><form:select path="specialization">
-							<form:options items="${specialization}" />
+							<form:options items="${specializations}" />
 						</form:select></td>
 				</tr>
 

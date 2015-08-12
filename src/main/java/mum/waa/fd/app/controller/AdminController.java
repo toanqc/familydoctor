@@ -2,9 +2,9 @@ package mum.waa.fd.app.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import mum.waa.fd.app.domain.Doctor;
-import mum.waa.fd.app.domain.Specialization;
+import mum.waa.fd.app.service.AppointmentService;
 import mum.waa.fd.app.service.DoctorService;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
@@ -27,7 +27,10 @@ import mum.waa.fd.app.util.FamilyDoctorConstants;
 public class AdminController {
 
 	@Autowired
-	DoctorService doctorService;
+	private DoctorService doctorService;
+
+	@Autowired
+	private AppointmentService appointmentService;
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
@@ -46,13 +49,14 @@ public class AdminController {
 	@RequestMapping(value = "/admin/add-doctor", method = RequestMethod.GET)
 	public String addDoctorAcount(@ModelAttribute("newDoctor") Doctor newDoctor, Model model) {
 
-		model.addAttribute("specializations", Specialization.values());
+		model.addAttribute("specializations", appointmentService.getAllSpecialization());
 
 		return "admin-add-doctor";
 	}
 
 	@RequestMapping(value = "/admin/save-doctor", method = RequestMethod.POST)
-	public String saveDoctor(@Valid @ModelAttribute("newDoctor") Doctor newDoctor, BindingResult result, RedirectAttributes redirectAttributes) {
+	public String saveDoctor(@Valid @ModelAttribute("newDoctor") Doctor newDoctor, BindingResult result,
+			RedirectAttributes redirectAttributes) {
 
 		if (result.hasErrors()) {
 			return "admin-add-doctor";
