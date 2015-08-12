@@ -13,8 +13,8 @@
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
 <link href="<c:url value="/resources/css/header-footer.css" />"
 	rel="stylesheet">
-<link rel="favicon" type="image/x-icon"
-	href="<c:url value="/resources/images/favicon.ico" />" />
+<link rel="shortcut icon" type="image/png" sizes="128x128"
+	type="image/png" href="<c:url value="/resources/images/favicon.ico" />" />
 
 <script type="text/javascript"
 	src="<spring:url value="/resources/js/lib/jquery-2.1.4.min.js" />"></script>
