@@ -15,37 +15,46 @@
     		</div>
 		</c:if>
 
-		<spring:url value="/admin/save-doctor" var="url" htmlEscape="true"/>
-		<form:form commandName="newDoctor" action="${url}" method="POST">
-		
+		<spring:url value="/admin/doctor/${doctor.doctorId}" var="url" htmlEscape="true"/>
+		<form:form commandName="doctor" action="${url}" method="POST">
+
 			<form:errors path="*" cssClass="error-message" element="div" />
 			
 			<table class="data-table">
 				<tr>
-					<td class="text-align-right"><label for="firstName"><spring:message
-								code="label.first.name" /> *</label></td>
-					<td><form:input path="firstName" id="firstName" maxlength="10"
-							size="15" /></td>
-					<td class="text-align-right"><label for="lastName"><spring:message
-								code="label.last.name" /> *</label></td>
-					<td>&nbsp;<form:input path="lastName" id="lastName"
-							maxlength="10" size="15" /></td>
+					<td class="text-align-right">
+						<label for="firstName">
+						<spring:message code="label.first.name" /> *</label>
+					</td>
+					<td>
+						<form:input path="firstName" id="firstName" maxlength="10" size="15" />
+					</td>
+					<td class="text-align-right">
+						<label for="lastName"><spring:message code="label.last.name" /> *</label>
+					</td>
+					<td>
+						&nbsp;<form:input path="lastName" id="lastName" maxlength="10" size="15" />
+					</td>
 				</tr>
 				<tr>
-					<td class="text-align-right"><label for="dateOfBirth"><spring:message
-								code="label.date.of.birth" /> *</label></td>
-					<td colspan="3"><form:input path="dateOfBirth"
-							id="dateOfBirth" maxlength="10" size="47" /></td>
+					<td class="text-align-right">
+						<label for="dateOfBirth"><spring:message code="label.date.of.birth" /> *</label>
+					</td>
+					<td colspan="3">
+						<form:input path="dateOfBirth" id="dateOfBirth" maxlength="10" size="47" />
+					</td>
 					<td rowspan="8" class="text-align-top"></td>
 				</tr>
 				<tr>
-					<td class="text-align-right"><label for="gender"><spring:message
-								code="label.gender" /> *</label></td>
-					<td class="text-align-left"><form:radiobutton path="gender"
-							id="gender" value="MALE" />&nbsp;&nbsp;<spring:message
-							code="label.gender.male" /> &nbsp;&nbsp;&nbsp;&nbsp; <form:radiobutton
-							path="gender" id="gender" value="FEMALE" />&nbsp;&nbsp;<spring:message
-							code="label.gender.female" /></td>
+					<td class="text-align-right">
+						<label for="gender"><spring:message code="label.gender" /> *</label>
+					</td>
+					<td class="text-align-left">
+						<form:radiobutton path="gender" id="gender" value="MALE" />&nbsp;&nbsp;
+						<spring:message code="label.gender.male" /> &nbsp;&nbsp;&nbsp;&nbsp; 
+						<form:radiobutton path="gender" id="gender" value="FEMALE" />&nbsp;&nbsp;<spring:message
+							code="label.gender.female" />
+					</td>
 				</tr>	
 	
 				<tr>

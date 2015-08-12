@@ -72,8 +72,11 @@
 	</definition>
 
 	<definition name="admin-add-doctor" extends="baseLayout">
-		<put-attribute name="body"
-			value="/WEB-INF/views/admin/add-doctor.jsp" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/add-doctor.jsp" />
+	</definition>
+
+	<definition name="admin-doctor-account" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/views/admin/doctor-account.jsp" />
 	</definition>
 
 </tiles-definitions>

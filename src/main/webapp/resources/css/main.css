@@ -249,24 +249,27 @@ input[type=reset], .btn-white {
 	font-weight: bold;
 }
 
-.dashboard-content{
+.admin-dashboard-content{
 	padding-top: 25px;
 }
 
-.dashboard-content table th {
+.admin-dashboard-content table {
+	width: 70% !important;
+}
+.admin-dashboard-content table th {
 	background-color: #868686;
 	color: white;
 	padding: 8px;
 }
 
-.dashboard-content table tr:nth-child(even) td {
+.admin-dashboard-content table tr:nth-child(even) td {
 	background-color: #FAFFFF;
 }
 
-.dashboard-content table {
+.admin-dashboard-content table {
 	border-collapse: collapse;
 }
 
-.dashboard-content table td {
+.admin-dashboard-content table td {
 	padding: 8px;
 }
