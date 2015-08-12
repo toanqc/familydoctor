@@ -37,6 +37,10 @@ a:visited {
 	font-weight: bold;
 }
 
+.text-bold {
+	font-weight: bold;
+}
+
 .gray-text {
 	color: #868686 !important;
 }
@@ -98,7 +102,7 @@ a:visited {
 	border-bottom: inset #008166 1px;
 }
 
-input[type=button], button {
+input[type=button] {
 	color: white;
 	background-color: #1AB292;
 	font-size: 14px;
@@ -107,13 +111,21 @@ input[type=button], button {
 	white-space: nowrap;
 }
 
-input[type=submit] {
+input[type=submit], button {
 	color: white;
 	background-color: #1AB292;
 	font-size: 12px;
 	height: 25px;
 	width: 90px;
 	white-space: nowrap;
+}
+
+input[type=submit]:disabled, button:disabled {
+	color: white;
+	background-color: #d3d3d3;
+	font-size: 12px;
+	height: 25px;
+	width: 90px;
 }
 
 .text-underline {

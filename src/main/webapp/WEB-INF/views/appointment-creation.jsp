@@ -62,8 +62,10 @@
 				</tr>
 				<tr>
 					<td></td>
+					<spring:message code="button.submit" var="submit" />
+					<spring:message code="button.clear" var="clear" />
 					<td colspan="3" class="text-align-center"><input type="submit"
-						value="Submit" /> <input type="reset" value="Clear" /></td>
+						value="${submit}" /> <input type="reset" value="${clear}" /></td>
 				</tr>
 			</table>
 		</form:form>

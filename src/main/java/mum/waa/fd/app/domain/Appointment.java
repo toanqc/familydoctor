@@ -11,8 +11,11 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -52,13 +55,21 @@ public class Appointment {
 	@Enumerated(EnumType.STRING)
 	private AppointmentStatus status = AppointmentStatus.NEW;
 
+	@Valid
+	@OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@JoinColumn(name = "INVOICE_ID")
+	private Invoice invoice;
+
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Patient.class)
+	@JoinColumn(name = "PATIENT_ID")
 	private Patient patient;
 
 	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, targetEntity = Doctor.class)
+	@JoinColumn(name = "DOCTOR_ID")
 	private Doctor doctor;
 
 	public Appointment() {
+		this.invoice = new Invoice();
 		this.patient = new Patient();
 		this.doctor = new Doctor();
 	}
@@ -157,6 +168,21 @@ public class Appointment {
 	 */
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	/**
+	 * @return the invoice
+	 */
+	public Invoice getInvoice() {
+		return invoice;
+	}
+
+	/**
+	 * @param invoice
+	 *            the invoice to set
+	 */
+	public void setInvoice(Invoice invoice) {
+		this.invoice = invoice;
 	}
 
 	/**
