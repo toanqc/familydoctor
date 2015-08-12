@@ -39,5 +39,8 @@
 				src="<spring:url value="/resources/images/phone.png" />"
 				height="16px"> 641-FDOCTOR</a>
 		</div>
+		<div class="menu-text">
+			<a href="?language=en_US">English</a> | <a href="?language=zh_CN">Chinese</a>
+		</div>
 	</div>
 </div>
