@@ -39,6 +39,7 @@ public class DoctorServiceImpl implements DoctorService {
 		doctorRepository.save(doctor);
 	}
 	
+	@Override
 	public void updateDoctor(Doctor doctor){		
 		Doctor doctorUpdate = doctorRepository.findDoctorById(doctor.getDoctorId());
 		
@@ -59,10 +60,17 @@ public class DoctorServiceImpl implements DoctorService {
 		if( ! doctor.getUser().getPassword().isEmpty() ){
 			String encodedPassword = FamilyDoctorUtil.hashPassword(doctor.getUser().getPassword());
 			doctorUpdate.getUser().setPassword(encodedPassword);
-			doctorUpdate.getUser().setConfirmPassword(encodedPassword);
 		}
 		
 		doctorRepository.save(doctorUpdate);
+	}
+	
+	@Override
+	public void deleteDoctor(Integer doctorId){
+		if( doctorId != null && doctorId != 0 ){
+			Doctor doctor = doctorRepository.findOne(doctorId);
+			doctorRepository.delete(doctor);
+		}
 	}
 	
 	@Override

@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.validation.Valid;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.validation.ObjectError;
@@ -104,5 +106,19 @@ public class AdminController {
 		
 		return "redirect:/admin/doctor/"+doctor.getDoctorId();
 	}	
+	
+	@RequestMapping(value = "/admin/delete-doctor", method = RequestMethod.POST)
+	public @ResponseBody String deleteDoctor(HttpServletRequest request){
+		String result = "true";
+		
+		try{
+			Integer doctorId = Integer.parseInt(request.getParameter("id"));
+			doctorService.deleteDoctor(doctorId);
+		} catch (Exception e){
+			result = e.getLocalizedMessage();
+		}
+		
+		return result;
+	}
 
 }

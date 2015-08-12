@@ -18,7 +18,7 @@
 				</thead>			
 
 				<c:forEach items="${doctors}" var="doctor">
-					<tr>
+					<tr id="row-${doctor.doctorId}">
 						<td>${doctor.firstName} ${doctor.lastName}</td>
 						<td>${doctor.specialization}</td>
 						<td>${doctor.phone}</td>
@@ -27,7 +27,7 @@
 							<spring:url value="/admin/doctor/${doctor.doctorId}" var="url" htmlEscape="true"/>
 							<a href="${url}">Edit</a> | 
 							
-							<a href="" onclick="deleteAccount(${doctor.doctorId})">Delete</a>
+							<a style="cursor:pointer" onclick="deleteAccount(${doctor.doctorId})">Delete</a>
 						</td>
 					</tr>
 				</c:forEach>
@@ -39,3 +39,22 @@
 		
 	</div>
 </div>
+
+<script>
+$(document).ready(function(){
+	deleteAccount = function(id){
+		$.ajax({
+			url: "/FamilyDoctor/admin/delete-doctor/",
+			type: "POST",
+			dataType: "json",
+			data: {id : id},
+			success: function(response){
+				$("#row-"+id).fadeOut();
+			}, 
+			error : function(response){
+				alert("Error while request: " + response);
+			}
+		});
+	}
+});
+</script>

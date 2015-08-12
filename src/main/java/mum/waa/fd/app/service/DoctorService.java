@@ -12,6 +12,7 @@ public interface DoctorService {
 
 	public void saveDoctor(Doctor doctor);
 	public void updateDoctor(Doctor doctor);
+	public void deleteDoctor(Integer doctorId);
 	
 	/**
 	 * 
