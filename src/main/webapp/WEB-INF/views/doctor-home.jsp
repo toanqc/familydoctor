@@ -22,11 +22,12 @@
 			<table class="data-table full-width">
 				<c:forEach items="${appointments.value}" var="appointment">
 					<tr class="gray-text font-size-small">
-						<td width="25%">${appointment.description}</td>
-						<td width="15%" class="text-align-center">${appointment.time}</td>
-						<td width="15%" class="text-align-center">Room
+						<td width="12%">${appointment.patient.firstName}&nbsp;${appointment.patient.lastName}</td>
+						<td width="25%"> ${appointment.description}</td>
+						<td width="10%" class="text-align-center">${appointment.time}</td>
+						<td width="10%" class="text-align-center">Room
 							${appointment.room}</td>
-						<td width="15%" class="text-align-center text-first-capital">${fn:toLowerCase(appointment.status)}</td>
+						<td width="10%" class="text-align-center text-first-capital">${fn:toLowerCase(appointment.status)}</td>
 						<td width="10%"><a
 							href="<spring:url value="/appointments/${appointment.appointmentId}/accept" />"><spring:message
 									code="link.accept" /></a></td>
@@ -57,12 +58,13 @@
 			<table class="data-table full-width">
 				<c:forEach items="${appointments.value}" var="appointment">
 					<tr class="gray-text font-size-small">
+						<td width="12%">${appointment.patient.firstName}&nbsp;${appointment.patient.lastName}</td>
 						<td width="25%">${appointment.description}</td>
-						<td width="15%" class="text-align-center">${appointment.time}</td>
-						<td width="15%" class="text-align-center">Room
+						<td width="10%" class="text-align-center">${appointment.time}</td>
+						<td width="10%" class="text-align-center">Room
 							${appointment.room}</td>
-						<td width="15%" class="text-align-center red">Overdue</td>
-						<td width="15%"><a
+						<td width="10%" class="text-align-center red">Overdue</td>
+						<td width="10%"><a
 							href="<spring:url value="/appointments/${appointment.appointmentId}/cancel" />"><spring:message
 									code="link.cancel" /></a></td>
 						<td width="15%"></td>

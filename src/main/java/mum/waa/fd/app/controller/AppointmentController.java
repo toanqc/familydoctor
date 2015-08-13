@@ -141,10 +141,15 @@ public class AppointmentController {
 	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/appointments/{id}/cancel", method = RequestMethod.GET)
-	public String cancelAppointment(@PathVariable("id") Integer id, Model model) {
+	public String cancelAppointment(@PathVariable("id") Integer id, Model model, HttpServletRequest request) {
 
 		appointmentService.cancelAppointment(id);
-		return "redirect:/patients/home";
+		
+		if (request.isUserInRole(AuthorityRole.ROLE_PATIENT.toString())) {
+			return "redirect:/patients/home";
+		} else {
+			return "redirect:/doctors/home";
+		}		
 	}
 
 	/**

@@ -15,11 +15,12 @@
 			<table class="data-table full-width">
 				<c:forEach items="${appointments.value}" var="appointment">
 					<tr class="gray-text font-size-small">
+						<td width="20%" class="text-first-capital">${appointment.doctor.firstName} ${appointment.doctor.lastName} &#149; ${fn:toLowerCase(appointment.doctor.specialization)}</td>
 						<td width="25%">${appointment.description}</td>
-						<td width="15%" class="text-align-center">${appointment.time}</td>
-						<td width="15%" class="text-align-center">Room
+						<td width="10%" class="text-align-center">${appointment.time}</td>
+						<td width="10%" class="text-align-center">Room
 							${appointment.room}</td>
-						<td width="15%" class="text-align-center text-first-capital">${fn:toLowerCase(appointment.status)}</td>
+						<td width="10%" class="text-align-center text-first-capital">${fn:toLowerCase(appointment.status)}</td>
 						<td width="10%" class="text-align-center"><a
 							href="<spring:url value="/appointments/${appointment.appointmentId}/reschedule" />"><spring:message
 									code="link.reschedule" /></a></td>
@@ -56,12 +57,13 @@
 			<table class="data-table full-width">
 				<c:forEach items="${appointments.value}" var="appointment">
 					<tr class="gray-text font-size-small">
+						<td width="20%" class="text-first-capital">${appointment.doctor.firstName} ${appointment.doctor.lastName} &#149; ${fn:toLowerCase(appointment.doctor.specialization)}</td>
 						<td width="25%">${appointment.description}</td>
-						<td width="15%" class="text-align-center">${appointment.time}</td>
-						<td width="15%" class="text-align-center">Room
+						<td width="10%" class="text-align-center">${appointment.time}</td>
+						<td width="10%" class="text-align-center">Room
 							${appointment.room}</td>
-						<td width="15%" class="text-align-center red">Overdue</td>
-						<td width="15%" class="text-align-center"><spring:message
+						<td width="10%" class="text-align-center red">Overdue</td>
+						<td width="10%" class="text-align-center"><spring:message
 								code="label.are.you.sure" var="confirm" /> <a
 							onclick="return confirm('${confirm}')"
 							href="<spring:url value="/appointments/${appointment.appointmentId}/cancel" />"

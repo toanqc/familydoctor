@@ -42,15 +42,15 @@
 							value="${appointment.date}" /></td>
 				</tr>
 				<tr>
-					<td class="text-align-right text-bold"><label for="time"><spring:message
-								code="label.time" />:</label></td>
-					<td>${appointment.time}</td>
-				</tr>
-				<tr>
 					<td class="text-align-right text-bold"><label><spring:message
 								code="label.appointment.status" />:</label></td>
 					<td class="text-first-capital">${fn:toLowerCase(appointment.status)}</td>
 				</tr>
+				<tr>
+					<td class="text-align-right text-bold"><label
+						for="description"><spring:message code="label.patient" />:</label></td>
+					<td>${appointment.patient.firstName} &nbsp; ${appointment.patient.lastName}</td>
+				</tr>				
 				<tr>
 					<td class="text-align-right text-bold"><label
 						for="description"><spring:message code="label.description" />:</label></td>

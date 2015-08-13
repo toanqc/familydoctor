@@ -6,7 +6,7 @@
 
 <div class="content">
 	<div class="margin-top-middle margin-left gray-text font-size-small">
-		<a class="text-underline" href="<spring:url value="/patients/home" />"><spring:message
+		<a class="text-underline" href="<spring:url value="/doctors/home" />"><spring:message
 				code="label.home" /></a> >
 		<spring:message code="label.appointment.detail" />
 	</div>
@@ -43,19 +43,19 @@
 				</tr>
 				<tr>
 					<td class="text-align-right text-bold"><label><spring:message
-								code="label.time" />:</label></td>
-					<td>${appointment.time}</td>
-				</tr>
-				<tr>
-					<td class="text-align-right text-bold"><label><spring:message
 								code="label.appointment.status" />:</label></td>
 					<td class="text-first-capital">${fn:toLowerCase(appointment.status)}</td>
 				</tr>
 				<tr>
 					<td class="text-align-right text-bold"><label><spring:message
+								code="label.patient" />:</label></td>
+					<td>${appointment.patient.firstName}&nbsp;${appointment.patient.lastName}</td>
+				</tr>
+				<tr>
+					<td class="text-align-right text-bold"><label><spring:message
 								code="label.description" />:</label></td>
 					<td>${appointment.description}</td>
-				</tr>
+				</tr>				
 			</table>
 		</div>
 
