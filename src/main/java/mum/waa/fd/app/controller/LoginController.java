@@ -7,7 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.support.SessionStatus;
 
 import mum.waa.fd.app.domain.AuthorityRole;
 import mum.waa.fd.app.domain.User;
@@ -66,8 +65,12 @@ public class LoginController {
 	}
 
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(Model model, SessionStatus status) {
-		status.setComplete();
+	public String logout(Model model) {
 		return "redirect:/home";
+	}
+
+	@RequestMapping(value = "/403", method = RequestMethod.GET)
+	public String error(Model model) {
+		return "403";
 	}
 }
