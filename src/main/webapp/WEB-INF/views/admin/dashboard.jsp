@@ -27,11 +27,9 @@
 						<td class="text-first-capital">${fn:toLowerCase(doctor.specialization)}</td>
 						<td>${doctor.phone}</td>
 						<td>${doctor.user.email}</td>
-						<td><spring:url value="/admin/doctor/${doctor.doctorId}"
+						<td class="gray-text font-size-middle"><spring:url value="/admin/doctor/${doctor.doctorId}"
 								var="url" htmlEscape="true" /> <a href="${url}"><spring:message
-									code="button.label.edit" /></a>&nbsp; | &nbsp;<a style="cursor: pointer"
-							onclick="deleteAccount(${doctor.doctorId})"><spring:message
-									code="button.label.delete" /></a></td>
+									code="button.label.edit" /></a></td>
 					</tr>
 				</c:forEach>
 			</table>
