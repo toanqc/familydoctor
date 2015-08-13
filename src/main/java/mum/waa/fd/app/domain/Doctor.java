@@ -24,6 +24,12 @@ import org.hibernate.validator.constraints.NotBlank;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @Entity
+/**
+ * <p>Doctor class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 @Table(name = "Doctor")
 public class Doctor extends Person {
 
@@ -46,10 +52,26 @@ public class Doctor extends Person {
 	@JoinColumn(name = "DOCTOR_ID")
 	private List<Appointment> appointmentList;
 
+	/**
+	 * <p>Constructor for Doctor.</p>
+	 */
 	public Doctor() {
 		// default constructor
 	}
 
+	/**
+	 * <p>Constructor for Doctor.</p>
+	 *
+	 * @param firstName a {@link java.lang.String} object.
+	 * @param lastName a {@link java.lang.String} object.
+	 * @param dateOfBirth a {@link java.util.Date} object.
+	 * @param gender a {@link mum.waa.fd.app.domain.Gender} object.
+	 * @param phone a {@link java.lang.String} object.
+	 * @param user a {@link mum.waa.fd.app.domain.User} object.
+	 * @param address a {@link mum.waa.fd.app.domain.Address} object.
+	 * @param licenseNumber a {@link java.lang.String} object.
+	 * @param specialization a {@link mum.waa.fd.app.domain.Specialization} object.
+	 */
 	public Doctor(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
 			Address address, String licenseNumber, Specialization specialization) {
 		super(firstName, lastName, dateOfBirth, gender, phone, user, address);
@@ -59,14 +81,17 @@ public class Doctor extends Person {
 	}
 
 	/**
-	 * 
-	 * @return
+	 * <p>getFullName.</p>
+	 *
+	 * @return a {@link java.lang.String} object.
 	 */
 	public String getFullName() {
 		return this.getFirstName() + " " + this.getLastName();
 	}
 
 	/**
+	 * <p>Getter for the field <code>doctorId</code>.</p>
+	 *
 	 * @return the doctorId
 	 */
 	public int getDoctorId() {
@@ -74,6 +99,8 @@ public class Doctor extends Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>doctorId</code>.</p>
+	 *
 	 * @param doctorId
 	 *            the doctorId to set
 	 */
@@ -82,6 +109,8 @@ public class Doctor extends Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>licenseNumber</code>.</p>
+	 *
 	 * @return the licenseNumber
 	 */
 	public String getLicenseNumber() {
@@ -89,6 +118,8 @@ public class Doctor extends Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>licenseNumber</code>.</p>
+	 *
 	 * @param licenseNumber
 	 *            the licenseNumber to set
 	 */
@@ -97,6 +128,8 @@ public class Doctor extends Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>specialization</code>.</p>
+	 *
 	 * @return the specialization
 	 */
 	public Specialization getSpecialization() {
@@ -104,6 +137,8 @@ public class Doctor extends Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>specialization</code>.</p>
+	 *
 	 * @param specialization
 	 *            the specialization to set
 	 */
@@ -112,6 +147,8 @@ public class Doctor extends Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>appointmentList</code>.</p>
+	 *
 	 * @return the appointmentList
 	 */
 	public List<Appointment> getAppointmentList() {
@@ -119,6 +156,8 @@ public class Doctor extends Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>appointmentList</code>.</p>
+	 *
 	 * @param appointmentList
 	 *            the appointmentList to set
 	 */

@@ -11,11 +11,18 @@ import javax.persistence.criteria.Root;
 import mum.waa.fd.app.domain.User;
 import mum.waa.fd.app.repository.UserRepositoryCustom;
 
+/**
+ * <p>UserRepositoryImpl class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 public class UserRepositoryImpl implements UserRepositoryCustom {
 
 	@PersistenceContext
 	private EntityManager entityManager;
 
+	/** {@inheritDoc} */
 	@Override
 	public User findUserByEmailAndPassword(String email, String password) {
 		CriteriaBuilder builder = entityManager.getCriteriaBuilder();

@@ -12,8 +12,21 @@ import mum.waa.fd.app.domain.AuthorityRole;
 import mum.waa.fd.app.domain.User;
 
 @Controller
+/**
+ * <p>LoginController class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 public class LoginController {
 
+	/**
+	 * <p>showLogin.</p>
+	 *
+	 * @param user a {@link mum.waa.fd.app.domain.User} object.
+	 * @param request a {@link javax.servlet.http.HttpServletRequest} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String showLogin(@ModelAttribute("user") User user, HttpServletRequest request) {
 		String path = redirectByRole(request);
@@ -25,6 +38,12 @@ public class LoginController {
 		return path;
 	}
 
+	/**
+	 * <p>loginSuccess.</p>
+	 *
+	 * @param request a {@link javax.servlet.http.HttpServletRequest} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/login-success", method = RequestMethod.GET)
 	public String loginSuccess(HttpServletRequest request) {
 		String path = redirectByRole(request);
@@ -58,17 +77,36 @@ public class LoginController {
 		return "";
 	}
 
+	/**
+	 * <p>loginFailed.</p>
+	 *
+	 * @param user a {@link mum.waa.fd.app.domain.User} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/login-failed", method = RequestMethod.GET)
 	public String loginFailed(@ModelAttribute("user") User user, Model model) {
 		model.addAttribute("fail", true);
 		return "login";
 	}
 
+	/**
+	 * <p>logout.</p>
+	 *
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(Model model) {
 		return "redirect:/home";
 	}
 
+	/**
+	 * <p>error.</p>
+	 *
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/403", method = RequestMethod.GET)
 	public String error(Model model) {
 		return "403";

@@ -8,59 +8,72 @@ import mum.waa.fd.app.domain.Appointment;
 import mum.waa.fd.app.domain.Doctor;
 import mum.waa.fd.app.domain.Specialization;
 
+/**
+ * <p>DoctorService interface.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 public interface DoctorService {
 
 	/**
-	 * 
-	 * @param doctor
+	 * <p>saveDoctor.</p>
+	 *
+	 * @param doctor a {@link mum.waa.fd.app.domain.Doctor} object.
 	 */
 	public void saveDoctor(Doctor doctor);
 
 	/**
-	 * 
-	 * @param doctor
+	 * <p>updateDoctor.</p>
+	 *
+	 * @param doctor a {@link mum.waa.fd.app.domain.Doctor} object.
 	 */
 	public void updateDoctor(Doctor doctor);
 
 	/**
-	 * 
-	 * @param void
-	 * @return List<Doctor> a list of doctors
+	 * <p>getAll.</p>
+	 *
+	 * @return a list of doctors
 	 */
 	List<Doctor> getAll();
 
 	/**
-	 * 
-	 * @param id
+	 * <p>findDoctorById.</p>
+	 *
+	 * @param id a int.
 	 * @return Doctor
 	 */
 	Doctor findDoctorById(int id);
 
 	/**
-	 * 
-	 * @param specialization
-	 * @return
+	 * <p>findDoctorBySpecialization.</p>
+	 *
+	 * @param specialization a {@link mum.waa.fd.app.domain.Specialization} object.
+	 * @return a {@link java.util.Map} object.
 	 */
 	Map<Integer, String> findDoctorBySpecialization(Specialization specialization);
 
 	/**
-	 * 
-	 * @param name
-	 * @return
+	 * <p>findDoctorByEmail.</p>
+	 *
+	 * @param name a {@link java.lang.String} object.
+	 * @return a {@link mum.waa.fd.app.domain.Doctor} object.
 	 */
 	Doctor findDoctorByEmail(String name);
 
 	/**
-	 * 
-	 * @param appointmentList
-	 * @return
+	 * <p>getUpcomingAppointment.</p>
+	 *
+	 * @param appointmentList a {@link java.util.List} object.
+	 * @return a {@link java.util.Map} object.
 	 */
 	Map<Date, List<Appointment>> getUpcomingAppointment(List<Appointment> appointmentList);
 
 	/**
-	 * 
-	 * @param appointmentList
-	 * @return
+	 * <p>getOverdueAppointment.</p>
+	 *
+	 * @param appointmentList a {@link java.util.List} object.
+	 * @return a {@link java.util.Map} object.
 	 */
 	Map<Date, List<Appointment>> getOverdueAppointment(List<Appointment> appointmentList);
 }

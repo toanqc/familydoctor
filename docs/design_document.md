@@ -22,7 +22,6 @@ Table of contents
 - [Usage scenarios](#usage-scenarios)
 	- [Patient registration](#patient-registration)
 	- [Registration of doctor by admin](#registration-of-doctor-by_admin)
-	- [Registration of doctor by admin](#registration-of-doctor-by_admin)
 	- [Patient appointment](#patient-appointment)
 	- [Doctor updates appointment](#doctor-updates-appointment)
 - [High level design](#high-level-design)
@@ -164,6 +163,9 @@ Issues
 - The doctor delete is not working right now.
 - We need to add prescription to the finished appointment.
 - There is no spring-application based testing implementations.
+- Payment function is not working right now.
+- Validation is not fully implemented.
+- Static pages are not avilable(company info, contact us).
 
 Future considerations
 ======================

@@ -22,9 +22,10 @@ import mum.waa.fd.app.service.AppointmentService;
 import mum.waa.fd.app.service.DoctorService;
 
 /**
- * 
- * @author Toan Quach
+ * <p>AppointmentController class.</p>
  *
+ * @author Toan Quach
+ * @version $Id: $Id
  */
 
 @Controller
@@ -36,12 +37,27 @@ public class AppointmentController {
 	@Autowired
 	private DoctorService doctorService;
 
+	/**
+	 * <p>showRegistrationAppointment.</p>
+	 *
+	 * @param appointment a {@link mum.waa.fd.app.domain.Appointment} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments/register", method = RequestMethod.GET)
 	public String showRegistrationAppointment(@ModelAttribute("appointment") Appointment appointment, Model model) {
 		initData(appointment, model);
 		return "appointment-creation";
 	}
 
+	/**
+	 * <p>showRegistrationAppointment.</p>
+	 *
+	 * @param appointment a {@link mum.waa.fd.app.domain.Appointment} object.
+	 * @param bindingResult a {@link org.springframework.validation.BindingResult} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments", method = RequestMethod.POST)
 	public String showRegistrationAppointment(@Valid @ModelAttribute("appointment") Appointment appointment,
 			BindingResult bindingResult, Model model) {
@@ -66,6 +82,12 @@ public class AppointmentController {
 		model.addAttribute("specializations", appointmentService.getAllSpecialization());
 	}
 
+	/**
+	 * <p>findDoctorBySpecialization.</p>
+	 *
+	 * @param spec a {@link mum.waa.fd.app.domain.Specialization} object.
+	 * @return a {@link java.util.Map} object.
+	 */
 	@RequestMapping(value = "/specializations/{spec}", method = RequestMethod.GET, consumes = "application/json", produces = {
 			"application/json" })
 	public @ResponseBody Map<Integer, String> findDoctorBySpecialization(@PathVariable("spec") Specialization spec) {
@@ -73,6 +95,14 @@ public class AppointmentController {
 		return doctorMap;
 	}
 
+	/**
+	 * <p>showReschedulingAppointment.</p>
+	 *
+	 * @param appointment a {@link mum.waa.fd.app.domain.Appointment} object.
+	 * @param appointmentId a {@link java.lang.Integer} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments/{id}/reschedule", method = RequestMethod.GET)
 	public String showReschedulingAppointment(@ModelAttribute("appointment") Appointment appointment,
 			@PathVariable("id") Integer appointmentId, Model model) {
@@ -81,6 +111,15 @@ public class AppointmentController {
 		return "appointment-reschedule";
 	}
 
+	/**
+	 * <p>rescheduleAppointment.</p>
+	 *
+	 * @param appointment a {@link mum.waa.fd.app.domain.Appointment} object.
+	 * @param bindingResult a {@link org.springframework.validation.BindingResult} object.
+	 * @param id a {@link java.lang.Integer} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments/{id}/reschedule", method = RequestMethod.POST)
 	public String rescheduleAppointment(@Valid @ModelAttribute("appointment") Appointment appointment,
 			BindingResult bindingResult, @PathVariable("id") Integer id, Model model) {
@@ -94,6 +133,13 @@ public class AppointmentController {
 		return "redirect:/patients/home";
 	}
 
+	/**
+	 * <p>cancelAppointment.</p>
+	 *
+	 * @param id a {@link java.lang.Integer} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments/{id}/cancel", method = RequestMethod.GET)
 	public String cancelAppointment(@PathVariable("id") Integer id, Model model, HttpServletRequest request) {
 
@@ -106,6 +152,13 @@ public class AppointmentController {
 		}		
 	}
 
+	/**
+	 * <p>acceptAppointment.</p>
+	 *
+	 * @param id a {@link java.lang.Integer} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments/{id}/accept", method = RequestMethod.GET)
 	public String acceptAppointment(@PathVariable("id") Integer id, Model model) {
 
@@ -113,6 +166,13 @@ public class AppointmentController {
 		return "redirect:/doctors/home";
 	}
 
+	/**
+	 * <p>rejectAppointment.</p>
+	 *
+	 * @param id a {@link java.lang.Integer} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments/{id}/reject", method = RequestMethod.GET)
 	public String rejectAppointment(@PathVariable("id") Integer id, Model model) {
 
@@ -120,6 +180,15 @@ public class AppointmentController {
 		return "redirect:/doctors/home";
 	}
 
+	/**
+	 * <p>getAppointmentDetail.</p>
+	 *
+	 * @param appointment a {@link mum.waa.fd.app.domain.Appointment} object.
+	 * @param id a {@link java.lang.Integer} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @param request a {@link javax.servlet.http.HttpServletRequest} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments/{id}/detail", method = RequestMethod.GET)
 	public String getAppointmentDetail(@ModelAttribute("appointment") Appointment appointment,
 			@PathVariable("id") Integer id, Model model, HttpServletRequest request) {
@@ -134,6 +203,14 @@ public class AppointmentController {
 		}
 	}
 
+	/**
+	 * <p>updateInvoiceDetail.</p>
+	 *
+	 * @param appointment a {@link mum.waa.fd.app.domain.Appointment} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @param request a {@link javax.servlet.http.HttpServletRequest} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/appointments/update", method = RequestMethod.POST)
 	public String updateInvoiceDetail(@ModelAttribute("appointment") Appointment appointment, Model model,
 			HttpServletRequest request) {

@@ -8,6 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * <p>Authority class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 @Entity(name = "Authority")
 public class Authority {
 
@@ -23,11 +29,16 @@ public class Authority {
 	@Enumerated(EnumType.STRING)
 	private AuthorityRole authorityRole;
 
+	/**
+	 * <p>Constructor for Authority.</p>
+	 */
 	public Authority() {
 		// default constructor
 	}
 
 	/**
+	 * <p>Getter for the field <code>id</code>.</p>
+	 *
 	 * @return the id
 	 */
 	public int getId() {
@@ -35,6 +46,8 @@ public class Authority {
 	}
 
 	/**
+	 * <p>Setter for the field <code>id</code>.</p>
+	 *
 	 * @param id
 	 *            the id to set
 	 */
@@ -43,6 +56,8 @@ public class Authority {
 	}
 
 	/**
+	 * <p>Getter for the field <code>email</code>.</p>
+	 *
 	 * @return the email
 	 */
 	public String getEmail() {
@@ -50,6 +65,8 @@ public class Authority {
 	}
 
 	/**
+	 * <p>Setter for the field <code>email</code>.</p>
+	 *
 	 * @param email
 	 *            the email to set
 	 */
@@ -58,6 +75,8 @@ public class Authority {
 	}
 
 	/**
+	 * <p>Getter for the field <code>authorityRole</code>.</p>
+	 *
 	 * @return the authorityRole
 	 */
 	public AuthorityRole getAuthorityRole() {
@@ -65,6 +84,8 @@ public class Authority {
 	}
 
 	/**
+	 * <p>Setter for the field <code>authorityRole</code>.</p>
+	 *
 	 * @param authorityRole
 	 *            the authorityRole to set
 	 */

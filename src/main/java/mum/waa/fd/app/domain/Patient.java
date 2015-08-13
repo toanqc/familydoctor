@@ -22,6 +22,12 @@ import org.hibernate.validator.constraints.NotBlank;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @Entity
+/**
+ * <p>Patient class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 @Table(name = "Patient")
 public class Patient extends Person {
 
@@ -40,10 +46,25 @@ public class Patient extends Person {
 	@JoinColumn(name = "PATIENT_ID")
 	private List<Appointment> appointmentList;
 
+	/**
+	 * <p>Constructor for Patient.</p>
+	 */
 	public Patient() {
 		// default constructor
 	}
 
+	/**
+	 * <p>Constructor for Patient.</p>
+	 *
+	 * @param firstName a {@link java.lang.String} object.
+	 * @param lastName a {@link java.lang.String} object.
+	 * @param dateOfBirth a {@link java.util.Date} object.
+	 * @param gender a {@link mum.waa.fd.app.domain.Gender} object.
+	 * @param phone a {@link java.lang.String} object.
+	 * @param user a {@link mum.waa.fd.app.domain.User} object.
+	 * @param address a {@link mum.waa.fd.app.domain.Address} object.
+	 * @param ssn a {@link java.lang.String} object.
+	 */
 	public Patient(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
 			Address address, String ssn) {
 		super(firstName, lastName, dateOfBirth, gender, phone, user, address);
@@ -52,6 +73,8 @@ public class Patient extends Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>patientId</code>.</p>
+	 *
 	 * @return the patientId
 	 */
 	public int getPatientId() {
@@ -59,6 +82,8 @@ public class Patient extends Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>patientId</code>.</p>
+	 *
 	 * @param patientId
 	 *            the patientId to set
 	 */
@@ -67,6 +92,8 @@ public class Patient extends Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>ssn</code>.</p>
+	 *
 	 * @return the ssn
 	 */
 	public String getSsn() {
@@ -74,6 +101,8 @@ public class Patient extends Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>ssn</code>.</p>
+	 *
 	 * @param ssn
 	 *            the ssn to set
 	 */
@@ -82,6 +111,8 @@ public class Patient extends Person {
 	}
 
 	/**
+	 * <p>getSSN.</p>
+	 *
 	 * @return the ssn
 	 */
 	public String getSSN() {
@@ -89,6 +120,8 @@ public class Patient extends Person {
 	}
 
 	/**
+	 * <p>setSSN.</p>
+	 *
 	 * @param ssn
 	 *            the ssn to set
 	 */
@@ -97,6 +130,8 @@ public class Patient extends Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>appointmentList</code>.</p>
+	 *
 	 * @return the appointmentList
 	 */
 	public List<Appointment> getAppointmentList() {
@@ -104,6 +139,8 @@ public class Patient extends Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>appointmentList</code>.</p>
+	 *
 	 * @param appointmentList
 	 *            the appointmentList to set
 	 */

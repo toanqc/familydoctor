@@ -10,12 +10,9 @@ Design
 Please refer to [document page](docs/README.md) and [design document](docs/design_document.md)
 
 Technologies
-============
-Spring MVC
-MySQL
-JPA
-Tomcat
-Maven
+=============
+
+Please refer to [technologies page](docs/technologies.md).
 
 Links
 ======
