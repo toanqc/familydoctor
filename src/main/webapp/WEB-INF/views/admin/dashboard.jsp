@@ -3,7 +3,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <div class="content">
-	<div class="inner-content">
+	<div class="default-height">
 
 		<div class="title margin-left margin-top-middle">
 			<spring:message code="label.doctor.list" />
@@ -40,5 +40,6 @@
 						code="link.add.doctor" /></a>
 			</div>
 		</div>
+		<div class="margin-top-middle"></div>
 	</div>
 </div>

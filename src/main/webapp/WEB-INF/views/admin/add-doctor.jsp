@@ -3,6 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="content">
+	<div class="margin-top-middle margin-left gray-text font-size-small">
+		<a class="text-underline" href="<spring:url value="/admin" />"><spring:message
+				code="label.home" /></a> > Add Doctor
+	</div>
+
 	<div class="margin-left margin-top-middle title">
 		<spring:message code="label.admin.registration" />
 		<div class="hr-separator"></div>
