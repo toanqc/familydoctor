@@ -1,10 +1,10 @@
 package mum.waa.fd.app.service.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,59 +35,59 @@ public class DoctorServiceImpl implements DoctorService {
 
 		String encodedPassword = FamilyDoctorUtil.hashPassword(doctor.getUser().getPassword());
 		doctor.getUser().setPassword(encodedPassword);
-		
+
 		doctorRepository.save(doctor);
 	}
-	
+
 	@Override
-	public void updateDoctor(Doctor doctor){		
+	public void updateDoctor(Doctor doctor) {
 		Doctor doctorUpdate = doctorRepository.findDoctorById(doctor.getDoctorId());
-		
+
 		doctorUpdate.setFirstName(doctor.getFirstName());
 		doctorUpdate.setLastName(doctor.getLastName());
 		doctorUpdate.setDateOfBirth(doctor.getDateOfBirth());
 		doctorUpdate.setGender(doctor.getGender());
 		doctorUpdate.setLicenseNumber(doctor.getLicenseNumber());
 		doctorUpdate.setSpecialization(doctor.getSpecialization());
-		
+
 		doctorUpdate.getAddress().setCity(doctor.getAddress().getCity());
 		doctorUpdate.getAddress().setState(doctor.getAddress().getState());
 		doctorUpdate.getAddress().setStreet(doctor.getAddress().getStreet());
 		doctorUpdate.getAddress().setZipcode(doctor.getAddress().getZipcode());
-		
+
 		doctorUpdate.getUser().setEmail(doctor.getUser().getEmail());
-		
-		if( ! doctor.getUser().getPassword().isEmpty() ){
+
+		if (!doctor.getUser().getPassword().isEmpty()) {
 			String encodedPassword = FamilyDoctorUtil.hashPassword(doctor.getUser().getPassword());
 			doctorUpdate.getUser().setPassword(encodedPassword);
 		}
-		
+
 		doctorRepository.save(doctorUpdate);
 	}
-	
+
 	@Override
-	public void deleteDoctor(Integer doctorId){
-		if( doctorId != null && doctorId != 0 ){
+	public void deleteDoctor(Integer doctorId) {
+		if (doctorId != null && doctorId != 0) {
 			Doctor doctor = doctorRepository.findOne(doctorId);
 			doctorRepository.delete(doctor);
 		}
 	}
-	
+
 	@Override
-	public List<Doctor> getAll(){
+	public List<Doctor> getAll() {
 		List<Doctor> doctors = new ArrayList<Doctor>();
-		
-		for(Doctor d : doctorRepository.findAll()){
+
+		for (Doctor d : doctorRepository.findAll()) {
 			doctors.add(d);
 		}
-		
+
 		return doctors;
 	}
-	
-	public Doctor findDoctorById(int id){
+
+	public Doctor findDoctorById(int id) {
 		Doctor doctor = doctorRepository.findDoctorById(id);
 		return doctor;
-	}	
+	}
 
 	@Override
 	public Map<Integer, String> findDoctorBySpecialization(Specialization spec) {

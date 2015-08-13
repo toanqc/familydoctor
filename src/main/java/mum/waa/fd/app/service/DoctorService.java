@@ -11,16 +11,18 @@ import mum.waa.fd.app.domain.Specialization;
 public interface DoctorService {
 
 	public void saveDoctor(Doctor doctor);
+
 	public void updateDoctor(Doctor doctor);
+
 	public void deleteDoctor(Integer doctorId);
-	
+
 	/**
 	 * 
 	 * @param void
 	 * @return List<Doctor> a list of doctors
 	 */
 	List<Doctor> getAll();
-	
+
 	/**
 	 * 
 	 * @param id

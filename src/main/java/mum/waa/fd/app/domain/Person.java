@@ -38,7 +38,7 @@ public abstract class Person {
 	@NotNull
 	@Column(name = "GENDER")
 	@Enumerated(EnumType.STRING)
-	private Gender gender;
+	private Gender gender = Gender.MALE;
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
 	@Pattern(regexp = FamilyDoctorConstants.PHONE_REGEX, message = FamilyDoctorConstants.PHONE_VALIDATION)

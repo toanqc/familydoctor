@@ -265,9 +265,6 @@ input[type=reset], .btn-white {
 	padding-top: 25px;
 }
 
-.admin-dashboard-content table {
-	width: 70% !important;
-}
 .admin-dashboard-content table th {
 	background-color: #868686;
 	color: white;

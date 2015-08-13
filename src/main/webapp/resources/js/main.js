@@ -29,4 +29,19 @@ $(document).ready(function() {
 			}
 		});
 	}
+
+	deleteAccount = function(id) {
+		$.ajax({
+			url: "/FamilyDoctor/admin/delete-doctor/",
+			type: "POST",
+			dataType: "json",
+			data: {id : id},
+			success: function(response){
+				$("#row-"+id).fadeOut();
+			}, 
+			error : function(response){
+				alert("Error while request: " + response);
+			}
+		});
+	}
 });
