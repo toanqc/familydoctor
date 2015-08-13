@@ -66,14 +66,6 @@ public class DoctorServiceImpl implements DoctorService {
 	}
 
 	@Override
-	public void deleteDoctor(Integer doctorId) {
-		if (doctorId != null && doctorId != 0) {
-			Doctor doctor = doctorRepository.findOne(doctorId);
-			doctorRepository.delete(doctor);
-		}
-	}
-
-	@Override
 	public List<Doctor> getAll() {
 		List<Doctor> doctors = new ArrayList<Doctor>();
 
