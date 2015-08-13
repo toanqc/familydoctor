@@ -17,9 +17,10 @@ import mum.waa.fd.app.domain.Doctor;
 import mum.waa.fd.app.service.DoctorService;
 
 /**
- * 
- * @author Toan Quach
+ * <p>DoctorController class.</p>
  *
+ * @author Toan Quach
+ * @version $Id: $Id
  */
 
 @Controller
@@ -29,9 +30,12 @@ public class DoctorController {
 	private DoctorService doctorService;
 
 	/**
-	 * 
-	 * @param doctor
-	 * @return
+	 * <p>showPatientHome.</p>
+	 *
+	 * @param doctor a {@link mum.waa.fd.app.domain.Doctor} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @param principal a {@link java.security.Principal} object.
+	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/doctors/home", method = RequestMethod.GET)
 	public String showPatientHome(@ModelAttribute("doctor") Doctor doctor, Model model, Principal principal) {

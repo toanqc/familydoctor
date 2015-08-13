@@ -16,9 +16,10 @@ import mum.waa.fd.app.domain.Appointment;
 import mum.waa.fd.app.domain.AppointmentStatus;
 
 /**
- * 
- * @author Toan Quach
+ * <p>FamilyDoctorUtil class.</p>
  *
+ * @author Toan Quach
+ * @version $Id: $Id
  */
 public class FamilyDoctorUtil {
 
@@ -28,7 +29,7 @@ public class FamilyDoctorUtil {
 
 	/**
 	 * Get the logged in email address
-	 * 
+	 *
 	 * @return the email address
 	 */
 	public static String getEmail() {
@@ -37,7 +38,7 @@ public class FamilyDoctorUtil {
 
 	/**
 	 * Hash the password with bcrypt mechanism
-	 * 
+	 *
 	 * @param rawPassword
 	 *            the original password
 	 * @return encoded password
@@ -48,11 +49,12 @@ public class FamilyDoctorUtil {
 	}
 
 	/**
-	 * This function is to create the {@link HashMap} of {@link Appointment}
-	 * based on {@link List} with key is the appointment date
-	 * 
-	 * @param appointmentList
-	 * @return
+	 * This function is to create the {@link java.util.HashMap} of {@link mum.waa.fd.app.domain.Appointment}
+	 * based on {@link java.util.List} with key is the appointment date
+	 *
+	 * @param appointmentList a {@link java.util.List} object.
+	 * @param isPast a boolean.
+	 * @return a {@link java.util.Map} object.
 	 */
 	public static Map<Date, List<Appointment>> mapAppointmentFromList(List<Appointment> appointmentList,
 			boolean isPast) {
@@ -85,8 +87,8 @@ public class FamilyDoctorUtil {
 
 	/**
 	 * Get current date without time
-	 * 
-	 * @return
+	 *
+	 * @return a {@link java.util.Date} object.
 	 */
 	public static Date getCurrentDate() {
 		Calendar cal = Calendar.getInstance();

@@ -20,6 +20,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @MappedSuperclass
+/**
+ * <p>Abstract Person class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 public abstract class Person {
 
 	@NotBlank(message = FamilyDoctorConstants.EMPTY_VALIDATION)
@@ -55,10 +61,24 @@ public abstract class Person {
 	@JoinColumn(name = "USER_ID")
 	private User user;
 
+	/**
+	 * <p>Constructor for Person.</p>
+	 */
 	public Person() {
 		// default constructor
 	}
 
+	/**
+	 * <p>Constructor for Person.</p>
+	 *
+	 * @param firstName a {@link java.lang.String} object.
+	 * @param lastName a {@link java.lang.String} object.
+	 * @param dateOfBirth a {@link java.util.Date} object.
+	 * @param gender a {@link mum.waa.fd.app.domain.Gender} object.
+	 * @param phone a {@link java.lang.String} object.
+	 * @param user a {@link mum.waa.fd.app.domain.User} object.
+	 * @param address a {@link mum.waa.fd.app.domain.Address} object.
+	 */
 	public Person(String firstName, String lastName, Date dateOfBirth, Gender gender, String phone, User user,
 			Address address) {
 		this.firstName = firstName;
@@ -71,6 +91,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>firstName</code>.</p>
+	 *
 	 * @param firstName
 	 *            the firstName to set
 	 */
@@ -79,6 +101,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>firstName</code>.</p>
+	 *
 	 * @return the firstName
 	 */
 	public String getFirstName() {
@@ -86,6 +110,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>firstName</code>.</p>
+	 *
 	 * @param firstName
 	 *            the firstName to set
 	 */
@@ -94,6 +120,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>lastName</code>.</p>
+	 *
 	 * @return the lastName
 	 */
 	public String getLastName() {
@@ -101,6 +129,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>lastName</code>.</p>
+	 *
 	 * @param lastName
 	 *            the lastName to set
 	 */
@@ -109,6 +139,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>dateOfBirth</code>.</p>
+	 *
 	 * @return the dateOfBirth
 	 */
 	public Date getDateOfBirth() {
@@ -116,6 +148,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>dateOfBirth</code>.</p>
+	 *
 	 * @param dateOfBirth
 	 *            the dateOfBirth to set
 	 */
@@ -124,6 +158,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>gender</code>.</p>
+	 *
 	 * @return the gender
 	 */
 	public Gender getGender() {
@@ -131,6 +167,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>gender</code>.</p>
+	 *
 	 * @param gender
 	 *            the gender to set
 	 */
@@ -139,6 +177,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>phone</code>.</p>
+	 *
 	 * @return the phone
 	 */
 	public String getPhone() {
@@ -146,6 +186,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>phone</code>.</p>
+	 *
 	 * @param phone
 	 *            the phone to set
 	 */
@@ -154,6 +196,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>user</code>.</p>
+	 *
 	 * @return the user
 	 */
 	public User getUser() {
@@ -161,6 +205,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>user</code>.</p>
+	 *
 	 * @param user
 	 *            the user to set
 	 */
@@ -169,6 +215,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Getter for the field <code>address</code>.</p>
+	 *
 	 * @return the address
 	 */
 	public Address getAddress() {
@@ -176,6 +224,8 @@ public abstract class Person {
 	}
 
 	/**
+	 * <p>Setter for the field <code>address</code>.</p>
+	 *
 	 * @param address
 	 *            the address to set
 	 */

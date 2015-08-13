@@ -25,6 +25,12 @@ import org.hibernate.validator.constraints.NotBlank;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @Entity
+/**
+ * <p>User class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 @Table(name = "User")
 public class User implements Serializable {
 
@@ -57,12 +63,17 @@ public class User implements Serializable {
 	@JoinColumn(name = "AUTHORITY_ID")
 	private List<Authority> authorities;
 
+	/**
+	 * <p>Constructor for User.</p>
+	 */
 	public User() {
 		this.enabled = Boolean.TRUE;
 		this.authorities = new ArrayList<Authority>();
 	}
 
 	/**
+	 * <p>Getter for the field <code>userId</code>.</p>
+	 *
 	 * @return the userId
 	 */
 	public int getUserId() {
@@ -70,6 +81,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>userId</code>.</p>
+	 *
 	 * @param userId
 	 *            the userId to set
 	 */
@@ -78,6 +91,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>email</code>.</p>
+	 *
 	 * @return the email
 	 */
 	public String getEmail() {
@@ -85,6 +100,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>email</code>.</p>
+	 *
 	 * @param email
 	 *            the email to set
 	 */
@@ -93,6 +110,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>password</code>.</p>
+	 *
 	 * @return the password
 	 */
 	public String getPassword() {
@@ -100,6 +119,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>confirmPassword</code>.</p>
+	 *
 	 * @return the confirmPassword
 	 */
 	public String getConfirmPassword() {
@@ -107,6 +128,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>confirmPassword</code>.</p>
+	 *
 	 * @param confirmPassword
 	 *            the confirmPassword to set
 	 */
@@ -115,6 +138,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>password</code>.</p>
+	 *
 	 * @param password
 	 *            the password to set
 	 */
@@ -123,6 +148,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>enabled</code>.</p>
+	 *
 	 * @return the enabled
 	 */
 	public Boolean getEnabled() {
@@ -130,6 +157,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>enabled</code>.</p>
+	 *
 	 * @param enabled
 	 *            the enabled to set
 	 */
@@ -138,6 +167,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Getter for the field <code>authorities</code>.</p>
+	 *
 	 * @return the authorities
 	 */
 	public List<Authority> getAuthorities() {
@@ -145,6 +176,8 @@ public class User implements Serializable {
 	}
 
 	/**
+	 * <p>Setter for the field <code>authorities</code>.</p>
+	 *
 	 * @param authorities
 	 *            the authorities to set
 	 */

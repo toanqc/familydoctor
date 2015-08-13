@@ -25,6 +25,12 @@ import org.springframework.format.annotation.DateTimeFormat;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @Entity
+/**
+ * <p>Appointment class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 @Table(name = "Appointment")
 public class Appointment {
 
@@ -68,12 +74,22 @@ public class Appointment {
 	@JoinColumn(name = "DOCTOR_ID")
 	private Doctor doctor;
 
+	/**
+	 * <p>Constructor for Appointment.</p>
+	 */
 	public Appointment() {
 		this.invoice = new Invoice();
 		this.patient = new Patient();
 		this.doctor = new Doctor();
 	}
 
+	/**
+	 * <p>Constructor for Appointment.</p>
+	 *
+	 * @param date a {@link java.util.Date} object.
+	 * @param room a {@link java.lang.String} object.
+	 * @param status a {@link mum.waa.fd.app.domain.AppointmentStatus} object.
+	 */
 	public Appointment(Date date, String room, AppointmentStatus status) {
 		this.date = date;
 		this.room = room;
@@ -81,6 +97,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>appointmentId</code>.</p>
+	 *
 	 * @return the appointmentId
 	 */
 	public int getAppointmentId() {
@@ -88,6 +106,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>appointmentId</code>.</p>
+	 *
 	 * @param appointmentId
 	 *            the appointmentId to set
 	 */
@@ -96,6 +116,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>date</code>.</p>
+	 *
 	 * @return the date
 	 */
 	public Date getDate() {
@@ -103,6 +125,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>date</code>.</p>
+	 *
 	 * @param date
 	 *            the date to set
 	 */
@@ -111,6 +135,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>status</code>.</p>
+	 *
 	 * @return the status
 	 */
 	public AppointmentStatus getStatus() {
@@ -118,6 +144,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>status</code>.</p>
+	 *
 	 * @param status
 	 *            the status to set
 	 */
@@ -126,6 +154,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>room</code>.</p>
+	 *
 	 * @return the room
 	 */
 	public String getRoom() {
@@ -133,6 +163,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>room</code>.</p>
+	 *
 	 * @param room
 	 *            the room to set
 	 */
@@ -141,6 +173,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>time</code>.</p>
+	 *
 	 * @return the time
 	 */
 	public String getTime() {
@@ -148,6 +182,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>time</code>.</p>
+	 *
 	 * @param time
 	 *            the time to set
 	 */
@@ -156,6 +192,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>description</code>.</p>
+	 *
 	 * @return the description
 	 */
 	public String getDescription() {
@@ -163,6 +201,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>description</code>.</p>
+	 *
 	 * @param description
 	 *            the description to set
 	 */
@@ -171,6 +211,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>invoice</code>.</p>
+	 *
 	 * @return the invoice
 	 */
 	public Invoice getInvoice() {
@@ -178,6 +220,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>invoice</code>.</p>
+	 *
 	 * @param invoice
 	 *            the invoice to set
 	 */
@@ -186,6 +230,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>doctor</code>.</p>
+	 *
 	 * @return the doctor
 	 */
 	public Doctor getDoctor() {
@@ -193,6 +239,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>doctor</code>.</p>
+	 *
 	 * @param doctor
 	 *            the doctor to set
 	 */
@@ -201,6 +249,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Getter for the field <code>patient</code>.</p>
+	 *
 	 * @return the patient
 	 */
 	public Patient getPatient() {
@@ -208,6 +258,8 @@ public class Appointment {
 	}
 
 	/**
+	 * <p>Setter for the field <code>patient</code>.</p>
+	 *
 	 * @param patient
 	 *            the patient to set
 	 */

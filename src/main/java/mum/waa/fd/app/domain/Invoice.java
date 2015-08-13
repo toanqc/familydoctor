@@ -21,6 +21,12 @@ import mum.waa.fd.app.util.FamilyDoctorConstants;
 import mum.waa.fd.app.util.FamilyDoctorUtil;
 
 @Entity
+/**
+ * <p>Invoice class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 @Table(name = "Invoice")
 public class Invoice {
 
@@ -55,6 +61,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Getter for the field <code>invoiceId</code>.</p>
+	 *
 	 * @return the invoiceId
 	 */
 	public int getInvoiceId() {
@@ -62,6 +70,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Setter for the field <code>invoiceId</code>.</p>
+	 *
 	 * @param invoiceId
 	 *            the invoiceId to set
 	 */
@@ -70,6 +80,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Getter for the field <code>dateCreated</code>.</p>
+	 *
 	 * @return the dateCreated
 	 */
 	public Date getDateCreated() {
@@ -77,6 +89,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Setter for the field <code>dateCreated</code>.</p>
+	 *
 	 * @param dateCreated
 	 *            the dateCreated to set
 	 */
@@ -85,6 +99,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Getter for the field <code>amount</code>.</p>
+	 *
 	 * @return the amount
 	 */
 	public BigDecimal getAmount() {
@@ -92,6 +108,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Setter for the field <code>amount</code>.</p>
+	 *
 	 * @param amount
 	 *            the amount to set
 	 */
@@ -100,6 +118,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Getter for the field <code>status</code>.</p>
+	 *
 	 * @return the status
 	 */
 	public InvoiceStatus getStatus() {
@@ -107,6 +127,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Setter for the field <code>status</code>.</p>
+	 *
 	 * @param status
 	 *            the status to set
 	 */
@@ -115,6 +137,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Getter for the field <code>ccardLast4Digits</code>.</p>
+	 *
 	 * @return the ccardLast4Digits
 	 */
 	public String getCcardLast4Digits() {
@@ -122,6 +146,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Setter for the field <code>ccardLast4Digits</code>.</p>
+	 *
 	 * @param ccardLast4Digits
 	 *            the ccardLast4Digits to set
 	 */
@@ -130,6 +156,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Getter for the field <code>datePaid</code>.</p>
+	 *
 	 * @return the datePaid
 	 */
 	public Date getDatePaid() {
@@ -137,6 +165,8 @@ public class Invoice {
 	}
 
 	/**
+	 * <p>Setter for the field <code>datePaid</code>.</p>
+	 *
 	 * @param datePaid
 	 *            the datePaid to set
 	 */

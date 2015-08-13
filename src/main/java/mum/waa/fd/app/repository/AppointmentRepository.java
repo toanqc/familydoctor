@@ -6,9 +6,10 @@ import org.springframework.stereotype.Repository;
 import mum.waa.fd.app.domain.Appointment;
 
 /**
- * 
- * @author Toan Quach
+ * <p>AppointmentRepository interface.</p>
  *
+ * @author Toan Quach
+ * @version $Id: $Id
  */
 
 @Repository

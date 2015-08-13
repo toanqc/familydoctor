@@ -1,9 +1,10 @@
 package mum.waa.fd.app.domain;
 
 /**
- * 
- * @author Toan Quach
+ * <p>Gender class.</p>
  *
+ * @author Toan Quach
+ * @version $Id: $Id
  */
 public enum Gender {
 

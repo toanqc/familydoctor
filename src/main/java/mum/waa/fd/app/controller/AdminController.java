@@ -26,6 +26,12 @@ import mum.waa.fd.app.service.DoctorService;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 @Controller
+/**
+ * <p>AdminController class.</p>
+ *
+ * @author kamanashisroy
+ * @version $Id: $Id
+ */
 public class AdminController {
 
 	@Autowired
@@ -34,6 +40,11 @@ public class AdminController {
 	@Autowired
 	private AppointmentService appointmentService;
 
+	/**
+	 * <p>initBinder.</p>
+	 *
+	 * @param binder a {@link org.springframework.web.bind.WebDataBinder} object.
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
 		SimpleDateFormat dateOfBirth = new SimpleDateFormat(FamilyDoctorConstants.DATE_FORMAT);
@@ -41,6 +52,12 @@ public class AdminController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateOfBirth, true));
 	}
 
+	/**
+	 * <p>adminDashboard.</p>
+	 *
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping("/admin")
 	public String adminDashboard(Model model) {
 		List<Doctor> doctors = doctorService.getAll();
@@ -48,6 +65,13 @@ public class AdminController {
 		return "admin-dashboard";
 	}
 
+	/**
+	 * <p>addDoctorAcount.</p>
+	 *
+	 * @param newDoctor a {@link mum.waa.fd.app.domain.Doctor} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/admin/add-doctor", method = RequestMethod.GET)
 	public String addDoctorAcount(@ModelAttribute("newDoctor") Doctor newDoctor, Model model) {
 
@@ -55,6 +79,14 @@ public class AdminController {
 		return "admin-add-doctor";
 	}
 
+	/**
+	 * <p>saveDoctor.</p>
+	 *
+	 * @param newDoctor a {@link mum.waa.fd.app.domain.Doctor} object.
+	 * @param bindingResult a {@link org.springframework.validation.BindingResult} object.
+	 * @param redirectAttributes a {@link org.springframework.web.servlet.mvc.support.RedirectAttributes} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/admin/save-doctor", method = RequestMethod.POST)
 	public String saveDoctor(@Valid @ModelAttribute("newDoctor") Doctor newDoctor, BindingResult bindingResult,
 			RedirectAttributes redirectAttributes) {
@@ -75,6 +107,13 @@ public class AdminController {
 		return "redirect:/admin/add-doctor";
 	}
 
+	/**
+	 * <p>modifyAdminAccount.</p>
+	 *
+	 * @param doctorId a int.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/admin/doctor/{doctorId}", method = RequestMethod.GET)
 	public String modifyAdminAccount(@PathVariable int doctorId, Model model) {
 
@@ -85,6 +124,14 @@ public class AdminController {
 		return "admin-doctor-account";
 	}
 
+	/**
+	 * <p>editDoctor.</p>
+	 *
+	 * @param doctor a {@link mum.waa.fd.app.domain.Doctor} object.
+	 * @param bindingResult a {@link org.springframework.validation.BindingResult} object.
+	 * @param redirectAttributes a {@link org.springframework.web.servlet.mvc.support.RedirectAttributes} object.
+	 * @return a {@link java.lang.String} object.
+	 */
 	@RequestMapping(value = "/admin/doctor/{doctorId}", method = RequestMethod.POST)
 	public String editDoctor(@Valid Doctor doctor, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 

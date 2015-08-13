@@ -22,9 +22,10 @@ import mum.waa.fd.app.service.AppointmentService;
 import mum.waa.fd.app.util.FamilyDoctorUtil;
 
 /**
- * 
- * @author Toan Quach
+ * <p>AppointmentServiceImpl class.</p>
  *
+ * @author Toan Quach
+ * @version $Id: $Id
  */
 
 @Service
@@ -40,6 +41,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 	@Autowired
 	private DoctorRepository doctorRepository;
 
+	/** {@inheritDoc} */
 	@Override
 	public Map<String, String> getAllSpecialization() {
 
@@ -51,6 +53,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 		return specializations;
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void saveAppointment(Appointment appointment) {
 		Patient patient = patientRepository.findPatientByEmail(FamilyDoctorUtil.getEmail());
@@ -61,11 +64,13 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointmentRepository.save(appointment);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public Appointment getAppointment(Integer id) {
 		return appointmentRepository.findOne(id);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void rescheduleAppointment(Appointment appointment) {
 		Appointment appToBeUpdated = appointmentRepository.findOne(appointment.getAppointmentId());
@@ -77,12 +82,14 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointmentRepository.save(appToBeUpdated);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void cancelAppointment(Integer id) {
 		Appointment appointment = appointmentRepository.findOne(id);
 		this.updateAppointmentStatus(appointment, AppointmentStatus.CANCELED);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void acceptAppointment(Integer id) {
 		Appointment appointment = appointmentRepository.findOne(id);
@@ -90,6 +97,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void rejectAppointment(Integer id) {
 		Appointment appointment = appointmentRepository.findOne(id);
@@ -101,6 +109,7 @@ public class AppointmentServiceImpl implements AppointmentService {
 		appointmentRepository.save(appointment);
 	}
 
+	/** {@inheritDoc} */
 	@Override
 	public void updateAppointment(Appointment appointment) {
 		Appointment appointmentToBeUpdated = appointmentRepository.findOne(appointment.getAppointmentId());

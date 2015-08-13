@@ -26,9 +26,9 @@ import mum.waa.fd.app.validator.PasswordValidator;
 
 /**
  * The servlet controller for patient account
- * 
- * @author Toan Quach
  *
+ * @author Toan Quach
+ * @version $Id: $Id
  */
 
 @Controller
@@ -37,15 +37,21 @@ public class PatientController {
 	@Autowired
 	private PatientService patientService;
 
+	/**
+	 * <p>initBinder.</p>
+	 *
+	 * @param dataBinder a {@link org.springframework.web.bind.WebDataBinder} object.
+	 */
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		dataBinder.addValidators(new PasswordValidator());
 	}
 
 	/**
-	 * 
-	 * @param patient
-	 * @return
+	 * <p>showRegistrationPatient.</p>
+	 *
+	 * @param patient a {@link mum.waa.fd.app.domain.Patient} object.
+	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/patients/register", method = RequestMethod.GET)
 	public String showRegistrationPatient(@ModelAttribute("patient") Patient patient) {
@@ -73,11 +79,12 @@ public class PatientController {
 	}
 
 	/**
-	 * 
-	 * @param patient
-	 * @param bindingResult
-	 * @param redirectAttributes
-	 * @return
+	 * <p>registerPatient.</p>
+	 *
+	 * @param patient a {@link mum.waa.fd.app.domain.Patient} object.
+	 * @param bindingResult a {@link org.springframework.validation.BindingResult} object.
+	 * @param redirectAttributes a {@link org.springframework.web.servlet.mvc.support.RedirectAttributes} object.
+	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/patients", method = RequestMethod.POST)
 	public String registerPatient(@Valid @ModelAttribute("patient") Patient patient, BindingResult bindingResult,
@@ -93,9 +100,10 @@ public class PatientController {
 	}
 
 	/**
-	 * 
-	 * @param patient
-	 * @return
+	 * <p>showRegistrationSuccessful.</p>
+	 *
+	 * @param patient a {@link mum.waa.fd.app.domain.Patient} object.
+	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/patients/successful", method = RequestMethod.GET)
 	public String showRegistrationSuccessful(@ModelAttribute("patient") Patient patient) {
@@ -103,9 +111,12 @@ public class PatientController {
 	}
 
 	/**
-	 * 
-	 * @param patient
-	 * @return
+	 * <p>showPatientHome.</p>
+	 *
+	 * @param patient a {@link mum.waa.fd.app.domain.Patient} object.
+	 * @param model a {@link org.springframework.ui.Model} object.
+	 * @param principal a {@link java.security.Principal} object.
+	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/patients/home", method = RequestMethod.GET)
 	public String showPatientHome(@ModelAttribute("patient") Patient patient, Model model, Principal principal) {
