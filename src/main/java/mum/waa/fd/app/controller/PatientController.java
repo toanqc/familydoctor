@@ -38,9 +38,12 @@ public class PatientController {
 	private PatientService patientService;
 
 	/**
-	 * <p>initBinder.</p>
+	 * <p>
+	 * initBinder.
+	 * </p>
 	 *
-	 * @param dataBinder a {@link org.springframework.web.bind.WebDataBinder} object.
+	 * @param dataBinder
+	 *            a {@link org.springframework.web.bind.WebDataBinder} object.
 	 */
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
@@ -48,42 +51,34 @@ public class PatientController {
 	}
 
 	/**
-	 * <p>showRegistrationPatient.</p>
+	 * <p>
+	 * showRegistrationPatient.
+	 * </p>
 	 *
-	 * @param patient a {@link mum.waa.fd.app.domain.Patient} object.
+	 * @param patient
+	 *            a {@link mum.waa.fd.app.domain.Patient} object.
 	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/patients/register", method = RequestMethod.GET)
 	public String showRegistrationPatient(@ModelAttribute("patient") Patient patient) {
 		patient.setGender(Gender.MALE);
 		// dummy data for testing
-		initDummy(patient);
 		return "patient-registration";
 	}
 
 	/**
-	 * 
-	 * @param patient
-	 */
-	@SuppressWarnings("deprecation")
-	private void initDummy(Patient patient) {
-		patient.setFirstName("Toan");
-		patient.setLastName("Quach");
-		patient.setDateOfBirth(new Date("10/25/1083"));
-		// patient.getAddress().setZipcode("52556");
-		patient.setSSN("1111");
-		patient.setPhone("111-111-1111");
-		// patient.getUser().setEmail("toanqc@gmail.com");
-		// patient.getUser().setPassword("1111");
-		// patient.getUser().setConfirmPassword("1111");
-	}
-
-	/**
-	 * <p>registerPatient.</p>
+	 * <p>
+	 * registerPatient.
+	 * </p>
 	 *
-	 * @param patient a {@link mum.waa.fd.app.domain.Patient} object.
-	 * @param bindingResult a {@link org.springframework.validation.BindingResult} object.
-	 * @param redirectAttributes a {@link org.springframework.web.servlet.mvc.support.RedirectAttributes} object.
+	 * @param patient
+	 *            a {@link mum.waa.fd.app.domain.Patient} object.
+	 * @param bindingResult
+	 *            a {@link org.springframework.validation.BindingResult} object.
+	 * @param redirectAttributes
+	 *            a
+	 *            {@link org.springframework.web.servlet.mvc.support.RedirectAttributes}
+	 *            object.
 	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/patients", method = RequestMethod.POST)
@@ -100,9 +95,12 @@ public class PatientController {
 	}
 
 	/**
-	 * <p>showRegistrationSuccessful.</p>
+	 * <p>
+	 * showRegistrationSuccessful.
+	 * </p>
 	 *
-	 * @param patient a {@link mum.waa.fd.app.domain.Patient} object.
+	 * @param patient
+	 *            a {@link mum.waa.fd.app.domain.Patient} object.
 	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/patients/successful", method = RequestMethod.GET)
@@ -111,11 +109,16 @@ public class PatientController {
 	}
 
 	/**
-	 * <p>showPatientHome.</p>
+	 * <p>
+	 * showPatientHome.
+	 * </p>
 	 *
-	 * @param patient a {@link mum.waa.fd.app.domain.Patient} object.
-	 * @param model a {@link org.springframework.ui.Model} object.
-	 * @param principal a {@link java.security.Principal} object.
+	 * @param patient
+	 *            a {@link mum.waa.fd.app.domain.Patient} object.
+	 * @param model
+	 *            a {@link org.springframework.ui.Model} object.
+	 * @param principal
+	 *            a {@link java.security.Principal} object.
 	 * @return a {@link java.lang.String} object.
 	 */
 	@RequestMapping(value = "/patients/home", method = RequestMethod.GET)
