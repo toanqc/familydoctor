@@ -1,0 +1,18 @@
+To run the project:
+
+1. Import the familydoctor project to STS
+2. MySQL Database configuration
+	DB name: medicoder
+	username: root
+	password: root
+3. Run the project on Server
+4. User login
+	Admin:
+		username: admin@gmail.com
+		password: admin
+	Doctor:
+		username: doctor@gmail.com
+		password: doctor
+	Patient:
+		username: toanqc@gmail.com
+		password: toanqc
