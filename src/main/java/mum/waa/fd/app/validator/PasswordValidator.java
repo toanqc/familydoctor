@@ -4,7 +4,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import mum.waa.fd.app.domain.Patient;
-import mum.waa.fd.app.domain.User;
 import mum.waa.fd.app.util.FamilyDoctorConstants;
 
 /**
