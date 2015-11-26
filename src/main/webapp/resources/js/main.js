@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var CONTEXT_ROOT = "/FamilyDoctor/";
+	var CONTEXT_ROOT = "/familydoctor/";
 
 	changeSpecialization = function() {
 		var spec = $("#specialization").val();
